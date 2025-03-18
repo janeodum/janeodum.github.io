@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://janeodum.github.io/sitemap.xml
+Sitemap: https://janeodum.github.iojaneodum/sitemap.xml
