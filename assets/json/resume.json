@@ -57,9 +57,11 @@
       "location": "Georgia, USA",
       "area": "Computer Science",
       "studyType": "PhD",
-      "summary" : "Research Interest: Time Series Forecasting, Generative AI, NLP, Content understanding using large Language models and multi-modal machine learning",
+      "summary": "Research Interest: Time Series Forecasting, Generative AI, NLP, Content understanding using large Language models and multi-modal machine learning",
       "startDate": "2021-01-09",
-      "courses": ["Machine Learning, Algorithms, Software engineering, Data mining,Trustworthy Machine Learning, Databases, Advanced Robotics, Human-Computer Interaction and Advanced Representation Learning"]
+      "courses": [
+        "Machine Learning, Algorithms, Software engineering, Data mining,Trustworthy Machine Learning, Databases, Advanced Robotics, Human-Computer Interaction and Advanced Representation Learning"
+      ]
     },
     {
       "institution": "42 Silicon Valley",
@@ -145,7 +147,6 @@
     }
   ],
   "languages": [
-    
     {
       "language": "English",
       "fluency": "Native speaker",
