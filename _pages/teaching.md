@@ -7,37 +7,36 @@ nav: true
 nav_order: 6
 ---
 
-
 ## Graduate Teaching Assistant
 
 - **CSCI 1730:** Systems Programming  
-  with *Professor Sal LaMarca*  
+  with _Professor Sal LaMarca_  
   Led weekly section and grading of 60 students
 
 - **CSCI 2670:** Theory of Computation  
-  with *Professor Shelby Funk*  
+  with _Professor Shelby Funk_  
   Led weekly section and grading of 60 students
 
 - **CSCI 2670:** Theory of Computation  
-  with *Professor William Hollingsworth*  
-    Led weekly section and grading of 120 students
+  with _Professor William Hollingsworth_  
+   Led weekly section and grading of 120 students
 
 - **CSCI 4050/6050:** Sofware Engineering  
-  with *Professor Eman Saleh*  
+  with _Professor Eman Saleh_  
   Led weekly section of 100 students
 
 - **CSCI 4800/6800:** Human Computer Interaction
-  with *Dr Micheal Cotterell*
+  with _Dr Micheal Cotterell_
   Led weekly section of 60 students
 
 - **CSCI 4800/6800:** Human Computer Interaction
-  with *Dr Ari Schlesinger*
+  with _Dr Ari Schlesinger_
   Led weekly section of 60 students
 
 - **CSCI 4560/6560:** Evolutionary Computing
-  with *Dr Rasheed Khaled*
+  with _Dr Rasheed Khaled_
   Led weekly section of over 30 students
 
 - **CSCI 4150/6150:** Numerical Simulations  
-  with *Professor Sal LaMarca*  
+  with _Professor Sal LaMarca_  
   Led weekly section and grading of 60 students

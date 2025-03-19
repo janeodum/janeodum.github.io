@@ -24,13 +24,14 @@ Factor Social addresses two key challenges often faced by university students:
 - **Interest Groups**: Form or join clubs around topics like AI, art, or entrepreneurship, and discover peers with similar passions.
 - **Event Calendar**: Stay updated on campus events and even organize your own meetups—no more missed deadlines for extracurriculars.
 
+  ***
 
-    ---
-    layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+  layout: page
+  title: project
+  description: a project with a background image
+  img: /assets/img/12.jpg
+
+  ***
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">

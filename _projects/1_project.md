@@ -8,11 +8,9 @@ category: work
 related_publications: true
 ---
 
-
-
 ## About AQDiff
 
-**AQDiff** tackles real-world time series forecasting—particularly in high-stakes domains like pandemic prediction. It leverages diffusion models to produce *probabilistic* forecasts, and continuously recalibrates those forecasts based on recent residual errors. By adaptively shifting the target quantile parameter, the model refines its predictions and maintains more stable uncertainty bounds.
+**AQDiff** tackles real-world time series forecasting—particularly in high-stakes domains like pandemic prediction. It leverages diffusion models to produce _probabilistic_ forecasts, and continuously recalibrates those forecasts based on recent residual errors. By adaptively shifting the target quantile parameter, the model refines its predictions and maintains more stable uncertainty bounds.
 
 In essence, AQDiff helps:
 
@@ -20,13 +18,13 @@ In essence, AQDiff helps:
 - Adapt forecasts in real-time through an **adaptive quantile equation**
 - Improve forecast reliability for applications like epidemiological modeling
 
-    ---
+  ***
 
 layout: page
-    title: project
-    description: a project with a background image
-    img: /assets/img/12.jpg
-    ---
+title: project
+description: a project with a background image
+img: /assets/img/12.jpg
+---
 
 <div class="row">
     <div class="col-sm mt-3 mt-md-0">
