@@ -1,21 +1,28 @@
 ---
 layout: page
-title: project 1
-description: with background image
-img: assets/img/12.jpg
+title: "AQDiff"
+description: "Adaptive Quantile Diffusion (AQDiff) Showcase"
+img: "assets/img/12.jpg"
 importance: 1
 category: work
 related_publications: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+
+## About AQDiff
+
+**AQDiff** tackles real-world time series forecasting—particularly in high-stakes domains like pandemic prediction. It leverages diffusion models to produce *probabilistic* forecasts, and continuously recalibrates those forecasts based on recent residual errors. By adaptively shifting the target quantile parameter, the model refines its predictions and maintains more stable uncertainty bounds.
+
+In essence, AQDiff helps:
+
+- Capture complex temporal dynamics with diffusion
+- Adapt forecasts in real-time through an **adaptive quantile equation**
+- Improve forecast reliability for applications like epidemiological modeling
 
     ---
-    layout: page
+
+layout: page
     title: project
     description: a project with a background image
     img: /assets/img/12.jpg

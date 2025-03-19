@@ -1,18 +1,29 @@
 ---
 layout: page
-title: project 2
-description: a project with a background image and giscus comments
-img: assets/img/3.jpg
+title: "Factor Social"
+description: "A social platform for university students"
+img: "assets/img/1024.jpg"
 importance: 2
-category: work
+category: fun
+related_publications: false
 giscus_comments: true
 ---
 
-Every project has a beautiful feature showcase page.
-It's easy to include images in a flexible 3-column grid format.
-Make your photos 1/3, 2/3, or full width.
+Building on the idea that collaboration and community are essential for student success, **Factor Social** is a platform designed to connect university students through shared courses, interest groups, and events. By unifying academic and social spheres, it aims to create a dynamic, supportive environment that helps students learn and grow together.
 
-To give your project a background in the portfolio page, just add the img tag to the front matter like so:
+## About Factor Social
+
+Factor Social addresses two key challenges often faced by university students:
+
+1. **Fragmentation**: Students may rely on multiple messaging apps, forums, or social media platforms to coordinate activities, forming scattered communities.
+2. **Lack of Discovery**: It can be difficult to find like-minded peers, study groups, or upcoming events tailored to a student’s interests and major.
+
+**Factor Social** tackles these issues by providing:
+
+- **Dedicated Course Hubs**: Connect with classmates for collaborative study sessions, share notes, and discuss assignments.
+- **Interest Groups**: Form or join clubs around topics like AI, art, or entrepreneurship, and discover peers with similar passions.
+- **Event Calendar**: Stay updated on campus events and even organize your own meetups—no more missed deadlines for extracurriculars.
+
 
     ---
     layout: page
