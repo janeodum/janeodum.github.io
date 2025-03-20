@@ -11,7 +11,7 @@ ninja.data = [{
     },
   },{id: "nav-ongoing-research",
           title: "Ongoing Research",
-          description: "My Ongoing Research",
+          description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/Ongoing%20Research/";
@@ -23,8 +23,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/projects/";
           },
-        },{id: "nav-publications",
-          title: "Publications",
+        },{id: "nav-papers",
+          title: "Papers",
           description: "",
           section: "Navigation",
           handler: () => {
