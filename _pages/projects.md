@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Previous Research
+title: Prev Research
 permalink: /projects/
 description: A growing collection of my Previous research and projects.
 nav: true
