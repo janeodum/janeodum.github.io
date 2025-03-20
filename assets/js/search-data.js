@@ -11,7 +11,14 @@ ninja.data = [{
     },
   },{id: "nav-ongoing-research",
           title: "Ongoing Research",
-          description: "A growing collection of my ongoing research and projects.",
+          description: "My Ongoing Research",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/Ongoing%20Research/";
+          },
+        },{id: "nav-previous-research",
+          title: "Previous Research",
+          description: "A growing collection of my Previous research and projects.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
@@ -23,8 +30,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/publications/";
           },
-        },{id: "nav-repositories",
-          title: "Repositories",
+        },{id: "nav-repo",
+          title: "Repo",
           description: "",
           section: "Navigation",
           handler: () => {
@@ -37,8 +44,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "nav-teaching-and-advanced-courses",
-          title: "Teaching and Advanced Courses",
+        },{id: "nav-teaching-advanced-courses",
+          title: "Teaching/Advanced Courses",
           description: "Some of my Teaching Experiences and Advanced Coursework over the Course of my PhD program",
           section: "Navigation",
           handler: () => {
