@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Ongoing Research
+title: Cur Research
 permalink: /Ongoing Research/
 description:
 nav: true
