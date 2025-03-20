@@ -4,7 +4,7 @@ title: "AQDiff"
 description: "Adaptive Quantile Diffusion (AQDiff) Showcase"
 img: "assets/img/12.jpg"
 importance: 1
-category: work
+category: Previous Research
 related_publications: true
 ---
 
@@ -16,9 +16,11 @@ In essence, AQDiff helps:
 
 - Capture complex temporal dynamics with diffusion
 - Adapt forecasts in real-time through an **adaptive quantile equation**
-- Improve forecast reliability for applications like epidemiological modeling
+- Improve forecast reliability for applications like epidemiological modeling.
 
-  ***
+The Paper was submitted to the [Knowledge Discovery Dataset conference](https://kdd2025.kdd.org/). The Print of the paper is available [here](https://openreview.net/pdf?id=hnxkDiupF6)
+
+  **
 
 layout: page
 title: project

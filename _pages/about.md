@@ -1,6 +1,6 @@
 ---
 layout: about
-title: about
+title: About
 permalink: /
 subtitle: <a href='https://neslabuga.github.io/index.html'>NES Lab</a>. Jane.odum@uga.edu <br><br>Athens Georgia.<br><br> The reasonable man adapts himself to the world; the unreasonable one persists in trying to adapt the world to himself. Therefore, all progress depends on the unreasonable man.
 

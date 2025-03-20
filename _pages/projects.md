@@ -1,13 +1,16 @@
 ---
 layout: page
-title: projects
+title: Ongoing Research
 permalink: /projects/
-description: A growing collection of your cool projects.
+description: A growing collection of my ongoing research and projects.
 nav: true
 nav_order: 1
-display_categories: [work, fun]
+display_categories: [Previous Research, fun]
 horizontal: false
 ---
+
+
+
 
 <!-- pages/projects.md -->
 <div class="projects">

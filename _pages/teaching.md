@@ -1,10 +1,22 @@
 ---
 layout: page
 permalink: /teaching/
-title: "Teaching"
-description: "Some of my Teaching Experiences over the Course of my PhD program"
+title: "Teaching and Advanced Courses"
+description: "Some of my Teaching Experiences and Advanced Coursework over the Course of my PhD program"
 nav: true
 nav_order: 6
+---
+
+## Advanced Coursework Completed
+
+- **CSCI 8265:** Trustworthy Machine Learning  
+
+- **CSCI 8950:** Machine Learning
+
+- **CSCI 8245:** Secure Programming
+
+- **CSCI 8945:** Advanced Representation Learning
+
 ---
 
 ## Graduate Teaching Assistant
