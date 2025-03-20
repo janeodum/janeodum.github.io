@@ -2,7 +2,7 @@
 layout: page
 title: "AQDiff"
 description: "Adaptive Quantile Diffusion (AQDiff) Showcase"
-img: "assets/img/12.jpg"
+img: "assets/img/AQDiff.png"
 importance: 1
 category: Previous Research
 related_publications: true
@@ -25,7 +25,7 @@ The Paper was submitted to the [Knowledge Discovery Dataset conference](https://
 layout: page
 title: project
 description: a project with a background image
-img: /assets/img/12.jpg
+img: /assets/img/AQDiff.png
 ---
 
 <div class="row">

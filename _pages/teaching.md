@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /teaching/
-title: "Teaching and Advanced Courses"
+title: "Teaching/Advanced Courses"
 description: "Some of my Teaching Experiences and Advanced Coursework over the Course of my PhD program"
 nav: true
 nav_order: 6
