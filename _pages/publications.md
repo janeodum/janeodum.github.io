@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /publications/
-title: Publications
+title: Papers
 nav: true
 nav_order: 2
 ---
