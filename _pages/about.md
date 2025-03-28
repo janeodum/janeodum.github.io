@@ -29,7 +29,7 @@ I am a Computer Science Ph.D. student in the NES Lab (Neuro-Symbolic Computing L
 
 ## What I Do
 
-I develop machine learning systems that predict future trends from complex time series data. My work involves designing and training generative models, such as diffusion models, to address real-world challenges like noisy data, uncertainty, and shifting patterns. I am particularly interested in applications where precise forecasts can drive meaningful impact, whether in predicting disease spread during pandemics or anticipating economic and social trends. My goal is to create models that are both powerful and practical, that drives better decision-making.
+I develop machine learning systems that predict future trends from complex time series data. My work involves designing and training generative models, such as *diffusion models*, to address real-world challenges like noisy data, uncertainty, and shifting patterns. I am also interested in *interpretability* in diffusion models. I am particularly interested in applications where precise forecasts can drive meaningful impact, whether in predicting disease spread during pandemics or anticipating economic and social trends. My goal is to create models that are both powerful and practical, that drives better decision-making.
 
 ## My Background
 
