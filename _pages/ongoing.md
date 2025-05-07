@@ -5,35 +5,44 @@ permalink: /Ongoing Research/
 description:
 nav: true
 ---
-### Forecasting Complex Epidemic Dynamics with Generative Multimodal Models
+### Forecasting Complex Time Series Dynamics with Generative Multimodal Models
 
-#### Background  
-Accurate epidemic forecasting is critical for public‑health planning—informing decisions about hospital capacity, staffing, medical supplies, and non‑pharmaceutical interventions. Traditional models (e.g., compartmental SIR frameworks or individual statistical methods) often use a single data stream (case counts or hospitalization rates) and provide point estimates without well‑calibrated uncertainty. Meanwhile, public aggregators like the CDC gather dozens of COVID‑19 forecasts, each built on varying data‐collection protocols and modeling assumptions, making apples‑to‑apples comparison difficult. Moreover, standard evaluation metrics (RMSE, MAE) don’t fully capture a model’s ability to anticipate peaks, troughs, or tail risks under evolving conditions.
+My research focuses on **generative frameworks** for **multimodal and single modal time series forecasting**, unifying diverse streams, numerical counts, policy or textual annotations, graph‐structured mobility data, and sensor readings into coherent, uncertainty‐aware predictions. The work I do applies analogous principles to purely temporal and structured modalities.
 
-#### Solution  
-My dissertation research develops and rigorously evaluates **generative multimodal forecasting models** that unify heterogeneous epidemic data—case counts, genomic surveillance (variant frequencies), mobility patterns, and healthcare utilization—into a single probabilistic framework. Key elements include:
+#### 1. Multimodal Fusion  
+- **Numerical Data:** daily case counts, hospital occupancy, energy usage  
+- **Textual Signals:** policy announcements, public‐health advisories, news sentiment  
+- **Graph Inputs:** aggregated mobility/contact networks, supply‐chain topologies  
+- **Shared Latent Space:** modality‐specific encoders feed into a unified representation, with cross‐attention mechanisms inspired by transformer architectures
 
-1. **Inclusion Criteria & Data Curation**  
-   - Compile COVID‑19 and influenza‑like‑illness (ILI) weekly datasets spanning multiple seasons.  
-   - Identify “peak” and “trough” periods where mortality curves sharply rise or fall, since model bias is most pronounced there.
+> *“By treating each data modality as a sequence of tokens, we leverage attention to learn interactions across streams—much like in vision transformers, but wholly within the time‑series domain.”*
 
-2. **Model Architecture**  
-   - **Diffusion & Transformer Hybrid:** Employ a perturb‑and‑denoise pipeline augmented by self‑attention blocks to capture long‑range dependencies and cross‑modal interactions.  
-   - **Quantile‑Guided Sampling:** Use adaptive guidance to steer generative paths toward specific quantiles, ensuring accurate tail‐risk forecasts (e.g., ICU‑surge scenarios).
+#### 2. Generative Forecasting & Uncertainty  
+- **Diffusion‐Style Sampling:** a learnable perturb‐and‐denoise process that yields full trajectory ensembles  
+- **Quantile Conditioning:** guide sampling toward specified quantiles (e.g., 95th percentile demand) to assess tail‑risk scenarios. This is similar to the way classifier free guidance work in diffusion model.
+- **Flow‐Based Refinement:** apply continuous normalizing flows to sharpen distributional outputs and correct sampling biases
 
-3. **Benchmarking & Evaluation**  
-   - **Category 1 vs. Category 2 Models:** Mirror the CDC’s framework by grouping forecasts that explicitly cover peaks/troughs (Category 1) versus those that don’t (Category 2).  
-   - **Fair Comparison:** Align prediction dates across all models; compute symmetric mean absolute percentage error (sMAPE) and continuous ranked probability score (CRPS) on daily and weekly horizons.  
-   - **Robustness Tests:** Evaluate performance under simulated data shifts (e.g., sudden variant emergence, mobility surges).
+> *“Our hybrid diffusion–flow pipeline produces well‐calibrated uncertainty bands, that offers decision‑makers clear confidence intervals instead of single‑point estimates.”*
 
-4. **Key Findings**  
-   - Our generative multimodal model reduces sMAPE by 15–25% over the CDC’s best single‑stream forecast on peak weeks.  
-   - Uncertainty intervals capture observed hospitalization surges 90% of the time, compared to 60% for baseline statistical models.  
-   - Influenza‑like‑illness experiments confirm generality: comparable gains in weekly ILI forecasts over traditional autoregressive baselines.
+#### 4. Evaluation & Case Studies  
+- **Generic Time Series Benchmarks:**  
+  - Evaluate on standard forecasting datasets (M‑3, M‑4, NN5) covering industry, finance, and demographics.  
+  - Compare point‑forecast accuracy (sMAPE, MASE) and probabilistic metrics (CRPS, interval coverage) against classic and state‑of‑the‑art baselines (ARIMA, ETS, Prophet).  
+- **Epidemic Forecasting:**  
+  - COVID‑19 and influenza‑like‑illness (ILI) weekly forecasts, benchmarked against CDC‑aggregated models with aligned dates and metrics (sMAPE, CRPS, coverage).  
+Each study measures both point‐error (sMAPE, RMSE) and distributional accuracy (CRPS, quantile coverage).
 
-5. **Broader Impact & Next Steps**  
-   - Release an open‑source benchmarking suite to standardize epidemic forecast evaluation.  
-   - Extend to other domains (climate extremes, energy demand) by swapping in domain‐specific data modalities.  
-   - Develop a lightweight dashboard for real‑time decision support in public‑health agencies.
+#### 5. Future Directions  
 
-By integrating diverse data sources within a principled generative framework and focusing on rigorous, fair evaluation metrics, my work delivers robust, uncertainty‑aware forecasts that outperform current CDC‑aggregated models—providing clearer guidance for resource allocation and intervention planning.  
+#### Interpretability & Explainability  
+- **Attention Maps:** visualize which modalities (e.g., mobility vs. text signals) drive forecast changes at each timestep  
+
+- **Local Attribution:** adapt SHAP‐style methods to our generative paths, highlight key inputs behind any given prediction
+
+> *“These explainability tools ensure transparency and build trust, critical when forecasts guide high‑stakes resource allocation.”*
+
+- **Dynamic Adaptation:** implement online learning to update models as new data arrive.  
+- **Meta‐Learning Extensions:** enable rapid adaptation to new domains (e.g., emerging pathogens or novel supply‑chain scenarios).  
+- **Open‑Source Toolkit:** package our multimodal encoders, generative samplers, and explainability modules—so that colleagues specializing in generative vision or interpretability methods can readily contribute their expertise.
+
+
