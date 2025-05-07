@@ -42,7 +42,7 @@ Each study measures both point‐error (sMAPE, RMSE) and distributional accuracy
 > *“These explainability tools ensure transparency and build trust, critical when forecasts guide high‑stakes resource allocation.”*
 
 - **Dynamic Adaptation:** implement online learning to update models as new data arrive.  
-- **Meta‐Learning Extensions:** enable rapid adaptation to new domains (e.g., emerging pathogens or novel supply‑chain scenarios).  
+- **Meta‐Learning Extensions:** enable rapid adaptation to new domains (e.g., emerging pathogens).  
 - **Open‑Source Toolkit:** package our multimodal encoders, generative samplers, and explainability modules—so that colleagues specializing in generative vision or interpretability methods can readily contribute their expertise.
 
 
