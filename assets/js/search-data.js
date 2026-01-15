@@ -51,7 +51,51 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/teaching/";
           },
-        },{id: "post-a-post-with-image-galleries",
+        },{id: "post-don-t-fall-into-the-vibe-coding-trap",
+      
+        title: 'Don’t fall into the vibe-coding trap <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.open("https://janeodum.medium.com/dont-fall-into-the-vibe-coding-trap-485504c88223?source=rss-1c9409325c4a------2", "_blank");
+        
+      },
+    },{id: "post-the-hardest-part-of-research-isn-t-the-math",
+      
+        title: 'The Hardest Part of Research Isn’t the Math <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.open("https://janeodum.medium.com/the-hardest-part-of-research-isnt-the-math-1c375a676e9f?source=rss-1c9409325c4a------2", "_blank");
+        
+      },
+    },{id: "post-stop-babysitting-gpus-hosting-comfyui-video-generation-on-runpod-serverless-endpoints",
+      
+        title: 'Stop Babysitting GPUs: Hosting ComfyUI Video Generation on Runpod Serverless Endpoints <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.open("https://janeodum.medium.com/stop-babysitting-gpus-hosting-comfyui-video-generation-on-runpod-serverless-endpoints-177522d505d7?source=rss-1c9409325c4a------2", "_blank");
+        
+      },
+    },{id: "post-automatic-visa-revalidation-in-st-kitts",
+      
+        title: 'Automatic visa revalidation in St. Kitts <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.open("https://janeodum.medium.com/automatic-visa-revalidation-in-st-kitts-adca2221bef3?source=rss-1c9409325c4a------2", "_blank");
+        
+      },
+    },{id: "post-a-post-with-image-galleries",
       
         title: "a post with image galleries",
       
