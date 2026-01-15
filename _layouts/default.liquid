@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="{{ site.lang }}">
-  <!-- Head -->
   <head>
     {% if page.redirect %}
       {% if page.redirect == true %}
@@ -13,32 +12,67 @@
       <meta http-equiv="refresh" content="3; url={{ redirect }}">
     {% endif %}
     {% include head.liquid %}
+    
+    <style>
+      #space-canvas {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; /* Behind everything */
+        pointer-events: none;
+      }
+      
+      body {
+        /* Ensure background is transparent so canvas shows */
+        background-color: transparent !important; 
+        overflow-x: hidden;
+      }
+
+      .container {
+        /* Prepare container for 3D transforms */
+        transform-style: preserve-3d;
+        perspective: 1000px;
+        will-change: transform;
+      }
+      
+      /* Make text lighter to pop against space */
+      body, p, h1, h2, h3, h4, h5, h6 {
+        color: #e0e0e0 !important;
+        text-shadow: 0 0 10px rgba(0,0,0,0.8);
+      }
+      
+      /* Glassmorphism for cards/content backgrounds if applicable */
+      .card, .post-content {
+        background: rgba(20, 20, 30, 0.6) !important;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+      }
+    </style>
   </head>
 
-  <!-- Body -->
   <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
-    <!-- Header -->
+    
+    <canvas id="space-canvas"></canvas>
+
     {% include header.liquid %}
 
-    <!-- Content -->
     <div class="container mt-5" role="main">
       {% if page.toc and page.toc.sidebar %}
         {% if page.toc.sidebar == 'right' %}
           <div class="row">
-            <!-- main content area -->
             <div class="col-sm-9">{{ content }}</div>
-            <!-- sidebar, which will move to the top on a small screen -->
             <div class="col-sm-3">
               <nav id="toc-sidebar" class="sticky-top"></nav>
             </div>
           </div>
         {% else %}
           <div class="row">
-            <!-- sidebar, which will move to the top on a small screen -->
             <div class="col-sm-3">
               <nav id="toc-sidebar" class="sticky-top"></nav>
             </div>
-            <!-- main content area -->
             <div class="col-sm-9">{{ content }}</div>
           </div>
         {% endif %}
@@ -47,10 +81,13 @@
       {% endif %}
     </div>
 
-    <!-- Footer -->
     {% include footer.liquid %}
 
-    <!-- JavaScripts -->
     {% include scripts.liquid %}
+    
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="{{ '/assets/js/space-theme.js' | relative_url }}"></script>
   </body>
 </html>

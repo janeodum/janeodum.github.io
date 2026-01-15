@@ -23,3 +23,29 @@ $max-content-width: {{ site.max_width }};
   "tabler-icons/tabler-icons-filled.scss",
   "tabler-icons/tabler-icons-outline.scss"
 ;
+
+/* Space Theme Overrides */
+:root {
+  --global-bg-color: #050505; /* Deep black/grey */
+  --global-text-color: #f0f0f0;
+  --global-theme-color: #00d2ff; /* Cyan sci-fi accent */
+}
+
+/* Force dark mode appearance or transparency */
+html[data-theme="light"] {
+  --global-bg-color: #050505; /* Override light mode bg */
+  --global-text-color: #f0f0f0;
+}
+
+/* Hide standard scrollbar to encourage the 'float' feel */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #000; 
+}
+::-webkit-scrollbar-thumb {
+  background: #333; 
+  border-radius: 4px;
+}
+
