@@ -206,42 +206,40 @@
     <section class="bg-stone-900 border border-stone-800 rounded-[40px] p-3 md:p-6 shadow-[0_2.8px_2.2px_rgba(0,0,0,0.034),0_6.7px_5.3px_rgba(0,0,0,0.048),0_12.5px_10px_rgba(0,0,0,0.06),0_22.3px_17.9px_rgba(0,0,0,0.072),0_41.8px_33.4px_rgba(0,0,0,0.086),0_100px_80px_rgba(0,0,0,0.12)]">
       <div class="grid auto-rows-[240px] gap-4 md:auto-rows-[280px] lg:auto-rows-[320px] md:grid-cols-3">
 
-        <!-- Hero Card (2 col, 2 row) -->
-        <article class="bento-card relative col-span-1 row-span-2 overflow-hidden md:col-span-2 rounded-2xl bg-gradient-to-br from-stone-800 via-stone-800 to-stone-900 border border-stone-700">
+        <!-- Hero Card (2 col, 2 row) — profile image as full background -->
+        <article class="bento-card relative col-span-1 row-span-2 overflow-hidden md:col-span-2 group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-cover bg-center rounded-2xl" style="background-image: url('{{ page.profile_image | prepend: '/assets/img/' | relative_url }}');">
+          <!-- Dark overlay for text readability -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 rounded-2xl"></div>
           <div class="absolute inset-0 flex flex-col p-6 md:p-8 lg:p-10 justify-between">
             <div class="flex items-start justify-between gap-4">
-              <div>
-                <h1 class="text-3xl md:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
-                  {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }} —
-                  <span class="text-orange-400">{{ page.subtitle }}</span>
-                </h1>
-              </div>
+              <h1 class="max-w-sm leading-tight text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
+                {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }} —
+                <span class="text-orange-400 transition-colors duration-300">{{ page.subtitle }}</span>
+              </h1>
               <div class="flex-shrink-0 flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-3 py-1 text-xs font-medium text-white">
                 <div class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></div>
                 Open to Collaborate
               </div>
             </div>
-            <div class="flex items-end justify-between gap-4">
+            <div class="flex items-end justify-between">
               <div>
-                <p class="max-w-sm text-stone-400 text-base md:text-lg font-light">
+                <p class="max-w-xs text-stone-300 text-lg font-light">
                   NES Lab (Neuro-Symbolic Computing Lab), University of Georgia — under Dr. John Miller
                 </p>
                 <div class="mt-4 flex items-center gap-4 flex-wrap">
-                  <div class="flex items-center gap-1 text-stone-400">
+                  <div class="flex items-center gap-1 text-stone-300">
                     <i data-lucide="map-pin" class="h-4 w-4" style="stroke-width: 1.5;"></i>
                     <span class="text-sm font-medium">Athens, Georgia</span>
                   </div>
-                  <div class="flex items-center gap-1 text-stone-400">
+                  <div class="flex items-center gap-1 text-stone-300">
                     <i data-lucide="calendar" class="h-4 w-4" style="stroke-width: 1.5;"></i>
                     <span class="text-sm font-medium">PhD Student, 2021–Present</span>
                   </div>
                 </div>
               </div>
-              {% if page.profile_image %}
-              <div class="flex-shrink-0 hidden sm:block">
-                <img src="{{ page.profile_image | prepend: '/assets/img/' | relative_url }}" alt="{{ site.first_name }} {{ site.last_name }}" class="h-20 w-20 md:h-24 md:w-24 rounded-full object-cover border-2 border-orange-400/30 shadow-lg">
-              </div>
-              {% endif %}
+              <button class="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-200 hover:scale-110">
+                <i data-lucide="arrow-up-right" class="h-5 w-5 text-white" style="stroke-width: 1.5;"></i>
+              </button>
             </div>
           </div>
         </article>
