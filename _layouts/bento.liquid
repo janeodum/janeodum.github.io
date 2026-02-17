@@ -166,15 +166,8 @@
         <i data-lucide="menu" class="w-6 h-6 text-gray-900" style="stroke-width: 1.5;"></i>
       </button>
 
-      <!-- Nav links -->
-      <ul id="nav-links" class="fixed inset-0 z-40 hidden flex-col gap-8 lg:static lg:flex lg:flex-row lg:bg-transparent lg:gap-8 bg-white/95 backdrop-blur-md items-center justify-center">
-        <!-- Close button for mobile -->
-        <li class="lg:hidden absolute top-6 right-6">
-          <button id="mobile-close" class="rounded-lg p-2 hover:bg-black/10 transition-colors">
-            <i data-lucide="x" class="w-6 h-6 text-gray-900" style="stroke-width: 1.5;"></i>
-          </button>
-        </li>
-
+      <!-- Desktop nav links -->
+      <ul class="hidden lg:flex lg:flex-row lg:gap-8 items-center">
         <li><a href="{{ '/' | relative_url }}" class="hover:text-orange-600 transition-colors duration-200 text-base font-medium text-gray-900 whitespace-nowrap">Home</a></li>
         {% assign sorted_pages = site.pages | sort: 'nav_order' %}
         {% for p in sorted_pages %}
@@ -191,7 +184,7 @@
         {% endfor %}
       </ul>
 
-      <!-- Download CV button -->
+      <!-- Download CV button (desktop) -->
       {% if page.cv_pdf %}
       <a href="{{ page.cv_pdf | prepend: '/assets/pdf/' | relative_url }}" target="_blank" class="relative cursor-pointer overflow-hidden transition-all duration-200 hover:scale-105 text-sm font-medium text-white rounded-full pt-3 pr-6 pb-3 pl-6 shadow-lg btn-gradient whitespace-nowrap hidden lg:inline-flex items-center gap-2">
         <div class="absolute inset-0 rounded-full pointer-events-none z-10 btn-glow-inner"></div>
@@ -200,6 +193,40 @@
       </a>
       {% endif %}
     </nav>
+
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" class="hidden lg:hidden mx-4 -mt-2 mb-4 z-50 relative">
+      <div class="bg-stone-900 border border-stone-700 rounded-2xl p-5 shadow-2xl">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-sm font-medium text-stone-400">Menu</span>
+          <button id="mobile-close" class="rounded-lg p-1.5 hover:bg-stone-800 transition-colors">
+            <i data-lucide="x" class="w-5 h-5 text-stone-400" style="stroke-width: 1.5;"></i>
+          </button>
+        </div>
+        <nav class="flex flex-col">
+          <a href="{{ '/' | relative_url }}" class="text-white text-base font-medium hover:text-orange-400 transition-colors py-3 border-b border-stone-800">Home</a>
+          {% assign sorted_pages = site.pages | sort: 'nav_order' %}
+          {% for p in sorted_pages %}
+            {% if p.nav and p.autogen == null %}
+              {% if p.permalink contains '://' %}
+                {% assign url = p.permalink %}
+              {% elsif p.permalink contains '/blog/' %}
+                {% assign url = '/blog/' %}
+              {% else %}
+                {% assign url = p.url %}
+              {% endif %}
+              <a href="{{ url | relative_url }}" class="text-white text-base font-medium hover:text-orange-400 transition-colors py-3 border-b border-stone-800">{{ p.title }}</a>
+            {% endif %}
+          {% endfor %}
+        </nav>
+        {% if page.cv_pdf %}
+        <a href="{{ page.cv_pdf | prepend: '/assets/pdf/' | relative_url }}" target="_blank" class="mt-4 flex items-center justify-center gap-2 btn-gradient text-sm font-medium text-white rounded-full py-3 px-6">
+          <i data-lucide="download" class="w-4 h-4" style="stroke-width: 1.5;"></i>
+          Download CV
+        </a>
+        {% endif %}
+      </div>
+    </div>
   </header>
 
   <!-- Main Container -->
@@ -207,10 +234,10 @@
 
     <!-- Bento Grid Section -->
     <section class="md:p-8 bg-stone-900 border-stone-800 border rounded-[20px] md:rounded-[40px] p-3 sm:p-4 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
-      <div class="grid auto-rows-[240px] gap-4 md:auto-rows-[300px] lg:auto-rows-[360px] md:grid-cols-3">
+      <div class="grid gap-4 md:auto-rows-[300px] lg:auto-rows-[360px] md:grid-cols-3">
 
         <!-- Hero Card (2 col, 2 row) — profile image zoomed out on right -->
-        <article class="bento-card relative col-span-1 row-span-2 overflow-hidden md:col-span-2 group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 rounded-2xl bg-stone-900">
+        <article class="bento-card relative col-span-1 row-span-2 overflow-hidden md:col-span-2 group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 rounded-2xl bg-stone-900 min-h-[400px] md:min-h-0">
           <!-- Profile image on the right side -->
           <img src="{{ '/assets/img/JaneodumStrip.JPEG' | relative_url }}" alt="{{ site.first_name }} {{ site.last_name }}" class="absolute right-0 top-0 h-full w-auto object-cover max-w-[45%] sm:max-w-[55%] md:max-w-[65%]" style="object-position: top center;">
           <!-- Gradient overlay from left to right for text readability -->
@@ -456,33 +483,29 @@
     lucide.createIcons();
 
     // Mobile menu toggle
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const mobileClose = document.getElementById('mobile-close');
-    const navLinks = document.getElementById('nav-links');
+    (function() {
+      var toggle = document.getElementById('mobile-toggle');
+      var close = document.getElementById('mobile-close');
+      var menu = document.getElementById('mobile-menu');
+      if (!menu) return;
 
-    if (mobileToggle) {
-      mobileToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('hidden');
-        navLinks.classList.toggle('flex');
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          menu.classList.toggle('hidden');
+        });
+      }
+      if (close) {
+        close.addEventListener('click', function() {
+          menu.classList.add('hidden');
+        });
+      }
+      // Close menu when clicking a nav link
+      menu.querySelectorAll('nav a').forEach(function(link) {
+        link.addEventListener('click', function() {
+          menu.classList.add('hidden');
+        });
       });
-    }
-
-    if (mobileClose) {
-      mobileClose.addEventListener('click', () => {
-        navLinks.classList.add('hidden');
-        navLinks.classList.remove('flex');
-      });
-    }
-
-    // Close mobile menu when clicking a link
-    navLinks.querySelectorAll('a').forEach(link => {
-      link.addEventListener('click', () => {
-        if (window.innerWidth < 1024) {
-          navLinks.classList.add('hidden');
-          navLinks.classList.remove('flex');
-        }
-      });
-    });
+    })();
   </script>
 
 </body>

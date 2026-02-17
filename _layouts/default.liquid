@@ -349,6 +349,32 @@
         }
       }
 
+      /* Mobile menu link hover */
+      #bento-mobile-menu nav a:hover {
+        color: #fb923c !important;
+      }
+      #bento-mobile-menu button:hover {
+        background: #292524;
+      }
+
+      /* Desktop nav links override Bootstrap */
+      #bento-nav #bento-nav-links {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      #bento-nav #bento-nav-links a {
+        color: #111827 !important;
+        font-size: 1rem !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        white-space: nowrap !important;
+        text-shadow: none !important;
+      }
+      #bento-nav #bento-nav-links a:hover {
+        color: #ea580c !important;
+      }
+
       /* Responsive nav margin */
       #bento-nav nav {
         margin: 1rem 1rem !important;
@@ -392,12 +418,8 @@
           <i data-lucide="menu" class="w-6 h-6 text-gray-900" style="stroke-width: 1.5;"></i>
         </button>
 
-        <ul id="bento-nav-links" class="fixed inset-0 z-40 hidden flex-col gap-8 lg:static lg:flex lg:flex-row lg:bg-transparent lg:gap-8 bg-white/95 backdrop-blur-md items-center justify-center">
-          <li class="lg:hidden absolute top-6 right-6">
-            <button id="bento-mobile-close" class="rounded-lg p-2 hover:bg-black/10 transition-colors">
-              <i data-lucide="x" class="w-6 h-6 text-gray-900" style="stroke-width: 1.5;"></i>
-            </button>
-          </li>
+        <!-- Desktop nav links -->
+        <ul id="bento-nav-links" class="hidden lg:flex lg:flex-row lg:gap-8 items-center">
           <li><a href="{{ '/' | relative_url }}" class="hover:text-orange-600 transition-colors duration-200 text-base font-medium text-gray-900 whitespace-nowrap" style="text-shadow: none;">Home</a></li>
           {% assign sorted_pages = site.pages | sort: 'nav_order' %}
           {% for p in sorted_pages %}
@@ -419,6 +441,38 @@
           Download CV
         </a>
       </nav>
+
+      <!-- Mobile dropdown menu -->
+      <div id="bento-mobile-menu" class="hidden lg:hidden" style="margin: 0 1rem 1rem; position: relative; z-index: 50;">
+        <div style="background: #1c1917; border: 1px solid #44403c; border-radius: 16px; padding: 1.25rem; box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
+          <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+            <span style="font-size: 0.875rem; font-weight: 500; color: #a8a29e;">Menu</span>
+            <button id="bento-mobile-close" style="padding: 6px; border-radius: 8px; border: none; background: transparent; cursor: pointer;">
+              <i data-lucide="x" style="width: 20px; height: 20px; stroke-width: 1.5; color: #a8a29e;"></i>
+            </button>
+          </div>
+          <nav style="display: flex; flex-direction: column;">
+            <a href="{{ '/' | relative_url }}" style="color: #fff; font-size: 1rem; font-weight: 500; text-decoration: none; padding: 0.75rem 0; border-bottom: 1px solid #292524;">Home</a>
+            {% assign sorted_pages = site.pages | sort: 'nav_order' %}
+            {% for p in sorted_pages %}
+              {% if p.nav and p.autogen == null %}
+                {% if p.permalink contains '://' %}
+                  {% assign url = p.permalink %}
+                {% elsif p.permalink contains '/blog/' %}
+                  {% assign url = '/blog/' %}
+                {% else %}
+                  {% assign url = p.url %}
+                {% endif %}
+                <a href="{{ url | relative_url }}" style="color: #fff; font-size: 1rem; font-weight: 500; text-decoration: none; padding: 0.75rem 0; border-bottom: 1px solid #292524;">{{ p.title }}</a>
+              {% endif %}
+            {% endfor %}
+          </nav>
+          <a href="{{ 'MyresumeJane_odum.pdf' | prepend: '/assets/pdf/' | relative_url }}" target="_blank" class="btn-gradient" style="margin-top: 1rem; display: flex; align-items: center; justify-content: center; gap: 0.5rem; font-size: 0.875rem; font-weight: 500; color: white !important; text-decoration: none; border-radius: 9999px; padding: 0.75rem 1.5rem;">
+            <i data-lucide="download" style="width: 16px; height: 16px; stroke-width: 1.5;"></i>
+            Download CV
+          </a>
+        </div>
+      </div>
     </header>
 
     <!-- Main Content Area -->
@@ -535,29 +589,23 @@
       (function() {
         var toggle = document.getElementById('bento-mobile-toggle');
         var close = document.getElementById('bento-mobile-close');
-        var nav = document.getElementById('bento-nav-links');
+        var menu = document.getElementById('bento-mobile-menu');
+        if (!menu) return;
         if (toggle) {
           toggle.addEventListener('click', function() {
-            nav.classList.toggle('hidden');
-            nav.classList.toggle('flex');
+            menu.classList.toggle('hidden');
           });
         }
         if (close) {
           close.addEventListener('click', function() {
-            nav.classList.add('hidden');
-            nav.classList.remove('flex');
+            menu.classList.add('hidden');
           });
         }
-        if (nav) {
-          nav.querySelectorAll('a').forEach(function(link) {
-            link.addEventListener('click', function() {
-              if (window.innerWidth < 1024) {
-                nav.classList.add('hidden');
-                nav.classList.remove('flex');
-              }
-            });
+        menu.querySelectorAll('nav a').forEach(function(link) {
+          link.addEventListener('click', function() {
+            menu.classList.add('hidden');
           });
-        }
+        });
       })();
     </script>
   </body>
