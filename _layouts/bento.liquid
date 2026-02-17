@@ -209,10 +209,12 @@
     <section class="md:p-8 bg-stone-900 border-stone-800 border rounded-[40px] pt-4 pr-4 pb-4 pl-2 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
       <div class="grid auto-rows-[240px] gap-4 md:auto-rows-[300px] lg:auto-rows-[360px] md:grid-cols-3">
 
-        <!-- Hero Card (2 col, 2 row) — profile image as full background -->
-        <article class="bento-card relative col-span-1 row-span-2 overflow-hidden md:col-span-2 group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-cover bg-center rounded-2xl" style="background-image: url('{{ '/assets/img/JaneodumStrip.JPEG' | relative_url }}');">
-          <!-- Dark overlay for text readability -->
-          <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 rounded-2xl"></div>
+        <!-- Hero Card (2 col, 2 row) — profile image zoomed out on right -->
+        <article class="bento-card relative col-span-1 row-span-2 overflow-hidden md:col-span-2 group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 rounded-2xl bg-stone-900">
+          <!-- Profile image on the right side -->
+          <img src="{{ '/assets/img/JaneodumStrip.JPEG' | relative_url }}" alt="{{ site.first_name }} {{ site.last_name }}" class="absolute right-0 top-0 h-full w-auto object-cover" style="max-width: 65%; object-position: top center;">
+          <!-- Gradient overlay from left to right for text readability -->
+          <div class="absolute inset-0 bg-gradient-to-r from-stone-900 via-stone-900/80 to-transparent rounded-2xl"></div>
           <div class="absolute inset-0 flex flex-col p-6 md:p-10 justify-between">
             <div class="flex items-start justify-between gap-4">
               <h1 class="max-w-sm leading-tight text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
@@ -372,8 +374,8 @@
     {% endif %}
 
     <!-- Footer -->
-    <footer class="md:px-12 bg-stone-900 border-stone-800 rounded-[40px] border-t mt-12 pt-12 pr-6 pb-12 pl-6 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
-      <div class="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-8 text-stone-300">
+    <footer class="overflow-hidden bg-stone-900 border-stone-800 rounded-[40px] border-t mt-12 py-12 px-6 md:px-12 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
+      <div class="mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-stone-300">
 
         <!-- Let's Connect -->
         <div>

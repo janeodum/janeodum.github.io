@@ -54,13 +54,44 @@
       ::-webkit-scrollbar-thumb { background: #44403c; border-radius: 3px; }
       ::-webkit-scrollbar-thumb:hover { background: #57534e; }
 
-      /* Hide the old al-folio navbar */
+      /* Hide the old al-folio navbar and footer */
       #navbar.navbar { display: none !important; }
       progress#progress { display: none !important; }
-
-      /* Hide the old al-folio footer */
       footer.sticky-bottom,
       footer.fixed-bottom { display: none !important; }
+
+      /* Force bento nav styling over Bootstrap */
+      #bento-nav nav {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        background: rgba(255, 255, 255, 0.1) !important;
+        backdrop-filter: blur(12px) !important;
+        -webkit-backdrop-filter: blur(12px) !important;
+        border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        border-radius: 9999px !important;
+        margin: 2rem auto !important;
+        padding: 0.75rem 0.5rem !important;
+      }
+      #bento-nav nav ul {
+        list-style: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+      }
+      #bento-nav nav a {
+        color: #111827 !important;
+        font-size: 1rem !important;
+        font-weight: 500 !important;
+        text-decoration: none !important;
+        white-space: nowrap !important;
+        text-shadow: none !important;
+      }
+      #bento-nav nav a:hover {
+        color: #ea580c !important;
+      }
+      #bento-nav .btn-gradient {
+        color: white !important;
+      }
 
       /* Content wrapper - rounded stone card */
       .bento-content-wrapper {
@@ -98,12 +129,34 @@
         margin-top: 2rem !important;
         margin-bottom: 0.75rem !important;
       }
+      .bento-content-wrapper article ul,
+      .bento-content-wrapper article ol {
+        padding-left: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+      }
+      .bento-content-wrapper article ul ul,
+      .bento-content-wrapper article ol ol {
+        margin-bottom: 0.5rem !important;
+      }
       .bento-content-wrapper article blockquote {
         margin-top: 1rem !important;
         margin-bottom: 1rem !important;
       }
       .bento-content-wrapper article hr {
-        margin: 1.5rem 0 !important;
+        margin: 2rem 0 !important;
+        border-color: #44403c !important;
+      }
+      .bento-content-wrapper .post-header {
+        margin-bottom: 2rem !important;
+      }
+      .bento-content-wrapper .post-title {
+        font-size: 2rem !important;
+        font-weight: 700 !important;
+      }
+      .bento-content-wrapper .post-description {
+        font-size: 1.1rem !important;
+        line-height: 1.6 !important;
+        margin-top: 0.5rem !important;
       }
 
       /* ---- Dark theme overrides for al-folio content ---- */
@@ -294,8 +347,8 @@
       </div>
 
       <!-- Bento Footer -->
-      <div class="bento-footer md:px-12 mt-12" style="background: #1c1917; border: 1px solid #292524; border-radius: 40px; padding: 3rem 1.5rem; box-shadow: 0 2.8px 2.2px rgba(0,0,0,0.034), 0 6.7px 5.3px rgba(0,0,0,0.048), 0 12.5px 10px rgba(0,0,0,0.06), 0 22.3px 17.9px rgba(0,0,0,0.072), 0 41.8px 33.4px rgba(0,0,0,0.086), 0 100px 80px rgba(0,0,0,0.12);">
-        <div class="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="bento-footer mt-12 overflow-hidden py-12 px-6 md:px-12" style="background: #1c1917; border: 1px solid #292524; border-radius: 40px; box-shadow: 0 2.8px 2.2px rgba(0,0,0,0.034), 0 6.7px 5.3px rgba(0,0,0,0.048), 0 12.5px 10px rgba(0,0,0,0.06), 0 22.3px 17.9px rgba(0,0,0,0.072), 0 41.8px 33.4px rgba(0,0,0,0.086), 0 100px 80px rgba(0,0,0,0.12);">
+        <div class="mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           <div>
             <h4 style="color: #ffffff !important; font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.025em; text-shadow: none;">Let's Connect</h4>
             <p style="color: #a8a29e !important; font-size: 0.875rem; font-weight: 300; max-width: 20rem; text-shadow: none;">Open to research collaborations, speaking opportunities, and academic partnerships.</p>
