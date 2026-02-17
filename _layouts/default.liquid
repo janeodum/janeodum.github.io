@@ -265,6 +265,17 @@
       /* Override Bootstrap container */
       .container.mt-5 { max-width: 80rem; margin-top: 0 !important; }
 
+      /* Force dark-themed repo images since our site is always dark */
+      .bento-content-wrapper .only-light { display: none !important; }
+      .bento-content-wrapper .only-dark { display: block !important; }
+      .bento-content-wrapper .repo img {
+        border-radius: 12px;
+        border: 1px solid #44403c;
+      }
+      .bento-content-wrapper .repositories {
+        gap: 1rem;
+      }
+
       /* Ninja keys search */
       ninja-keys { --ninja-accent-color: #f97316; --ninja-z-index: 100; }
 
