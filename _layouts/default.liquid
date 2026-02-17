@@ -12,82 +12,368 @@
       <meta http-equiv="refresh" content="3; url={{ redirect }}">
     {% endif %}
     {% include head.liquid %}
-    
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
     <style>
-      #space-canvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1; /* Behind everything */
-        pointer-events: none;
-      }
-      
       body {
-        /* Ensure background is transparent so canvas shows */
-        background-color: transparent !important; 
+        font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+        background: transparent !important;
         overflow-x: hidden;
       }
 
-      .container {
-        /* Prepare container for 3D transforms */
-        transform-style: preserve-3d;
-        perspective: 1000px;
-        will-change: transform;
+      /* Glassmorphism nav */
+      .glass-nav {
+        background: rgba(255, 255, 255, 0.1);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.15);
       }
-      
-      /* Make text lighter to pop against space */
-      body, p, h1, h2, h3, h4, h5, h6 {
-        color: #e0e0e0 !important;
-        text-shadow: 0 0 10px rgba(0,0,0,0.8);
+
+      /* Gradient button */
+      .btn-gradient {
+        background: radial-gradient(circle, #ea580c, #fb923c 80%);
+        box-shadow: 0 0 14px rgba(249, 115, 22, 0.5);
+        transition: all 0.2s ease;
       }
-      
-      /* Glassmorphism for cards/content backgrounds if applicable */
-      .card, .post-content {
-        background: rgba(20, 20, 30, 0.6) !important;
-        backdrop-filter: blur(10px);
-        border: 1px solid rgba(255, 255, 255, 0.1);
-        border-radius: 15px;
+      .btn-gradient:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(249, 115, 22, 0.7);
       }
+
+      /* Scrollbar */
+      ::-webkit-scrollbar { width: 6px; }
+      ::-webkit-scrollbar-track { background: #1c1917; }
+      ::-webkit-scrollbar-thumb { background: #44403c; border-radius: 3px; }
+      ::-webkit-scrollbar-thumb:hover { background: #57534e; }
+
+      /* Hide the old al-folio navbar */
+      #navbar.navbar { display: none !important; }
+      progress#progress { display: none !important; }
+
+      /* Hide the old al-folio footer */
+      footer.sticky-bottom,
+      footer.fixed-bottom { display: none !important; }
+
+      /* Content wrapper - rounded stone card */
+      .bento-content-wrapper {
+        background: #1c1917;
+        border: 1px solid #292524;
+        border-radius: 40px;
+        padding: 1.5rem;
+        box-shadow: 0 2.8px 2.2px rgba(0,0,0,0.034),
+                    0 6.7px 5.3px rgba(0,0,0,0.048),
+                    0 12.5px 10px rgba(0,0,0,0.06),
+                    0 22.3px 17.9px rgba(0,0,0,0.072),
+                    0 41.8px 33.4px rgba(0,0,0,0.086),
+                    0 100px 80px rgba(0,0,0,0.12);
+      }
+      @media (min-width: 768px) {
+        .bento-content-wrapper { padding: 2.5rem; }
+      }
+
+      /* ---- Dark theme overrides for al-folio content ---- */
+      .bento-content-wrapper,
+      .bento-content-wrapper .post,
+      .bento-content-wrapper article { color: #d6d3d1 !important; }
+
+      .bento-content-wrapper h1,
+      .bento-content-wrapper h2,
+      .bento-content-wrapper h3,
+      .bento-content-wrapper h4,
+      .bento-content-wrapper h5,
+      .bento-content-wrapper h6,
+      .bento-content-wrapper .post-title,
+      .bento-content-wrapper .post-header h1 {
+        color: #ffffff !important;
+        text-shadow: none !important;
+      }
+      .bento-content-wrapper .post-description { color: #a8a29e !important; }
+
+      .bento-content-wrapper p,
+      .bento-content-wrapper li,
+      .bento-content-wrapper td,
+      .bento-content-wrapper th,
+      .bento-content-wrapper span,
+      .bento-content-wrapper div { color: #d6d3d1 !important; text-shadow: none !important; }
+
+      .bento-content-wrapper a { color: #fb923c !important; }
+      .bento-content-wrapper a:hover { color: #fdba74 !important; }
+      .bento-content-wrapper strong, .bento-content-wrapper b { color: #ffffff !important; }
+      .bento-content-wrapper em { color: #fb923c !important; }
+
+      .bento-content-wrapper code {
+        background: #292524 !important; color: #fb923c !important;
+        border-radius: 4px; padding: 2px 6px;
+      }
+      .bento-content-wrapper pre {
+        background: #292524 !important; border: 1px solid #44403c !important; border-radius: 12px !important;
+      }
+      .bento-content-wrapper pre code { color: #d6d3d1 !important; background: transparent !important; }
+
+      .bento-content-wrapper hr { border-color: #44403c !important; }
+
+      .bento-content-wrapper blockquote {
+        border-left: 3px solid #f97316 !important; color: #a8a29e !important;
+        background: rgba(249, 115, 22, 0.05) !important;
+        padding: 1rem !important; border-radius: 0 12px 12px 0 !important;
+      }
+      .bento-content-wrapper blockquote p { color: #a8a29e !important; }
+
+      /* Cards */
+      .bento-content-wrapper .card {
+        background: #292524 !important; border: 1px solid #44403c !important;
+        border-radius: 16px !important; box-shadow: none !important;
+      }
+      .bento-content-wrapper .card-title { color: #f97316 !important; }
+
+      /* Tables */
+      .bento-content-wrapper table { border-color: #44403c !important; }
+      .bento-content-wrapper th { background: #292524 !important; color: #ffffff !important; border-color: #44403c !important; }
+      .bento-content-wrapper td { border-color: #44403c !important; }
+
+      /* Bibliography */
+      .bento-content-wrapper .bibliography { list-style: none; padding: 0; }
+      .bento-content-wrapper .bibliography .title { color: #ffffff !important; font-weight: 600; }
+      .bento-content-wrapper .bibliography .author { color: #a8a29e !important; }
+      .bento-content-wrapper .bibliography .periodical { color: #78716c !important; font-style: italic; }
+      .bento-content-wrapper .bibliography .links a,
+      .bento-content-wrapper .bibliography .links .btn {
+        color: #fb923c !important; background: rgba(249, 115, 22, 0.1) !important;
+        border: 1px solid rgba(249, 115, 22, 0.3) !important; border-radius: 9999px !important;
+        padding: 0.25rem 0.75rem !important; font-size: 0.75rem !important; text-decoration: none !important;
+      }
+      .bento-content-wrapper .bibliography .links a:hover,
+      .bento-content-wrapper .bibliography .links .btn:hover {
+        background: rgba(249, 115, 22, 0.25) !important; color: #fdba74 !important;
+      }
+
+      /* Project cards */
+      .bento-content-wrapper .projects .card:hover { border-color: #f97316 !important; }
+
+      /* CV sections */
+      .bento-content-wrapper .cv .card {
+        background: #292524 !important; border: 1px solid #44403c !important; border-radius: 16px !important;
+      }
+      .bento-content-wrapper .cv .card-title { color: #f97316 !important; }
+
+      /* PDF icon */
+      .bento-content-wrapper .fa-file-pdf { color: #fb923c !important; }
+
+      /* Badges */
+      .bento-content-wrapper .badge {
+        background: rgba(249, 115, 22, 0.15) !important; color: #fb923c !important;
+        border: 1px solid rgba(249, 115, 22, 0.3) !important;
+      }
+
+      /* Inputs */
+      .bento-content-wrapper input,
+      .bento-content-wrapper textarea,
+      .bento-content-wrapper select {
+        background: #292524 !important; border: 1px solid #44403c !important;
+        color: #d6d3d1 !important; border-radius: 8px;
+      }
+
+      /* Override Bootstrap container */
+      .container.mt-5 { max-width: 64rem; margin-top: 0 !important; }
+
+      /* Ninja keys search */
+      ninja-keys { --ninja-accent-color: #f97316; --ninja-z-index: 100; }
+
+      /* Footer link hovers */
+      .bento-footer a:hover { color: #fb923c !important; }
     </style>
   </head>
 
-  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
-    
-    <canvas id="space-canvas"></canvas>
+  <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}" style="background: transparent;">
 
+    <!-- Fixed Background Image -->
+    <div class="fixed top-0 w-full h-screen bg-cover bg-center -z-10" style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/99416125-6e8b-4404-9969-e774855c5494_3840w.jpg');"></div>
+
+    <!-- Original al-folio header (hidden by CSS, kept for search/scripts) -->
     {% include header.liquid %}
 
-    <div class="container mt-5" role="main">
-      {% if page.toc and page.toc.sidebar %}
-        {% if page.toc.sidebar == 'right' %}
-          <div class="row">
-            <div class="col-sm-9">{{ content }}</div>
-            <div class="col-sm-3">
-              <nav id="toc-sidebar" class="sticky-top"></nav>
+    <!-- Bento Navigation -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 pt-6" id="bento-nav">
+      <nav class="flex max-w-5xl mx-auto glass-nav rounded-full px-3 py-3 items-center justify-between">
+        <div class="flex items-center pl-3">
+          <a href="{{ '/' | relative_url }}" class="uppercase text-xl font-normal tracking-tighter" style="color: white !important;">
+            {{ site.first_name }} {{ site.last_name }}
+          </a>
+        </div>
+
+        <button id="bento-mobile-toggle" class="lg:hidden rounded-lg p-2 hover:bg-white/10 transition-colors">
+          <i data-lucide="menu" class="w-6 h-6 text-white" style="stroke-width: 1.5;"></i>
+        </button>
+
+        <ul id="bento-nav-links" class="fixed inset-0 z-40 hidden flex-col gap-8 lg:static lg:flex lg:flex-row lg:bg-transparent lg:gap-6 bg-gray-950/95 backdrop-blur-md items-center justify-center">
+          <li class="lg:hidden absolute top-6 right-6">
+            <button id="bento-mobile-close" class="rounded-lg p-2 hover:bg-white/10 transition-colors">
+              <i data-lucide="x" class="w-6 h-6 text-white" style="stroke-width: 1.5;"></i>
+            </button>
+          </li>
+          <li><a href="{{ '/' | relative_url }}" class="hover:text-orange-400 transition-colors duration-200 text-sm font-medium" style="color: #d1d5db !important;">Home</a></li>
+          {% assign sorted_pages = site.pages | sort: 'nav_order' %}
+          {% for p in sorted_pages %}
+            {% if p.nav and p.autogen == null %}
+              {% if p.permalink contains '://' %}
+                {% assign url = p.permalink %}
+              {% elsif p.permalink contains '/blog/' %}
+                {% assign url = '/blog/' %}
+              {% else %}
+                {% assign url = p.url %}
+              {% endif %}
+              <li><a href="{{ url | relative_url }}" class="hover:text-orange-400 transition-colors duration-200 text-sm font-medium" style="color: #d1d5db !important;">{{ p.title }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+
+        <a href="{{ 'MyresumeJane_odum.pdf' | prepend: '/assets/pdf/' | relative_url }}" target="_blank" class="hidden lg:inline-flex btn-gradient text-sm font-medium rounded-full py-2.5 px-5 items-center gap-2" style="color: white !important;">
+          <i data-lucide="download" class="w-4 h-4" style="stroke-width: 1.5;"></i>
+          Download CV
+        </a>
+      </nav>
+    </header>
+
+    <!-- Main Content Area -->
+    <div class="max-w-5xl mx-auto px-4 pb-12 pt-28" role="main">
+      <div class="bento-content-wrapper">
+        {% if page.toc and page.toc.sidebar %}
+          {% if page.toc.sidebar == 'right' %}
+            <div class="row">
+              <div class="col-sm-9">{{ content }}</div>
+              <div class="col-sm-3">
+                <nav id="toc-sidebar" class="sticky-top"></nav>
+              </div>
             </div>
-          </div>
+          {% else %}
+            <div class="row">
+              <div class="col-sm-3">
+                <nav id="toc-sidebar" class="sticky-top"></nav>
+              </div>
+              <div class="col-sm-9">{{ content }}</div>
+            </div>
+          {% endif %}
         {% else %}
-          <div class="row">
-            <div class="col-sm-3">
-              <nav id="toc-sidebar" class="sticky-top"></nav>
-            </div>
-            <div class="col-sm-9">{{ content }}</div>
-          </div>
+          {{ content }}
         {% endif %}
-      {% else %}
-        {{ content }}
-      {% endif %}
+      </div>
+
+      <!-- Bento Footer -->
+      <div class="bento-footer mt-8" style="background: #1c1917; border: 1px solid #292524; border-radius: 40px; padding: 2rem; box-shadow: 0 2.8px 2.2px rgba(0,0,0,0.034), 0 6.7px 5.3px rgba(0,0,0,0.048), 0 12.5px 10px rgba(0,0,0,0.06), 0 22.3px 17.9px rgba(0,0,0,0.072), 0 41.8px 33.4px rgba(0,0,0,0.086), 0 100px 80px rgba(0,0,0,0.12);">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8" style="padding: 0.5rem;">
+          <div>
+            <h4 style="color: #ffffff !important; font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.025em; text-shadow: none;">Let's Connect</h4>
+            <p style="color: #a8a29e !important; font-size: 0.875rem; font-weight: 300; max-width: 20rem; text-shadow: none;">Open to research collaborations, speaking opportunities, and academic partnerships.</p>
+            <a href="mailto:{{ site.data.socials.email }}" class="btn-gradient" style="display: inline-block; margin-top: 1rem; color: white !important; font-size: 0.875rem; font-weight: 500; border-radius: 9999px; padding: 0.5rem 1.25rem; text-decoration: none;">
+              Get in Touch
+            </a>
+            <p style="margin-top: 1rem; font-size: 0.75rem; color: #78716c !important; text-shadow: none;">&copy; {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}. All rights reserved.</p>
+          </div>
+          <div>
+            <h5 style="color: #ffffff !important; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.75rem; letter-spacing: -0.025em; text-shadow: none;">Contact</h5>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              <li style="margin-bottom: 0.5rem;"><a href="mailto:{{ site.data.socials.email }}" style="color: #a8a29e !important; font-size: 0.875rem; font-weight: 300; text-shadow: none;">{{ site.data.socials.email }}</a></li>
+              <li style="color: #a8a29e !important; font-size: 0.875rem; font-weight: 300; margin-bottom: 0.5rem; text-shadow: none;">Athens, Georgia</li>
+              <li style="color: #a8a29e !important; font-size: 0.875rem; font-weight: 300; text-shadow: none;">University of Georgia</li>
+            </ul>
+          </div>
+          <div>
+            <h5 style="color: #ffffff !important; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.75rem; letter-spacing: -0.025em; text-shadow: none;">Resources</h5>
+            <ul style="list-style: none; padding: 0; margin: 0;">
+              {% assign sorted_pages = site.pages | sort: 'nav_order' %}
+              {% for p in sorted_pages %}
+                {% if p.nav and p.autogen == null %}
+                  {% if p.permalink contains '://' %}
+                    {% assign url = p.permalink %}
+                  {% elsif p.permalink contains '/blog/' %}
+                    {% assign url = '/blog/' %}
+                  {% else %}
+                    {% assign url = p.url %}
+                  {% endif %}
+                  <li style="margin-bottom: 0.5rem;"><a href="{{ url | relative_url }}" style="color: #a8a29e !important; font-size: 0.875rem; font-weight: 300; text-shadow: none;">{{ p.title }}</a></li>
+                {% endif %}
+              {% endfor %}
+            </ul>
+          </div>
+          <div>
+            <h5 style="color: #ffffff !important; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.75rem; letter-spacing: -0.025em; text-shadow: none;">Social</h5>
+            <div style="display: flex; gap: 1rem;">
+              {% if site.data.socials.linkedin_username %}
+              <a href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username }}" target="_blank" rel="noopener" style="color: #78716c !important;">
+                <i data-lucide="linkedin" class="w-5 h-5" style="stroke-width: 1.5;"></i>
+              </a>
+              {% endif %}
+              {% if site.data.socials.scholar_userid %}
+              <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}" target="_blank" rel="noopener" style="color: #78716c !important;">
+                <i data-lucide="graduation-cap" class="w-5 h-5" style="stroke-width: 1.5;"></i>
+              </a>
+              {% endif %}
+              {% if site.data.socials.medium_username %}
+              <a href="https://medium.com/@{{ site.data.socials.medium_username }}" target="_blank" rel="noopener" style="color: #78716c !important;">
+                <i data-lucide="book-open" class="w-5 h-5" style="stroke-width: 1.5;"></i>
+              </a>
+              {% endif %}
+              {% if site.data.socials.instagram_id %}
+              <a href="https://instagram.com/{{ site.data.socials.instagram_id }}" target="_blank" rel="noopener" style="color: #78716c !important;">
+                <i data-lucide="instagram" class="w-5 h-5" style="stroke-width: 1.5;"></i>
+              </a>
+              {% endif %}
+              {% if site.data.socials.email %}
+              <a href="mailto:{{ site.data.socials.email }}" style="color: #78716c !important;">
+                <i data-lucide="mail" class="w-5 h-5" style="stroke-width: 1.5;"></i>
+              </a>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
+    <!-- Hidden al-folio footer (needed for structure, hidden by CSS) -->
     {% include footer.liquid %}
 
     {% include scripts.liquid %}
-    
-    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script> 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-    <script src="{{ '/assets/js/space-theme.js' | relative_url }}"></script>
+
+    <script>
+      // Initialize Lucide icons
+      if (typeof lucide !== 'undefined') { lucide.createIcons(); }
+
+      // Bento mobile menu toggle
+      (function() {
+        var toggle = document.getElementById('bento-mobile-toggle');
+        var close = document.getElementById('bento-mobile-close');
+        var nav = document.getElementById('bento-nav-links');
+        if (toggle) {
+          toggle.addEventListener('click', function() {
+            nav.classList.toggle('hidden');
+            nav.classList.toggle('flex');
+          });
+        }
+        if (close) {
+          close.addEventListener('click', function() {
+            nav.classList.add('hidden');
+            nav.classList.remove('flex');
+          });
+        }
+        if (nav) {
+          nav.querySelectorAll('a').forEach(function(link) {
+            link.addEventListener('click', function() {
+              if (window.innerWidth < 1024) {
+                nav.classList.add('hidden');
+                nav.classList.remove('flex');
+              }
+            });
+          });
+        }
+      })();
+    </script>
   </body>
 </html>
