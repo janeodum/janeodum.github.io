@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="{{ site.lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Inter Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+
+  <!-- Favicon -->
+  {% if site.icon contains '://' %}
+    <link rel="shortcut icon" href="{{ site.icon }}">
+  {% else %}
+    <link rel="shortcut icon" href="{{ site.icon | prepend: '/assets/img/' | relative_url }}">
+  {% endif %}
+
+  <style>
+    body { font-family: 'Inter', system-ui, -apple-system, sans-serif; }
+
+    /* Subtle radial glow background */
+    .bg-glow {
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(251, 146, 60, 0.06) 0%, transparent 60%),
+        radial-gradient(ellipse at 80% 20%, rgba(251, 146, 60, 0.04) 0%, transparent 50%),
+        #030712;
+    }
+
+    /* Card hover effects */
+    .bento-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Glassmorphism */
+    .glass {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    /* Gradient button */
+    .btn-gradient {
+      background: radial-gradient(circle, #ea580c, #fb923c 80%);
+      box-shadow: 0 0 14px rgba(249, 115, 22, 0.5);
+      transition: all 0.2s ease;
+    }
+    .btn-gradient:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(249, 115, 22, 0.7);
+    }
+
+    /* Skill pill hover */
+    .skill-pill {
+      transition: all 0.2s ease;
+    }
+    .skill-pill:hover {
+      border-color: #f97316;
+      background: rgba(249, 115, 22, 0.15);
+      color: #fb923c;
+      transform: scale(1.05);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: #1c1917; }
+    ::-webkit-scrollbar-thumb { background: #44403c; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: #57534e; }
+
+    /* About content prose */
+    .prose-bento h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #f97316;
+      margin-top: 2rem;
+      margin-bottom: 0.75rem;
+    }
+    .prose-bento h2:first-child { margin-top: 0; }
+    .prose-bento p {
+      color: #a8a29e;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+    .prose-bento em { color: #fb923c; font-style: italic; }
+    .prose-bento a {
+      color: #fb923c;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    .prose-bento a:hover { color: #fdba74; }
+
+    /* Jekyll Scholar bibliography overrides */
+    .bibliography { list-style: none; padding: 0; margin: 0; }
+    .bibliography li { margin-bottom: 1.5rem; }
+    .bibliography .title { color: #ffffff; font-weight: 600; font-size: 1rem; }
+    .bibliography .author { color: #a8a29e; font-size: 0.875rem; }
+    .bibliography .periodical { color: #78716c; font-size: 0.875rem; font-style: italic; }
+    .bibliography .links { margin-top: 0.5rem; display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .bibliography .links a,
+    .bibliography .links .btn {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: #fb923c;
+      background: rgba(249, 115, 22, 0.1);
+      border: 1px solid rgba(249, 115, 22, 0.3);
+      border-radius: 9999px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .bibliography .links a:hover,
+    .bibliography .links .btn:hover {
+      background: rgba(249, 115, 22, 0.25);
+      color: #fdba74;
+    }
+    .bibliography .abbr { display: none; }
+    .bibliography .abstract, .bibliography .bibtex { display: none; }
+    .bibliography .abstract.open, .bibliography .bibtex.open {
+      display: block;
+      background: #292524;
+      border: 1px solid #44403c;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      margin-top: 0.75rem;
+      color: #a8a29e;
+      font-size: 0.85rem;
+    }
+    .bibliography img.preview { display: none; }
+    .bibliography .badges { margin-top: 0.5rem; }
+    .bibliography .badge-link { margin-right: 0.25rem; }
+  </style>
+</head>
+
+<body class="min-h-full antialiased text-gray-100 bg-glow">
+
+  <!-- Navigation -->
+  <header class="fixed top-0 left-0 right-0 z-50 px-4 pt-6">
+    <nav class="flex max-w-5xl mx-auto glass rounded-full px-3 py-3 items-center justify-between">
+      <div class="flex items-center pl-3">
+        <a href="{{ '/' | relative_url }}" class="uppercase text-xl font-normal text-white tracking-tighter hover:text-orange-400 transition-colors">
+          {{ site.first_name }} {{ site.last_name }}
+        </a>
+      </div>
+
+      <!-- Mobile toggle -->
+      <button id="mobile-toggle" class="lg:hidden rounded-lg p-2 hover:bg-white/10 transition-colors">
+        <i data-lucide="menu" class="w-6 h-6 text-white" style="stroke-width: 1.5;"></i>
+      </button>
+
+      <!-- Nav links -->
+      <ul id="nav-links" class="fixed inset-0 z-40 hidden flex-col gap-8 lg:static lg:flex lg:flex-row lg:bg-transparent lg:gap-6 bg-gray-950/95 backdrop-blur-md items-center justify-center">
+        <!-- Close button for mobile -->
+        <li class="lg:hidden absolute top-6 right-6">
+          <button id="mobile-close" class="rounded-lg p-2 hover:bg-white/10 transition-colors">
+            <i data-lucide="x" class="w-6 h-6 text-white" style="stroke-width: 1.5;"></i>
+          </button>
+        </li>
+
+        <li><a href="{{ '/' | relative_url }}" class="hover:text-orange-400 transition-colors duration-200 text-sm font-medium text-gray-300">Home</a></li>
+        {% assign sorted_pages = site.pages | sort: 'nav_order' %}
+        {% for p in sorted_pages %}
+          {% if p.nav and p.autogen == null %}
+            {% assign parent_link = p.permalink | remove: 'index.html' %}
+            {% if p.permalink contains '://' %}
+              {% assign url = p.permalink %}
+            {% elsif p.permalink contains '/blog/' %}
+              {% assign url = '/blog/' %}
+            {% else %}
+              {% assign url = p.url %}
+            {% endif %}
+            <li><a href="{{ url | relative_url }}" class="hover:text-orange-400 transition-colors duration-200 text-sm font-medium text-gray-300">{{ p.title }}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+
+      <!-- Download CV button -->
+      {% if page.cv_pdf %}
+      <a href="{{ page.cv_pdf | prepend: '/assets/pdf/' | relative_url }}" target="_blank" class="hidden lg:inline-flex btn-gradient text-sm font-medium text-white rounded-full py-2.5 px-5 items-center gap-2">
+        <i data-lucide="download" class="w-4 h-4" style="stroke-width: 1.5;"></i>
+        Download CV
+      </a>
+      {% endif %}
+    </nav>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-5xl mx-auto px-4 pb-12 pt-28">
+
+    <!-- Bento Grid Section -->
+    <section class="bg-stone-900 border border-stone-800 rounded-[40px] p-3 md:p-6 shadow-[0_2.8px_2.2px_rgba(0,0,0,0.034),0_6.7px_5.3px_rgba(0,0,0,0.048),0_12.5px_10px_rgba(0,0,0,0.06),0_22.3px_17.9px_rgba(0,0,0,0.072),0_41.8px_33.4px_rgba(0,0,0,0.086),0_100px_80px_rgba(0,0,0,0.12)]">
+      <div class="grid auto-rows-[240px] gap-4 md:auto-rows-[280px] lg:auto-rows-[320px] md:grid-cols-3">
+
+        <!-- Hero Card (2 col, 2 row) -->
+        <article class="bento-card relative col-span-1 row-span-2 overflow-hidden md:col-span-2 rounded-2xl bg-gradient-to-br from-stone-800 via-stone-800 to-stone-900 border border-stone-700">
+          <div class="absolute inset-0 flex flex-col p-6 md:p-8 lg:p-10 justify-between">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h1 class="text-3xl md:text-4xl lg:text-5xl text-white tracking-tight leading-tight">
+                  {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }} —
+                  <span class="text-orange-400">{{ page.subtitle }}</span>
+                </h1>
+              </div>
+              <div class="flex-shrink-0 flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-3 py-1 text-xs font-medium text-white">
+                <div class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                Open to Collaborate
+              </div>
+            </div>
+            <div class="flex items-end justify-between gap-4">
+              <div>
+                <p class="max-w-sm text-stone-400 text-base md:text-lg font-light">
+                  NES Lab (Neuro-Symbolic Computing Lab), University of Georgia — under Dr. John Miller
+                </p>
+                <div class="mt-4 flex items-center gap-4 flex-wrap">
+                  <div class="flex items-center gap-1 text-stone-400">
+                    <i data-lucide="map-pin" class="h-4 w-4" style="stroke-width: 1.5;"></i>
+                    <span class="text-sm font-medium">Athens, Georgia</span>
+                  </div>
+                  <div class="flex items-center gap-1 text-stone-400">
+                    <i data-lucide="calendar" class="h-4 w-4" style="stroke-width: 1.5;"></i>
+                    <span class="text-sm font-medium">PhD Student, 2021–Present</span>
+                  </div>
+                </div>
+              </div>
+              {% if page.profile_image %}
+              <div class="flex-shrink-0 hidden sm:block">
+                <img src="{{ page.profile_image | prepend: '/assets/img/' | relative_url }}" alt="{{ site.first_name }} {{ site.last_name }}" class="h-20 w-20 md:h-24 md:w-24 rounded-full object-cover border-2 border-orange-400/30 shadow-lg">
+              </div>
+              {% endif %}
+            </div>
+          </div>
+        </article>
+
+        <!-- Research Focus Card -->
+        <article class="bento-card flex flex-col overflow-hidden rounded-2xl bg-gradient-to-br from-orange-950/40 to-stone-900 border border-orange-800/30 p-6 justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="text-sm font-medium text-orange-300">Research Focus</span>
+              <a href="{{ '/Ongoing Research/' | relative_url }}" class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200">
+                <i data-lucide="arrow-up-right" class="h-4 w-4 text-white" style="stroke-width: 1.5;"></i>
+              </a>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-white">Generative AI & Forecasting</h3>
+            <p class="text-sm text-orange-200/70 mb-4">Advancing time series prediction through generative models</p>
+          </div>
+          <div class="space-y-2">
+            <div class="flex items-center gap-2 text-sm text-white">
+              <div class="h-1.5 w-1.5 rounded-full bg-orange-400"></div>
+              <span>Time Series Forecasting</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-white">
+              <div class="h-1.5 w-1.5 rounded-full bg-orange-500"></div>
+              <span>Diffusion Models</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-white">
+              <div class="h-1.5 w-1.5 rounded-full bg-red-400"></div>
+              <span>Generative AI</span>
+            </div>
+            <div class="flex items-center gap-2 text-sm text-white">
+              <div class="h-1.5 w-1.5 rounded-full bg-red-500"></div>
+              <span>Interpretability</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Experience Card -->
+        <article class="bento-card relative overflow-hidden rounded-2xl bg-stone-800 border border-stone-700 p-6 flex flex-col justify-between">
+          <div class="flex items-center justify-between">
+            <span class="rounded-full bg-orange-500/20 text-orange-400 px-3 py-1 text-xs font-medium border border-orange-500/30">Experience</span>
+            <a href="{{ '/cv/' | relative_url }}" class="flex h-8 w-8 items-center justify-center rounded-full bg-stone-700 hover:bg-stone-600 transition-all duration-200">
+              <i data-lucide="external-link" class="h-4 w-4 text-white" style="stroke-width: 1.5;"></i>
+            </a>
+          </div>
+          <div>
+            <h3 class="text-xl mb-1 tracking-tight text-white">Graduate TA</h3>
+            <p class="text-sm text-stone-400 mb-1">University of Georgia • 2021–Present</p>
+            <p class="text-sm text-stone-500">8 courses across CS fundamentals & advanced topics</p>
+            <div class="mt-3 border-t border-stone-700 pt-3">
+              <p class="text-sm text-stone-400">Software Developer Intern</p>
+              <p class="text-xs text-stone-500">Orbital Schools • 2018</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Projects/Stats Card -->
+        <article class="bento-card flex flex-col rounded-2xl bg-gradient-to-br from-pink-950/30 to-stone-900 border border-pink-800/20 p-6 justify-between">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-medium text-pink-300">Research Output</span>
+            <a href="{{ '/publications/' | relative_url }}" class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200">
+              <i data-lucide="arrow-up-right" class="h-4 w-4 text-white" style="stroke-width: 1.5;"></i>
+            </a>
+          </div>
+          <div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <span class="text-2xl font-bold text-white">5+</span>
+                <p class="text-xs text-pink-200/60 mt-0.5">Projects</p>
+              </div>
+              <div>
+                <span class="text-2xl font-bold text-white">8</span>
+                <p class="text-xs text-pink-200/60 mt-0.5">TA Positions</p>
+              </div>
+            </div>
+            <div class="flex gap-2 mt-3 items-center">
+              <div class="flex -space-x-2">
+                <div class="h-6 w-6 rounded-full bg-gradient-to-br from-orange-500 to-red-500 border-2 border-pink-400/30"></div>
+                <div class="h-6 w-6 rounded-full bg-gradient-to-br from-red-500 to-pink-500 border-2 border-pink-400/30"></div>
+                <div class="h-6 w-6 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 border-2 border-pink-400/30"></div>
+              </div>
+              <span class="text-xs text-pink-200/60">ML, AI & Software</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- Education Card -->
+        <article class="bento-card flex flex-col rounded-2xl bg-stone-800 border border-stone-700 p-6 justify-between">
+          <div class="flex items-center justify-between">
+            <span class="text-sm font-medium text-stone-400">Education</span>
+            <div class="flex items-center gap-1 text-orange-400">
+              <i data-lucide="graduation-cap" class="h-4 w-4" style="stroke-width: 1.5;"></i>
+            </div>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <p class="text-xs text-stone-500">PhD in Computer Science</p>
+              <span class="text-base text-white font-medium">University of Georgia</span>
+              <p class="text-xs text-stone-500">2021–Present</p>
+            </div>
+            <div>
+              <p class="text-xs text-stone-500">Software Engineering</p>
+              <span class="text-sm text-white font-medium">42 Silicon Valley</span>
+              <p class="text-xs text-stone-500">2019–2020</p>
+            </div>
+            <div>
+              <p class="text-xs text-stone-500">BSc in Computer Science</p>
+              <span class="text-sm text-white font-medium">University of Ilorin</span>
+              <p class="text-xs text-stone-500">2016–2019</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Tools/Skills Card (full width) -->
+        <article class="bento-card flex flex-wrap content-start gap-2 rounded-2xl bg-stone-800 border border-stone-700 p-6 md:col-span-3">
+          <div class="w-full flex items-center justify-between mb-3">
+            <span class="text-sm font-medium text-stone-400">Tools & Skills</span>
+          </div>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">Python</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">PyTorch</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">TensorFlow</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">C/C++</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">Java</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">Machine Learning</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">Deep Learning</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">NLP</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">Computer Vision</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">LLMs</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">Distributed Computing</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">Scalable System Design</span>
+          <div class="w-full flex items-center gap-2 mt-2">
+            <div class="h-2 w-2 rounded-full bg-orange-500"></div>
+            <span class="text-xs text-stone-500">Always exploring new tools & frameworks</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- About Content Section -->
+    <section class="bg-stone-900 border border-stone-800 rounded-[40px] mt-8 p-6 md:p-10 shadow-[0_2.8px_2.2px_rgba(0,0,0,0.034),0_6.7px_5.3px_rgba(0,0,0,0.048),0_12.5px_10px_rgba(0,0,0,0.06),0_22.3px_17.9px_rgba(0,0,0,0.072),0_41.8px_33.4px_rgba(0,0,0,0.086),0_100px_80px_rgba(0,0,0,0.12)]">
+      <div class="prose-bento max-w-none">
+        {{ content }}
+      </div>
+    </section>
+
+    <!-- Selected Publications Section -->
+    {% if page.selected_papers %}
+    <section class="bg-stone-900 border border-stone-800 rounded-[40px] mt-8 p-6 md:p-10 shadow-[0_2.8px_2.2px_rgba(0,0,0,0.034),0_6.7px_5.3px_rgba(0,0,0,0.048),0_12.5px_10px_rgba(0,0,0,0.06),0_22.3px_17.9px_rgba(0,0,0,0.072),0_41.8px_33.4px_rgba(0,0,0,0.086),0_100px_80px_rgba(0,0,0,0.12)]">
+      <h2 class="text-2xl font-bold mb-6 text-white">
+        <a href="{{ '/publications/' | relative_url }}" class="hover:text-orange-400 transition-colors">Selected Publications</a>
+      </h2>
+      {% bibliography --query @*[selected=true] %}
+    </section>
+    {% endif %}
+
+    <!-- Footer -->
+    <footer class="bg-stone-900 border border-stone-800 rounded-[40px] mt-8 p-6 md:p-10 shadow-[0_2.8px_2.2px_rgba(0,0,0,0.034),0_6.7px_5.3px_rgba(0,0,0,0.048),0_12.5px_10px_rgba(0,0,0,0.06),0_22.3px_17.9px_rgba(0,0,0,0.072),0_41.8px_33.4px_rgba(0,0,0,0.086),0_100px_80px_rgba(0,0,0,0.12)]">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-stone-300">
+
+        <!-- Let's Connect -->
+        <div>
+          <h4 class="text-lg font-semibold mb-4 tracking-tight text-white">Let's Connect</h4>
+          <p class="text-sm font-light max-w-xs text-stone-400">Open to research collaborations, speaking opportunities, and academic partnerships.</p>
+          <a href="mailto:{{ site.data.socials.email }}" class="inline-block mt-4 btn-gradient text-white text-sm font-medium rounded-full py-2 px-5">
+            Get in Touch
+          </a>
+          <p class="mt-4 text-xs text-stone-500">&copy; {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}. All rights reserved.</p>
+        </div>
+
+        <!-- Contact -->
+        <div>
+          <h5 class="text-sm font-semibold mb-3 tracking-tight text-white">Contact</h5>
+          <ul class="space-y-2 text-sm font-light text-stone-400">
+            <li><a href="mailto:{{ site.data.socials.email }}" class="hover:text-orange-400 transition-colors duration-200">{{ site.data.socials.email }}</a></li>
+            <li class="hover:text-orange-400 transition-colors duration-200">Athens, Georgia</li>
+            <li class="hover:text-orange-400 transition-colors duration-200">University of Georgia</li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div>
+          <h5 class="text-sm font-semibold mb-3 tracking-tight text-white">Resources</h5>
+          <ul class="space-y-2 text-sm font-light text-stone-400">
+            {% assign sorted_pages = site.pages | sort: 'nav_order' %}
+            {% for p in sorted_pages %}
+              {% if p.nav and p.autogen == null %}
+                {% if p.permalink contains '://' %}
+                  {% assign url = p.permalink %}
+                {% elsif p.permalink contains '/blog/' %}
+                  {% assign url = '/blog/' %}
+                {% else %}
+                  {% assign url = p.url %}
+                {% endif %}
+                <li><a href="{{ url | relative_url }}" class="hover:text-orange-400 transition-colors duration-200">{{ p.title }}</a></li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+
+        <!-- Social -->
+        <div>
+          <h5 class="text-sm font-semibold mb-3 tracking-tight text-white">Social</h5>
+          <div class="flex space-x-4">
+            {% if site.data.socials.linkedin_username %}
+            <a href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username }}" target="_blank" rel="noopener" class="text-stone-500 hover:text-orange-400 transition-all duration-200 hover:scale-110">
+              <i data-lucide="linkedin" class="w-5 h-5" style="stroke-width: 1.5;"></i>
+            </a>
+            {% endif %}
+            {% if site.data.socials.scholar_userid %}
+            <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}" target="_blank" rel="noopener" class="text-stone-500 hover:text-orange-400 transition-all duration-200 hover:scale-110">
+              <i data-lucide="graduation-cap" class="w-5 h-5" style="stroke-width: 1.5;"></i>
+            </a>
+            {% endif %}
+            {% if site.data.socials.medium_username %}
+            <a href="https://medium.com/@{{ site.data.socials.medium_username }}" target="_blank" rel="noopener" class="text-stone-500 hover:text-orange-400 transition-all duration-200 hover:scale-110">
+              <i data-lucide="book-open" class="w-5 h-5" style="stroke-width: 1.5;"></i>
+            </a>
+            {% endif %}
+            {% if site.data.socials.instagram_id %}
+            <a href="https://instagram.com/{{ site.data.socials.instagram_id }}" target="_blank" rel="noopener" class="text-stone-500 hover:text-orange-400 transition-all duration-200 hover:scale-110">
+              <i data-lucide="instagram" class="w-5 h-5" style="stroke-width: 1.5;"></i>
+            </a>
+            {% endif %}
+            {% if site.data.socials.email %}
+            <a href="mailto:{{ site.data.socials.email }}" class="text-stone-500 hover:text-orange-400 transition-all duration-200 hover:scale-110">
+              <i data-lucide="mail" class="w-5 h-5" style="stroke-width: 1.5;"></i>
+            </a>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+
+    // Mobile menu toggle
+    const mobileToggle = document.getElementById('mobile-toggle');
+    const mobileClose = document.getElementById('mobile-close');
+    const navLinks = document.getElementById('nav-links');
+
+    if (mobileToggle) {
+      mobileToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('hidden');
+        navLinks.classList.toggle('flex');
+      });
+    }
+
+    if (mobileClose) {
+      mobileClose.addEventListener('click', () => {
+        navLinks.classList.add('hidden');
+        navLinks.classList.remove('flex');
+      });
+    }
+
+    // Close mobile menu when clicking a link
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        if (window.innerWidth < 1024) {
+          navLinks.classList.add('hidden');
+          navLinks.classList.remove('flex');
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

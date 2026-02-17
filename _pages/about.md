@@ -1,26 +1,12 @@
 ---
-layout: about
+layout: bento
 title: About
 permalink: /
-subtitle: <a href='https://neslabuga.github.io/index.html'>NES Lab</a>. Jane.odum@uga.edu <br><br>Athens Georgia.<br><br> The reasonable man adapts himself to the world; the unreasonable one persists in trying to adapt the world to himself. Therefore, all progress depends on the unreasonable man.
-
-profile:
-  align: right
-  image: odumprofile.jpg
-  image_circular: true # crops the image to make it circular
-
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
-
-announcements:
-  enabled: false # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
-
-latest_posts:
-  enabled: false
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+subtitle: PhD Student in Computer Science
+cv_pdf: MyresumeJane_odum.pdf
+profile_image: odumprofile.jpg
+selected_papers: true
+social: true
 ---
 
 ## Current Position
