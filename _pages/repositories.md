@@ -17,6 +17,7 @@ nav_order: 4
     display: flex;
     align-items: center;
     gap: 1.5rem;
+    flex-wrap: wrap;
   }
   .gh-profile-card img {
     width: 80px;
@@ -49,9 +50,14 @@ nav_order: 4
   }
   .gh-repos-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: 1fr;
     gap: 1rem;
     margin-bottom: 1.5rem;
+  }
+  @media (min-width: 640px) {
+    .gh-repos-grid {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
   }
   .gh-repo-card {
     background: #292524;
@@ -110,6 +116,16 @@ nav_order: 4
     color: #78716c !important;
     font-size: 0.875rem;
     padding: 1rem;
+  }
+  /* Mobile: make contribution chart scrollable */
+  @media (max-width: 639px) {
+    .gh-profile-card img {
+      width: 60px;
+      height: 60px;
+    }
+    .gh-profile-card .gh-stats {
+      gap: 1rem;
+    }
   }
 </style>
 

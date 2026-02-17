@@ -71,7 +71,6 @@
         -webkit-backdrop-filter: blur(12px) !important;
         border: 1px solid rgba(255, 255, 255, 0.2) !important;
         border-radius: 9999px !important;
-        margin: 2rem auto !important;
         padding: 0.75rem 0.5rem !important;
       }
       #bento-nav nav ul {
@@ -98,8 +97,6 @@
       .bento-content-wrapper {
         background: #1c1917;
         border: 1px solid #292524;
-        border-radius: 40px;
-        padding: 1.5rem;
         box-shadow: 0 2.8px 2.2px rgba(0,0,0,0.034),
                     0 6.7px 5.3px rgba(0,0,0,0.048),
                     0 12.5px 10px rgba(0,0,0,0.06),
@@ -307,6 +304,70 @@
       }
       .bento-footer .text-stone-500 { color: #78716c !important; }
       .bento-footer .text-xs { color: #78716c !important; }
+
+      /* Responsive footer grid — fixes the persistent 4-column overflow on mobile */
+      .bento-footer-grid {
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+      @media (min-width: 640px) {
+        .bento-footer-grid {
+          grid-template-columns: 1fr 1fr !important;
+        }
+      }
+      @media (min-width: 1024px) {
+        .bento-footer-grid {
+          grid-template-columns: 1fr 1fr 1fr 1fr !important;
+        }
+      }
+
+      /* Responsive border-radius for content wrapper */
+      .bento-content-wrapper {
+        border-radius: 20px;
+      }
+      @media (min-width: 768px) {
+        .bento-content-wrapper {
+          border-radius: 40px;
+        }
+      }
+
+      /* Responsive footer container */
+      #bento-footer {
+        border-radius: 20px !important;
+        padding: 1.5rem 1rem !important;
+      }
+      @media (min-width: 640px) {
+        #bento-footer {
+          padding: 2rem 1.5rem !important;
+        }
+      }
+      @media (min-width: 768px) {
+        #bento-footer {
+          border-radius: 40px !important;
+          padding: 3rem 1.5rem !important;
+        }
+      }
+
+      /* Responsive nav margin */
+      #bento-nav nav {
+        margin: 1rem 1rem !important;
+      }
+      @media (min-width: 768px) {
+        #bento-nav nav {
+          margin: 2rem auto !important;
+        }
+      }
+
+      /* Responsive content wrapper padding */
+      .bento-content-wrapper {
+        padding: 1rem;
+      }
+      @media (min-width: 640px) {
+        .bento-content-wrapper {
+          padding: 1.5rem;
+        }
+      }
     </style>
   </head>
 
@@ -361,7 +422,7 @@
     </header>
 
     <!-- Main Content Area -->
-    <div class="max-w-7xl lg:px-8 mr-auto ml-auto pr-4 pb-20 pl-4" role="main">
+    <div class="max-w-7xl lg:px-8 mx-auto px-3 sm:px-4 pb-20" role="main">
       <div class="bento-content-wrapper">
         {% if page.toc and page.toc.sidebar %}
           {% if page.toc.sidebar == 'right' %}
@@ -385,8 +446,8 @@
       </div>
 
       <!-- Bento Footer — all inline styles to avoid Bootstrap conflicts -->
-      <div id="bento-footer" style="background: #1c1917; border: 1px solid #292524; border-radius: 40px; overflow: hidden; margin-top: 3rem; padding: 3rem 1.5rem; box-shadow: 0 2.8px 2.2px rgba(0,0,0,0.034), 0 6.7px 5.3px rgba(0,0,0,0.048), 0 12.5px 10px rgba(0,0,0,0.06), 0 22.3px 17.9px rgba(0,0,0,0.072), 0 41.8px 33.4px rgba(0,0,0,0.086), 0 100px 80px rgba(0,0,0,0.12);">
-        <div style="max-width: 80rem; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 2rem;">
+      <div id="bento-footer" style="background: #1c1917; border: 1px solid #292524; overflow: hidden; margin-top: 3rem; box-shadow: 0 2.8px 2.2px rgba(0,0,0,0.034), 0 6.7px 5.3px rgba(0,0,0,0.048), 0 12.5px 10px rgba(0,0,0,0.06), 0 22.3px 17.9px rgba(0,0,0,0.072), 0 41.8px 33.4px rgba(0,0,0,0.086), 0 100px 80px rgba(0,0,0,0.12);">
+        <div class="bento-footer-grid" style="max-width: 80rem; margin: 0 auto;">
 
           <!-- Let's Connect -->
           <div>
