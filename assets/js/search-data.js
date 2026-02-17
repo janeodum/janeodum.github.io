@@ -492,7 +492,7 @@ ninja.data = [{
         title: 'LinkedIn',
         section: 'Socials',
         handler: () => {
-          window.open("https://www.linkedin.com/in/janeodum", "_blank");
+          window.open("https://www.linkedin.com/in/jane-odum-a7b4ba127", "_blank");
         },
       },{
         id: 'social-medium',
