@@ -46,7 +46,7 @@
       background: rgba(255, 255, 255, 0.1);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     /* Gradient button */
@@ -58,6 +58,9 @@
     .btn-gradient:hover {
       transform: scale(1.05);
       box-shadow: 0 0 20px rgba(249, 115, 22, 0.7);
+    }
+    .btn-gradient .btn-glow-inner {
+      box-shadow: inset 0 3px 12px rgba(251, 146, 60, 0.9), inset 0 -3px 4px rgba(254, 215, 170, 0.8);
     }
 
     /* Skill pill hover */
@@ -150,33 +153,32 @@
   <div class="fixed top-0 w-full h-screen bg-cover bg-center -z-10" style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/99416125-6e8b-4404-9969-e774855c5494_3840w.jpg');"></div>
 
   <!-- Navigation -->
-  <header class="fixed top-0 left-0 right-0 z-50 px-4 pt-6">
-    <nav class="flex max-w-5xl mx-auto glass rounded-full px-3 py-3 items-center justify-between">
-      <div class="flex items-center pl-3">
-        <a href="{{ '/' | relative_url }}" class="uppercase text-xl font-normal text-white tracking-tighter hover:text-orange-400 transition-colors">
+  <header class="bg-transparent">
+    <nav class="flex max-w-7xl lg:px-8 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] bg-white/10 border-white/20 border rounded-full mt-8 mr-auto mb-8 ml-auto pt-3 pr-2 pb-3 pl-2 backdrop-blur-md items-center justify-between">
+      <div class="flex items-center space-x-3 pl-4">
+        <a href="{{ '/' | relative_url }}" class="uppercase text-xl font-normal text-gray-900 tracking-tighter hover:text-orange-600 transition-colors whitespace-nowrap">
           {{ site.first_name }} {{ site.last_name }}
         </a>
       </div>
 
       <!-- Mobile toggle -->
-      <button id="mobile-toggle" class="lg:hidden rounded-lg p-2 hover:bg-white/10 transition-colors">
-        <i data-lucide="menu" class="w-6 h-6 text-white" style="stroke-width: 1.5;"></i>
+      <button id="mobile-toggle" class="lg:hidden rounded-lg p-2 hover:bg-black/10 transition-colors">
+        <i data-lucide="menu" class="w-6 h-6 text-gray-900" style="stroke-width: 1.5;"></i>
       </button>
 
       <!-- Nav links -->
-      <ul id="nav-links" class="fixed inset-0 z-40 hidden flex-col gap-8 lg:static lg:flex lg:flex-row lg:bg-transparent lg:gap-6 bg-gray-950/95 backdrop-blur-md items-center justify-center">
+      <ul id="nav-links" class="fixed inset-0 z-40 hidden flex-col gap-8 lg:static lg:flex lg:flex-row lg:bg-transparent lg:gap-8 bg-white/95 backdrop-blur-md items-center justify-center">
         <!-- Close button for mobile -->
         <li class="lg:hidden absolute top-6 right-6">
-          <button id="mobile-close" class="rounded-lg p-2 hover:bg-white/10 transition-colors">
-            <i data-lucide="x" class="w-6 h-6 text-white" style="stroke-width: 1.5;"></i>
+          <button id="mobile-close" class="rounded-lg p-2 hover:bg-black/10 transition-colors">
+            <i data-lucide="x" class="w-6 h-6 text-gray-900" style="stroke-width: 1.5;"></i>
           </button>
         </li>
 
-        <li><a href="{{ '/' | relative_url }}" class="hover:text-orange-400 transition-colors duration-200 text-sm font-medium text-gray-300">Home</a></li>
+        <li><a href="{{ '/' | relative_url }}" class="hover:text-orange-600 transition-colors duration-200 text-base font-medium text-gray-900 whitespace-nowrap">Home</a></li>
         {% assign sorted_pages = site.pages | sort: 'nav_order' %}
         {% for p in sorted_pages %}
           {% if p.nav and p.autogen == null %}
-            {% assign parent_link = p.permalink | remove: 'index.html' %}
             {% if p.permalink contains '://' %}
               {% assign url = p.permalink %}
             {% elsif p.permalink contains '/blog/' %}
@@ -184,40 +186,41 @@
             {% else %}
               {% assign url = p.url %}
             {% endif %}
-            <li><a href="{{ url | relative_url }}" class="hover:text-orange-400 transition-colors duration-200 text-sm font-medium text-gray-300">{{ p.title }}</a></li>
+            <li><a href="{{ url | relative_url }}" class="hover:text-orange-600 transition-colors duration-200 text-base font-medium text-gray-900 whitespace-nowrap">{{ p.title }}</a></li>
           {% endif %}
         {% endfor %}
       </ul>
 
       <!-- Download CV button -->
       {% if page.cv_pdf %}
-      <a href="{{ page.cv_pdf | prepend: '/assets/pdf/' | relative_url }}" target="_blank" class="hidden lg:inline-flex btn-gradient text-sm font-medium text-white rounded-full py-2.5 px-5 items-center gap-2">
-        <i data-lucide="download" class="w-4 h-4" style="stroke-width: 1.5;"></i>
-        Download CV
+      <a href="{{ page.cv_pdf | prepend: '/assets/pdf/' | relative_url }}" target="_blank" class="relative cursor-pointer overflow-hidden transition-all duration-200 hover:scale-105 text-sm font-medium text-white rounded-full pt-3 pr-6 pb-3 pl-6 shadow-lg btn-gradient whitespace-nowrap hidden lg:inline-flex items-center gap-2">
+        <div class="absolute inset-0 rounded-full pointer-events-none z-10 btn-glow-inner"></div>
+        <i data-lucide="download" class="w-4 h-4 relative z-10" style="stroke-width: 1.5;"></i>
+        <span class="relative z-10">Download CV</span>
       </a>
       {% endif %}
     </nav>
   </header>
 
   <!-- Main Container -->
-  <main class="max-w-5xl mx-auto px-4 pb-12 pt-28">
+  <main class="max-w-7xl lg:px-8 mr-auto ml-auto pr-4 pb-20 pl-4">
 
     <!-- Bento Grid Section -->
-    <section class="bg-stone-900 border border-stone-800 rounded-[40px] p-3 md:p-6 shadow-[0_2.8px_2.2px_rgba(0,0,0,0.034),0_6.7px_5.3px_rgba(0,0,0,0.048),0_12.5px_10px_rgba(0,0,0,0.06),0_22.3px_17.9px_rgba(0,0,0,0.072),0_41.8px_33.4px_rgba(0,0,0,0.086),0_100px_80px_rgba(0,0,0,0.12)]">
-      <div class="grid auto-rows-[240px] gap-4 md:auto-rows-[280px] lg:auto-rows-[320px] md:grid-cols-3">
+    <section class="md:p-8 bg-stone-900 border-stone-800 border rounded-[40px] pt-4 pr-4 pb-4 pl-2 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
+      <div class="grid auto-rows-[240px] gap-4 md:auto-rows-[300px] lg:auto-rows-[360px] md:grid-cols-3">
 
         <!-- Hero Card (2 col, 2 row) — profile image as full background -->
-        <article class="bento-card relative col-span-1 row-span-2 overflow-hidden md:col-span-2 group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-cover bg-center rounded-2xl" style="background-image: url('{{ page.profile_image | prepend: '/assets/img/' | relative_url }}');">
+        <article class="bento-card relative col-span-1 row-span-2 overflow-hidden md:col-span-2 group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 bg-cover bg-center rounded-2xl" style="background-image: url('{{ '/assets/img/JaneodumStrip.JPEG' | relative_url }}');">
           <!-- Dark overlay for text readability -->
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/30 rounded-2xl"></div>
-          <div class="absolute inset-0 flex flex-col p-6 md:p-8 lg:p-10 justify-between">
+          <div class="absolute inset-0 flex flex-col p-6 md:p-10 justify-between">
             <div class="flex items-start justify-between gap-4">
               <h1 class="max-w-sm leading-tight text-3xl md:text-4xl lg:text-5xl text-white tracking-tight">
                 {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }} —
                 <span class="text-orange-400 transition-colors duration-300">{{ page.subtitle }}</span>
               </h1>
               <div class="flex-shrink-0 flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-3 py-1 text-xs font-medium text-white">
-                <div class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></div>
+                <div class="h-2 w-2 rounded-full bg-pink-400"></div>
                 Open to Collaborate
               </div>
             </div>
@@ -248,13 +251,13 @@
         <article class="bento-card flex flex-col overflow-hidden rounded-2xl bg-gradient-to-br from-orange-950/40 to-stone-900 border border-orange-800/30 p-6 justify-between">
           <div>
             <div class="flex items-center justify-between mb-4">
-              <span class="text-sm font-medium text-orange-300">Research Focus</span>
+              <span class="text-sm font-medium text-red-300">Research Focus</span>
               <a href="{{ '/Ongoing Research/' | relative_url }}" class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200">
                 <i data-lucide="arrow-up-right" class="h-4 w-4 text-white" style="stroke-width: 1.5;"></i>
               </a>
             </div>
             <h3 class="text-xl font-semibold mb-2 text-white">Generative AI & Forecasting</h3>
-            <p class="text-sm text-orange-200/70 mb-4">Advancing time series prediction through generative models</p>
+            <p class="text-sm text-red-200 mb-4">Advancing time series prediction through generative models</p>
           </div>
           <div class="space-y-2">
             <div class="flex items-center gap-2 text-sm text-white">
@@ -262,7 +265,7 @@
               <span>Time Series Forecasting</span>
             </div>
             <div class="flex items-center gap-2 text-sm text-white">
-              <div class="h-1.5 w-1.5 rounded-full bg-orange-500"></div>
+              <div class="h-1.5 w-1.5 rounded-full bg-red-400"></div>
               <span>Diffusion Models</span>
             </div>
             <div class="flex items-center gap-2 text-sm text-white">
@@ -270,14 +273,14 @@
               <span>Generative AI</span>
             </div>
             <div class="flex items-center gap-2 text-sm text-white">
-              <div class="h-1.5 w-1.5 rounded-full bg-red-500"></div>
+              <div class="h-1.5 w-1.5 rounded-full bg-orange-400"></div>
               <span>Interpretability</span>
             </div>
           </div>
         </article>
 
         <!-- Experience Card -->
-        <article class="bento-card relative overflow-hidden rounded-2xl bg-stone-800 border border-stone-700 p-6 flex flex-col justify-between">
+        <article class="bento-card relative overflow-hidden rounded-2xl bg-stone-800 border border-stone-700 p-6 flex flex-col justify-between hover:border-orange-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
           <div class="flex items-center justify-between">
             <span class="rounded-full bg-orange-500/20 text-orange-400 px-3 py-1 text-xs font-medium border border-orange-500/30">Experience</span>
             <a href="{{ '/cv/' | relative_url }}" class="flex h-8 w-8 items-center justify-center rounded-full bg-stone-700 hover:bg-stone-600 transition-all duration-200">
@@ -285,93 +288,66 @@
             </a>
           </div>
           <div>
-            <h3 class="text-xl mb-1 tracking-tight text-white">Graduate TA</h3>
+            <h3 class="text-2xl mb-2 tracking-tight text-white">Graduate TA</h3>
             <p class="text-sm text-stone-400 mb-1">University of Georgia • 2021–Present</p>
-            <p class="text-sm text-stone-500">8 courses across CS fundamentals & advanced topics</p>
-            <div class="mt-3 border-t border-stone-700 pt-3">
-              <p class="text-sm text-stone-400">Software Developer Intern</p>
-              <p class="text-xs text-stone-500">Orbital Schools • 2018</p>
-            </div>
+            <p class="text-sm text-stone-400">8 courses across CS fundamentals & advanced topics</p>
           </div>
         </article>
 
         <!-- Projects/Stats Card -->
-        <article class="bento-card flex flex-col rounded-2xl bg-gradient-to-br from-pink-950/30 to-stone-900 border border-pink-800/20 p-6 justify-between">
+        <article class="bento-card flex flex-col rounded-2xl bg-gradient-to-br from-pink-950/30 to-stone-900 border border-pink-800/20 p-6 justify-between hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
           <div class="flex items-center justify-between">
             <span class="text-sm font-medium text-pink-300">Research Output</span>
-            <a href="{{ '/publications/' | relative_url }}" class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200">
+            <a href="{{ '/publications/' | relative_url }}" class="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 backdrop-blur hover:bg-white/30 transition-all duration-200">
               <i data-lucide="arrow-up-right" class="h-4 w-4 text-white" style="stroke-width: 1.5;"></i>
             </a>
           </div>
-          <div>
-            <div class="grid grid-cols-2 gap-3">
-              <div>
-                <span class="text-2xl font-bold text-white">5+</span>
-                <p class="text-xs text-pink-200/60 mt-0.5">Projects</p>
-              </div>
-              <div>
-                <span class="text-2xl font-bold text-white">8</span>
-                <p class="text-xs text-pink-200/60 mt-0.5">TA Positions</p>
-              </div>
-            </div>
+          <div class="mt-4">
+            <p class="text-sm text-pink-200 mb-2">Projects completed</p>
+            <span class="text-3xl font-semibold text-white">5+</span>
             <div class="flex gap-2 mt-3 items-center">
               <div class="flex -space-x-2">
                 <div class="h-6 w-6 rounded-full bg-gradient-to-br from-orange-500 to-red-500 border-2 border-pink-400/30"></div>
                 <div class="h-6 w-6 rounded-full bg-gradient-to-br from-red-500 to-pink-500 border-2 border-pink-400/30"></div>
                 <div class="h-6 w-6 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 border-2 border-pink-400/30"></div>
               </div>
-              <span class="text-xs text-pink-200/60">ML, AI & Software</span>
+              <span class="text-xs text-pink-200">ML, AI & Software</span>
             </div>
           </div>
         </article>
 
         <!-- Education Card -->
-        <article class="bento-card flex flex-col rounded-2xl bg-stone-800 border border-stone-700 p-6 justify-between">
+        <article class="bento-card flex flex-col rounded-2xl bg-stone-800 border border-stone-700 p-6 justify-between hover:border-orange-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
           <div class="flex items-center justify-between">
             <span class="text-sm font-medium text-stone-400">Education</span>
             <div class="flex items-center gap-1 text-orange-400">
               <i data-lucide="graduation-cap" class="h-4 w-4" style="stroke-width: 1.5;"></i>
+              <span class="text-xs font-medium">2021</span>
             </div>
           </div>
-          <div class="space-y-3">
-            <div>
-              <p class="text-xs text-stone-500">PhD in Computer Science</p>
-              <span class="text-base text-white font-medium">University of Georgia</span>
-              <p class="text-xs text-stone-500">2021–Present</p>
-            </div>
-            <div>
-              <p class="text-xs text-stone-500">Software Engineering</p>
-              <span class="text-sm text-white font-medium">42 Silicon Valley</span>
-              <p class="text-xs text-stone-500">2019–2020</p>
-            </div>
-            <div>
-              <p class="text-xs text-stone-500">BSc in Computer Science</p>
-              <span class="text-sm text-white font-medium">University of Ilorin</span>
-              <p class="text-xs text-stone-500">2016–2019</p>
-            </div>
+          <div class="mt-4">
+            <p class="text-sm text-stone-400 mb-2">PhD in Computer Science</p>
+            <span class="text-xl text-white font-medium">University of Georgia</span>
+            <p class="text-xs text-stone-500 mt-1">Generative AI & Time Series Forecasting</p>
           </div>
         </article>
 
-        <!-- Tools/Skills Card (full width) -->
-        <article class="bento-card flex flex-wrap content-start gap-2 rounded-2xl bg-stone-800 border border-stone-700 p-6 md:col-span-3">
-          <div class="w-full flex items-center justify-between mb-3">
-            <span class="text-sm font-medium text-stone-400">Tools & Skills</span>
+        <!-- Tools/Skills Card (own card, not spanning) -->
+        <article class="bento-card flex flex-wrap content-start gap-2 rounded-2xl bg-stone-800 border border-stone-700 p-6 hover:border-stone-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+          <div class="w-full flex items-center justify-between mb-4">
+            <span class="text-sm font-medium text-stone-400">Tools & Software</span>
           </div>
-          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">Python</span>
-          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">PyTorch</span>
-          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">TensorFlow</span>
-          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">C/C++</span>
-          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">Java</span>
-          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">Machine Learning</span>
-          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">Deep Learning</span>
-          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">NLP</span>
-          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">Computer Vision</span>
-          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">LLMs</span>
-          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">Distributed Computing</span>
-          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-default">Scalable System Design</span>
-          <div class="w-full flex items-center gap-2 mt-2">
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-pointer">Python</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-pointer">PyTorch</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-pointer">TensorFlow</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-pointer">C/C++</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-pointer">Java</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-pointer">Deep Learning</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-pointer">NLP</span>
+          <span class="skill-pill rounded-full bg-stone-700 border border-stone-600 px-3 py-1.5 text-sm font-medium text-stone-300 cursor-pointer">LLMs</span>
+          <div class="flex items-center gap-2 mt-2">
             <div class="h-2 w-2 rounded-full bg-orange-500"></div>
-            <span class="text-xs text-stone-500">Always exploring new tools & frameworks</span>
+            <span class="text-xs text-stone-500">Always exploring new tools</span>
           </div>
         </article>
 
@@ -396,16 +372,13 @@
     {% endif %}
 
     <!-- Footer -->
-    <footer class="bg-stone-900 border border-stone-800 rounded-[40px] mt-8 p-6 md:p-10 shadow-[0_2.8px_2.2px_rgba(0,0,0,0.034),0_6.7px_5.3px_rgba(0,0,0,0.048),0_12.5px_10px_rgba(0,0,0,0.06),0_22.3px_17.9px_rgba(0,0,0,0.072),0_41.8px_33.4px_rgba(0,0,0,0.086),0_100px_80px_rgba(0,0,0,0.12)]">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8 text-stone-300">
+    <footer class="md:px-12 bg-stone-900 border-stone-800 rounded-[40px] border-t mt-12 pt-12 pr-6 pb-12 pl-6 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
+      <div class="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-8 text-stone-300">
 
         <!-- Let's Connect -->
         <div>
           <h4 class="text-lg font-semibold mb-4 tracking-tight text-white">Let's Connect</h4>
           <p class="text-sm font-light max-w-xs text-stone-400">Open to research collaborations, speaking opportunities, and academic partnerships.</p>
-          <a href="mailto:{{ site.data.socials.email }}" class="inline-block mt-4 btn-gradient text-white text-sm font-medium rounded-full py-2 px-5">
-            Get in Touch
-          </a>
           <p class="mt-4 text-xs text-stone-500">&copy; {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}. All rights reserved.</p>
         </div>
 

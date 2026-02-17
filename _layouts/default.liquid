@@ -34,7 +34,7 @@
         background: rgba(255, 255, 255, 0.1);
         backdrop-filter: blur(12px);
         -webkit-backdrop-filter: blur(12px);
-        border: 1px solid rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.2);
       }
 
       /* Gradient button */
@@ -76,7 +76,34 @@
                     0 100px 80px rgba(0,0,0,0.12);
       }
       @media (min-width: 768px) {
-        .bento-content-wrapper { padding: 2.5rem; }
+        .bento-content-wrapper { padding: 2.5rem 3rem; }
+      }
+
+      /* Better content line width & spacing */
+      .bento-content-wrapper .post-content,
+      .bento-content-wrapper article {
+        max-width: 100%;
+      }
+      .bento-content-wrapper article p {
+        line-height: 1.8 !important;
+        margin-bottom: 1rem !important;
+      }
+      .bento-content-wrapper article li {
+        line-height: 1.7 !important;
+        margin-bottom: 0.5rem !important;
+      }
+      .bento-content-wrapper article h2,
+      .bento-content-wrapper article h3,
+      .bento-content-wrapper article h4 {
+        margin-top: 2rem !important;
+        margin-bottom: 0.75rem !important;
+      }
+      .bento-content-wrapper article blockquote {
+        margin-top: 1rem !important;
+        margin-bottom: 1rem !important;
+      }
+      .bento-content-wrapper article hr {
+        margin: 1.5rem 0 !important;
       }
 
       /* ---- Dark theme overrides for al-folio content ---- */
@@ -182,7 +209,7 @@
       }
 
       /* Override Bootstrap container */
-      .container.mt-5 { max-width: 64rem; margin-top: 0 !important; }
+      .container.mt-5 { max-width: 80rem; margin-top: 0 !important; }
 
       /* Ninja keys search */
       ninja-keys { --ninja-accent-color: #f97316; --ninja-z-index: 100; }
@@ -201,25 +228,25 @@
     {% include header.liquid %}
 
     <!-- Bento Navigation -->
-    <header class="fixed top-0 left-0 right-0 z-50 px-4 pt-6" id="bento-nav">
-      <nav class="flex max-w-5xl mx-auto glass-nav rounded-full px-3 py-3 items-center justify-between">
-        <div class="flex items-center pl-3">
-          <a href="{{ '/' | relative_url }}" class="uppercase text-xl font-normal tracking-tighter" style="color: white !important;">
+    <header class="bg-transparent" id="bento-nav">
+      <nav class="flex max-w-7xl lg:px-8 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)] glass-nav rounded-full mt-8 mr-auto mb-8 ml-auto pt-3 pr-2 pb-3 pl-2 items-center justify-between">
+        <div class="flex items-center space-x-3 pl-4">
+          <a href="{{ '/' | relative_url }}" class="uppercase text-xl font-normal text-gray-900 tracking-tighter hover:text-orange-600 transition-colors whitespace-nowrap" style="text-shadow: none;">
             {{ site.first_name }} {{ site.last_name }}
           </a>
         </div>
 
-        <button id="bento-mobile-toggle" class="lg:hidden rounded-lg p-2 hover:bg-white/10 transition-colors">
-          <i data-lucide="menu" class="w-6 h-6 text-white" style="stroke-width: 1.5;"></i>
+        <button id="bento-mobile-toggle" class="lg:hidden rounded-lg p-2 hover:bg-black/10 transition-colors">
+          <i data-lucide="menu" class="w-6 h-6 text-gray-900" style="stroke-width: 1.5;"></i>
         </button>
 
-        <ul id="bento-nav-links" class="fixed inset-0 z-40 hidden flex-col gap-8 lg:static lg:flex lg:flex-row lg:bg-transparent lg:gap-6 bg-gray-950/95 backdrop-blur-md items-center justify-center">
+        <ul id="bento-nav-links" class="fixed inset-0 z-40 hidden flex-col gap-8 lg:static lg:flex lg:flex-row lg:bg-transparent lg:gap-8 bg-white/95 backdrop-blur-md items-center justify-center">
           <li class="lg:hidden absolute top-6 right-6">
-            <button id="bento-mobile-close" class="rounded-lg p-2 hover:bg-white/10 transition-colors">
-              <i data-lucide="x" class="w-6 h-6 text-white" style="stroke-width: 1.5;"></i>
+            <button id="bento-mobile-close" class="rounded-lg p-2 hover:bg-black/10 transition-colors">
+              <i data-lucide="x" class="w-6 h-6 text-gray-900" style="stroke-width: 1.5;"></i>
             </button>
           </li>
-          <li><a href="{{ '/' | relative_url }}" class="hover:text-orange-400 transition-colors duration-200 text-sm font-medium" style="color: #d1d5db !important;">Home</a></li>
+          <li><a href="{{ '/' | relative_url }}" class="hover:text-orange-600 transition-colors duration-200 text-base font-medium text-gray-900 whitespace-nowrap" style="text-shadow: none;">Home</a></li>
           {% assign sorted_pages = site.pages | sort: 'nav_order' %}
           {% for p in sorted_pages %}
             {% if p.nav and p.autogen == null %}
@@ -230,12 +257,12 @@
               {% else %}
                 {% assign url = p.url %}
               {% endif %}
-              <li><a href="{{ url | relative_url }}" class="hover:text-orange-400 transition-colors duration-200 text-sm font-medium" style="color: #d1d5db !important;">{{ p.title }}</a></li>
+              <li><a href="{{ url | relative_url }}" class="hover:text-orange-600 transition-colors duration-200 text-base font-medium text-gray-900 whitespace-nowrap" style="text-shadow: none;">{{ p.title }}</a></li>
             {% endif %}
           {% endfor %}
         </ul>
 
-        <a href="{{ 'MyresumeJane_odum.pdf' | prepend: '/assets/pdf/' | relative_url }}" target="_blank" class="hidden lg:inline-flex btn-gradient text-sm font-medium rounded-full py-2.5 px-5 items-center gap-2" style="color: white !important;">
+        <a href="{{ 'MyresumeJane_odum.pdf' | prepend: '/assets/pdf/' | relative_url }}" target="_blank" class="hidden lg:inline-flex btn-gradient text-sm font-medium rounded-full py-3 px-6 items-center gap-2 whitespace-nowrap" style="color: white !important; text-shadow: none;">
           <i data-lucide="download" class="w-4 h-4" style="stroke-width: 1.5;"></i>
           Download CV
         </a>
@@ -243,7 +270,7 @@
     </header>
 
     <!-- Main Content Area -->
-    <div class="max-w-5xl mx-auto px-4 pb-12 pt-28" role="main">
+    <div class="max-w-7xl lg:px-8 mr-auto ml-auto pr-4 pb-20 pl-4" role="main">
       <div class="bento-content-wrapper">
         {% if page.toc and page.toc.sidebar %}
           {% if page.toc.sidebar == 'right' %}
@@ -267,14 +294,11 @@
       </div>
 
       <!-- Bento Footer -->
-      <div class="bento-footer mt-8" style="background: #1c1917; border: 1px solid #292524; border-radius: 40px; padding: 2rem; box-shadow: 0 2.8px 2.2px rgba(0,0,0,0.034), 0 6.7px 5.3px rgba(0,0,0,0.048), 0 12.5px 10px rgba(0,0,0,0.06), 0 22.3px 17.9px rgba(0,0,0,0.072), 0 41.8px 33.4px rgba(0,0,0,0.086), 0 100px 80px rgba(0,0,0,0.12);">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8" style="padding: 0.5rem;">
+      <div class="bento-footer md:px-12 mt-12" style="background: #1c1917; border: 1px solid #292524; border-radius: 40px; padding: 3rem 1.5rem; box-shadow: 0 2.8px 2.2px rgba(0,0,0,0.034), 0 6.7px 5.3px rgba(0,0,0,0.048), 0 12.5px 10px rgba(0,0,0,0.06), 0 22.3px 17.9px rgba(0,0,0,0.072), 0 41.8px 33.4px rgba(0,0,0,0.086), 0 100px 80px rgba(0,0,0,0.12);">
+        <div class="mx-auto max-w-7xl grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h4 style="color: #ffffff !important; font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.025em; text-shadow: none;">Let's Connect</h4>
             <p style="color: #a8a29e !important; font-size: 0.875rem; font-weight: 300; max-width: 20rem; text-shadow: none;">Open to research collaborations, speaking opportunities, and academic partnerships.</p>
-            <a href="mailto:{{ site.data.socials.email }}" class="btn-gradient" style="display: inline-block; margin-top: 1rem; color: white !important; font-size: 0.875rem; font-weight: 500; border-radius: 9999px; padding: 0.5rem 1.25rem; text-decoration: none;">
-              Get in Touch
-            </a>
             <p style="margin-top: 1rem; font-size: 0.75rem; color: #78716c !important; text-shadow: none;">&copy; {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}. All rights reserved.</p>
           </div>
           <div>
@@ -307,27 +331,27 @@
             <h5 style="color: #ffffff !important; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.75rem; letter-spacing: -0.025em; text-shadow: none;">Social</h5>
             <div style="display: flex; gap: 1rem;">
               {% if site.data.socials.linkedin_username %}
-              <a href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username }}" target="_blank" rel="noopener" style="color: #78716c !important;">
+              <a href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username }}" target="_blank" rel="noopener" style="color: #78716c !important; text-shadow: none;">
                 <i data-lucide="linkedin" class="w-5 h-5" style="stroke-width: 1.5;"></i>
               </a>
               {% endif %}
               {% if site.data.socials.scholar_userid %}
-              <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}" target="_blank" rel="noopener" style="color: #78716c !important;">
+              <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}" target="_blank" rel="noopener" style="color: #78716c !important; text-shadow: none;">
                 <i data-lucide="graduation-cap" class="w-5 h-5" style="stroke-width: 1.5;"></i>
               </a>
               {% endif %}
               {% if site.data.socials.medium_username %}
-              <a href="https://medium.com/@{{ site.data.socials.medium_username }}" target="_blank" rel="noopener" style="color: #78716c !important;">
+              <a href="https://medium.com/@{{ site.data.socials.medium_username }}" target="_blank" rel="noopener" style="color: #78716c !important; text-shadow: none;">
                 <i data-lucide="book-open" class="w-5 h-5" style="stroke-width: 1.5;"></i>
               </a>
               {% endif %}
               {% if site.data.socials.instagram_id %}
-              <a href="https://instagram.com/{{ site.data.socials.instagram_id }}" target="_blank" rel="noopener" style="color: #78716c !important;">
+              <a href="https://instagram.com/{{ site.data.socials.instagram_id }}" target="_blank" rel="noopener" style="color: #78716c !important; text-shadow: none;">
                 <i data-lucide="instagram" class="w-5 h-5" style="stroke-width: 1.5;"></i>
               </a>
               {% endif %}
               {% if site.data.socials.email %}
-              <a href="mailto:{{ site.data.socials.email }}" style="color: #78716c !important;">
+              <a href="mailto:{{ site.data.socials.email }}" style="color: #78716c !important; text-shadow: none;">
                 <i data-lucide="mail" class="w-5 h-5" style="stroke-width: 1.5;"></i>
               </a>
               {% endif %}
