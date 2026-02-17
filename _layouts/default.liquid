@@ -59,6 +59,7 @@
       progress#progress { display: none !important; }
       footer.sticky-bottom,
       footer.fixed-bottom { display: none !important; }
+      footer.bento-footer { display: block !important; }
 
       /* Force bento nav styling over Bootstrap */
       #bento-nav nav {
@@ -267,8 +268,34 @@
       /* Ninja keys search */
       ninja-keys { --ninja-accent-color: #f97316; --ninja-z-index: 100; }
 
-      /* Footer link hovers */
+      /* Force bento footer styling over Bootstrap */
+      .bento-footer {
+        background: #1c1917 !important;
+        border: 1px solid #292524 !important;
+        border-radius: 40px !important;
+        color: #d6d3d1 !important;
+      }
+      .bento-footer h4, .bento-footer h5 {
+        color: #ffffff !important;
+        text-shadow: none !important;
+      }
+      .bento-footer p, .bento-footer li {
+        color: #a8a29e !important;
+        text-shadow: none !important;
+      }
+      .bento-footer a {
+        color: #a8a29e !important;
+        text-decoration: none !important;
+        text-shadow: none !important;
+      }
       .bento-footer a:hover { color: #fb923c !important; }
+      .bento-footer ul {
+        list-style: none !important;
+        padding-left: 0 !important;
+        margin: 0 !important;
+      }
+      .bento-footer .text-stone-500 { color: #78716c !important; }
+      .bento-footer .text-xs { color: #78716c !important; }
     </style>
   </head>
 
@@ -346,25 +373,31 @@
         {% endif %}
       </div>
 
-      <!-- Bento Footer -->
-      <div class="bento-footer mt-12 overflow-hidden py-12 px-6 md:px-12" style="background: #1c1917; border: 1px solid #292524; border-radius: 40px; box-shadow: 0 2.8px 2.2px rgba(0,0,0,0.034), 0 6.7px 5.3px rgba(0,0,0,0.048), 0 12.5px 10px rgba(0,0,0,0.06), 0 22.3px 17.9px rgba(0,0,0,0.072), 0 41.8px 33.4px rgba(0,0,0,0.086), 0 100px 80px rgba(0,0,0,0.12);">
-        <div class="mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <!-- Bento Footer (identical to homepage) -->
+      <footer class="bento-footer overflow-hidden bg-stone-900 border-stone-800 rounded-[40px] border-t mt-12 py-12 px-6 md:px-12 shadow-[0_2.8px_2.2px_rgba(0,_0,_0,_0.034),_0_6.7px_5.3px_rgba(0,_0,_0,_0.048),_0_12.5px_10px_rgba(0,_0,_0,_0.06),_0_22.3px_17.9px_rgba(0,_0,_0,_0.072),_0_41.8px_33.4px_rgba(0,_0,_0,_0.086),_0_100px_80px_rgba(0,_0,_0,_0.12)]">
+        <div class="mx-auto max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-stone-300">
+
+          <!-- Let's Connect -->
           <div>
-            <h4 style="color: #ffffff !important; font-size: 1.125rem; font-weight: 600; margin-bottom: 1rem; letter-spacing: -0.025em; text-shadow: none;">Let's Connect</h4>
-            <p style="color: #a8a29e !important; font-size: 0.875rem; font-weight: 300; max-width: 20rem; text-shadow: none;">Open to research collaborations, speaking opportunities, and academic partnerships.</p>
-            <p style="margin-top: 1rem; font-size: 0.75rem; color: #78716c !important; text-shadow: none;">&copy; {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}. All rights reserved.</p>
+            <h4 class="text-lg font-semibold mb-4 tracking-tight text-white">Let's Connect</h4>
+            <p class="text-sm font-light max-w-xs text-stone-400">Open to research collaborations, speaking opportunities, and academic partnerships.</p>
+            <p class="mt-4 text-xs text-stone-500">&copy; {{ site.time | date: '%Y' }} {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}. All rights reserved.</p>
           </div>
+
+          <!-- Contact -->
           <div>
-            <h5 style="color: #ffffff !important; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.75rem; letter-spacing: -0.025em; text-shadow: none;">Contact</h5>
-            <ul style="list-style: none; padding: 0; margin: 0;">
-              <li style="margin-bottom: 0.5rem;"><a href="mailto:{{ site.data.socials.email }}" style="color: #a8a29e !important; font-size: 0.875rem; font-weight: 300; text-shadow: none;">{{ site.data.socials.email }}</a></li>
-              <li style="color: #a8a29e !important; font-size: 0.875rem; font-weight: 300; margin-bottom: 0.5rem; text-shadow: none;">Athens, Georgia</li>
-              <li style="color: #a8a29e !important; font-size: 0.875rem; font-weight: 300; text-shadow: none;">University of Georgia</li>
+            <h5 class="text-sm font-semibold mb-3 tracking-tight text-white">Contact</h5>
+            <ul class="space-y-2 text-sm font-light text-stone-400">
+              <li><a href="mailto:{{ site.data.socials.email }}" class="hover:text-orange-400 transition-colors duration-200">{{ site.data.socials.email }}</a></li>
+              <li>Athens, Georgia</li>
+              <li>University of Georgia</li>
             </ul>
           </div>
+
+          <!-- Resources -->
           <div>
-            <h5 style="color: #ffffff !important; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.75rem; letter-spacing: -0.025em; text-shadow: none;">Resources</h5>
-            <ul style="list-style: none; padding: 0; margin: 0;">
+            <h5 class="text-sm font-semibold mb-3 tracking-tight text-white">Resources</h5>
+            <ul class="space-y-2 text-sm font-light text-stone-400">
               {% assign sorted_pages = site.pages | sort: 'nav_order' %}
               {% for p in sorted_pages %}
                 {% if p.nav and p.autogen == null %}
@@ -375,43 +408,46 @@
                   {% else %}
                     {% assign url = p.url %}
                   {% endif %}
-                  <li style="margin-bottom: 0.5rem;"><a href="{{ url | relative_url }}" style="color: #a8a29e !important; font-size: 0.875rem; font-weight: 300; text-shadow: none;">{{ p.title }}</a></li>
+                  <li><a href="{{ url | relative_url }}" class="hover:text-orange-400 transition-colors duration-200">{{ p.title }}</a></li>
                 {% endif %}
               {% endfor %}
             </ul>
           </div>
+
+          <!-- Social -->
           <div>
-            <h5 style="color: #ffffff !important; font-size: 0.875rem; font-weight: 600; margin-bottom: 0.75rem; letter-spacing: -0.025em; text-shadow: none;">Social</h5>
-            <div style="display: flex; gap: 1rem;">
+            <h5 class="text-sm font-semibold mb-3 tracking-tight text-white">Social</h5>
+            <div class="flex space-x-4">
               {% if site.data.socials.linkedin_username %}
-              <a href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username }}" target="_blank" rel="noopener" style="color: #78716c !important; text-shadow: none;">
+              <a href="https://www.linkedin.com/in/{{ site.data.socials.linkedin_username }}" target="_blank" rel="noopener" class="text-stone-500 hover:text-orange-400 transition-all duration-200 hover:scale-110">
                 <i data-lucide="linkedin" class="w-5 h-5" style="stroke-width: 1.5;"></i>
               </a>
               {% endif %}
               {% if site.data.socials.scholar_userid %}
-              <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}" target="_blank" rel="noopener" style="color: #78716c !important; text-shadow: none;">
+              <a href="https://scholar.google.com/citations?user={{ site.data.socials.scholar_userid }}" target="_blank" rel="noopener" class="text-stone-500 hover:text-orange-400 transition-all duration-200 hover:scale-110">
                 <i data-lucide="graduation-cap" class="w-5 h-5" style="stroke-width: 1.5;"></i>
               </a>
               {% endif %}
               {% if site.data.socials.medium_username %}
-              <a href="https://medium.com/@{{ site.data.socials.medium_username }}" target="_blank" rel="noopener" style="color: #78716c !important; text-shadow: none;">
+              <a href="https://medium.com/@{{ site.data.socials.medium_username }}" target="_blank" rel="noopener" class="text-stone-500 hover:text-orange-400 transition-all duration-200 hover:scale-110">
                 <i data-lucide="book-open" class="w-5 h-5" style="stroke-width: 1.5;"></i>
               </a>
               {% endif %}
               {% if site.data.socials.instagram_id %}
-              <a href="https://instagram.com/{{ site.data.socials.instagram_id }}" target="_blank" rel="noopener" style="color: #78716c !important; text-shadow: none;">
+              <a href="https://instagram.com/{{ site.data.socials.instagram_id }}" target="_blank" rel="noopener" class="text-stone-500 hover:text-orange-400 transition-all duration-200 hover:scale-110">
                 <i data-lucide="instagram" class="w-5 h-5" style="stroke-width: 1.5;"></i>
               </a>
               {% endif %}
               {% if site.data.socials.email %}
-              <a href="mailto:{{ site.data.socials.email }}" style="color: #78716c !important; text-shadow: none;">
+              <a href="mailto:{{ site.data.socials.email }}" class="text-stone-500 hover:text-orange-400 transition-all duration-200 hover:scale-110">
                 <i data-lucide="mail" class="w-5 h-5" style="stroke-width: 1.5;"></i>
               </a>
               {% endif %}
             </div>
           </div>
+
         </div>
-      </div>
+      </footer>
     </div>
 
     <!-- Hidden al-folio footer (needed for structure, hidden by CSS) -->
