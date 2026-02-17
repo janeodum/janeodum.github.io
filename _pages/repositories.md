@@ -51,16 +51,9 @@ nav_order: 4
 ## Contribution Activity
 
 {% for user in site.data.repositories.github_users %}
-<div class="text-center mb-4">
+<div style="text-align: center; margin-bottom: 1.5rem; background: #292524; border: 1px solid #44403c; border-radius: 12px; padding: 1.5rem;">
   <a href="https://github.com/{{ user }}">
-    <img class="only-dark w-100" alt="{{ user }} streak stats" src="https://github-readme-streak-stats.herokuapp.com/?user={{ user }}&theme=dark&hide_border=true&background=1c1917&ring=f97316&fire=f97316&currStreakLabel=f97316&sideLabels=d6d3d1&dates=78716c&currStreakNum=ffffff&sideNums=ffffff" style="border-radius: 12px; border: 1px solid #44403c; max-width: 100%;">
-    <img class="only-light w-100" alt="{{ user }} streak stats" src="https://github-readme-streak-stats.herokuapp.com/?user={{ user }}&theme=dark&hide_border=true&background=1c1917&ring=f97316&fire=f97316&currStreakLabel=f97316&sideLabels=d6d3d1&dates=78716c&currStreakNum=ffffff&sideNums=ffffff" style="border-radius: 12px; border: 1px solid #44403c; max-width: 100%;">
-  </a>
-</div>
-<div class="text-center mb-4">
-  <a href="https://github.com/{{ user }}">
-    <img class="only-dark w-100" alt="{{ user }} activity graph" src="https://github-readme-activity-graph.vercel.app/graph?username={{ user }}&theme=react-dark&bg_color=1c1917&color=d6d3d1&line=f97316&point=fb923c&area_color=f97316&area=true&hide_border=true" style="border-radius: 12px; border: 1px solid #44403c; max-width: 100%;">
-    <img class="only-light w-100" alt="{{ user }} activity graph" src="https://github-readme-activity-graph.vercel.app/graph?username={{ user }}&theme=react-dark&bg_color=1c1917&color=d6d3d1&line=f97316&point=fb923c&area_color=f97316&area=true&hide_border=true" style="border-radius: 12px; border: 1px solid #44403c; max-width: 100%;">
+    <img alt="{{ user }} GitHub contributions" src="https://ghchart.rshah.org/f97316/{{ user }}" style="width: 100%; max-width: 100%; border-radius: 8px;">
   </a>
 </div>
 {% endfor %}
