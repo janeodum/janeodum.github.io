@@ -1,22 +1,39 @@
 ---
 layout: page
-title: Prev Research
+title: Projects
 permalink: /projects/
-description: A growing collection of my Previous research and projects.
+description: Research and applied projects spanning AI, ML, and software engineering.
 nav: true
 nav_order: 1
 display_categories: [Previous Research, fun]
 horizontal: false
 ---
-## Adaptive Quantile Guidance in Diffusion Models: Multi-Task Learning for Pandemic Time Series Forecasting  
 
-### Background
-  
-The COVID-19 pandemic, alongside seasonal epidemics like influenza and RSV, shows the critical need for accurate and uncertainty-aware time series forecasting to guide public health responses. While large-scale epidemiological data (e.g., CDC-reported cases, hospitalizations) offers opportunities to model disease dynamics, existing approaches face significant challenges. Conventional statistical methods (e.g., ARIMA) struggle with non-stationary patterns and sparse observations, while deep learning methods (e.g., transformers, recurrent networks) often produce miscalibrated uncertainty estimates. Diffusion models, though promising for probabilistic forecasting, still remains data-inefficient when trained on single domains and lack mechanisms to dynamically adjust prediction intervals during volatility shifts. There are two key gaps: (1) **cross-domain generalization**—models trained on one disease (e.g., COVID-19) fail to leverage shared temporal patterns from related domains (e.g., influenza); and (2) **rigid uncertainty calibration**—fixed quantiles in diffusion models lead to overconfident or underprepared forecasts during outbreak surges.  
+## EpiCast — Multi-Modal AI Epidemiological Surveillance System
+*AI-powered disease surveillance for underserved regions.* **In Development**
 
-### Solution
+EpiCast is a multi-modal AI epidemiological surveillance system designed for West Africa, addressing the critical gap in real-time disease monitoring in low-resource settings. It combines large language models (MedGemma) for multilingual syndromic report extraction with audio AI models (Google HeAR) for cough-based respiratory illness detection, deployed on RunPod serverless GPU infrastructure.
 
-This paper introduces *Adaptive Quantile Diffusion (AQDiff)*, a diffusion-based framework for pandemic forecasting that addresses these gaps through two strategies: **(1)** *multi-task pre-training* across heterogeneous epidemiological datasets (COVID-19, ILI, RSV) to learn shared temporal dynamics, and **(2)** *adaptive quantile guidance* that dynamically adjusts prediction intervals using real-time residual feedback. The pre-training phase trains a single diffusion model on multiple disease datasets, enabling knowledge transfer to improve data efficiency. During fine-tuning, the model employs an exponential-weighted buffer of recent forecast errors to iteratively refine quantile levels, this ensures calibrated uncertainty estimates. For example, if recent predictions underestimate actual cases (residuals skew positive), the system automatically increases quantile targets to produce more conservative forecasts.  
+---
+
+## OmniAsset — Consolidated Asset Tracking App
+*All your assets. One dashboard.* **Shipyard Creator Contest**
+
+OmniAsset is a React Native mobile application that gives users a unified view of all their financial and physical assets in one place. It aggregates data across accounts, investments, and holdings to provide real-time consolidated net worth tracking, trend analysis, and asset breakdowns.
+
+---
+
+## Omnia — AI-Powered Animated Love Story Generator
+*Turn your love story into an animated film.* **Completed**
+
+Omnia is an AI-powered application that transforms couples' personal love stories into animated short films. Users input relationship details and Omnia generates a personalized animated narrative using Stable Diffusion for image generation and AnimateDiff for video animation, delivered through a full-stack client-server architecture.
+
+---
+
+## Pincel (Diagramify) — Research Paper to Architecture Diagram Converter
+*From dense research to clear architecture — instantly.* **Completed**
+
+Pincel is an AI tool that reads academic research papers and automatically converts the described model architectures, pipelines, and system designs into clean, structured architecture diagrams. Built for researchers and engineers who need to quickly understand or present complex AI/ML systems without manually redrawing them.
 
 ---
 
