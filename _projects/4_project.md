@@ -1,19 +1,24 @@
 ---
 layout: page
-title: "OmniAssets"
-description: "Digital asset management and portfolio analytics platform"
+title: "OmniAsset"
+description: "Consolidated asset tracking app — all your assets, one dashboard"
 img: "assets/img/3.jpg"
-importance: 4
+importance: 2
 category: fun
 related_publications: false
 ---
 
-## About OmniAssets
+**All your assets. One dashboard.**
 
-**OmniAssets** is a comprehensive digital asset management and portfolio analytics platform. It uses machine learning models to provide real-time asset tracking, risk assessment, and portfolio optimization recommendations for institutional and individual investors.
+OmniAsset is a React Native mobile application that gives users a unified view of all their financial and physical assets in one place. It aggregates data across accounts, investments, and holdings to provide real-time consolidated net worth tracking, trend analysis, and asset breakdowns — eliminating the need to check multiple platforms separately.
+
+**Status:** Completed — Shipyard Creator Contest
+
+**Tech Stack:** React Native, Financial Data APIs, Mobile-first UI/UX Design
 
 ### Key Features
 
-- **Real-Time Tracking**: Live asset monitoring with ML-powered anomaly detection
-- **Risk Assessment**: Quantitative risk modeling using historical data and predictive analytics
-- **Portfolio Optimization**: Automated diversification recommendations based on clustering and optimization algorithms
+- Multi-account and multi-asset class aggregation
+- Real-time net worth dashboard
+- Asset breakdown and trend visualization
+- Cross-platform mobile support (iOS & Android)

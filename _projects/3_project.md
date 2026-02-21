@@ -1,19 +1,24 @@
 ---
 layout: page
-title: "Omnnia"
-description: "AI-powered multi-modal platform for unified content understanding"
+title: "Omnia"
+description: "AI-powered animated love story generator"
 img: "assets/img/1.jpg"
 importance: 3
-category: Previous Research
+category: fun
 related_publications: false
 ---
 
-## About Omnnia
+**Turn your love story into an animated film.**
 
-**Omnnia** is an AI-powered multi-modal platform that unifies text, image, and audio understanding into a single inference pipeline. Designed for scalable deployment, Omnnia leverages transformer architectures and cross-modal attention mechanisms to enable seamless content generation and analysis across data modalities.
+Omnia is an AI-powered application that transforms couples' personal love stories into animated short films. Users input details about their relationship — how they met, key memories, milestones — and Omnia generates a personalized animated narrative using generative AI. The system integrates Stable Diffusion for image generation and AnimateDiff for video animation, delivered through a full-stack client-server architecture.
+
+**Status:** Completed
+
+**Tech Stack:** Python, React, Stable Diffusion WebUI, AnimateDiff, REST APIs, CUDA-accelerated inference
 
 ### Key Features
 
-- **Cross-Modal Attention**: Unified transformer pipeline that processes text, image, and audio inputs simultaneously
-- **Scalable Deployment**: Designed for production-ready inference with efficient batching and model serving
-- **Content Generation**: Multi-modal output generation from mixed input signals
+- Personalized story input and narrative generation
+- AI-generated character visuals and scene composition
+- Animated video output from static image sequences
+- End-to-end pipeline from text prompt to animated film

@@ -182,25 +182,30 @@
   ],
   "projects": [
     {
-      "name": "Omnnia",
-      "summary": "An AI-powered multi-modal platform that unifies text, image, and audio understanding into a single inference pipeline. Designed for scalable deployment, Omnnia leverages transformer architectures and cross-modal attention mechanisms to enable seamless content generation and analysis across data modalities.",
-      "highlights": ["Multi-Modal AI", "Transformers", "Scalable Systems"]
+      "name": "EpiCast",
+      "summary": "A multi-modal AI epidemiological surveillance system designed for West Africa, addressing real-time disease monitoring in low-resource settings. Combines MedGemma for multilingual syndromic report extraction with Google HeAR for cough-based respiratory illness detection, deployed on RunPod serverless GPU infrastructure.",
+      "highlights": ["MedGemma", "Google HeAR", "FastAPI", "RunPod Serverless", "In Development"]
+    },
+    {
+      "name": "OmniAsset",
+      "summary": "A React Native mobile application providing a unified view of all financial and physical assets. Aggregates data across accounts, investments, and holdings for real-time consolidated net worth tracking, trend analysis, and asset breakdowns.",
+      "highlights": ["React Native", "Financial APIs", "Mobile App", "Shipyard Creator Contest"]
+    },
+    {
+      "name": "Omnia",
+      "summary": "An AI-powered application that transforms couples' personal love stories into animated short films. Users input relationship details and Omnia generates a personalized animated narrative using Stable Diffusion for image generation and AnimateDiff for video animation.",
+      "highlights": ["Stable Diffusion", "AnimateDiff", "React", "CUDA", "Completed"]
+    },
+    {
+      "name": "Pincel (Diagramify)",
+      "summary": "An AI tool that reads academic research papers and automatically converts described model architectures, pipelines, and system designs into clean, structured architecture diagrams. Built for researchers and engineers who need to quickly understand or present complex AI/ML systems.",
+      "highlights": ["NLP/LLM", "Mermaid/Graphviz", "React", "Completed"]
     },
     {
       "name": "Factor-Social",
-      "summary": "Factor is a university social platform built to help students connect and integrate into campus life. It creates a central, university-branded hub where students can discover clubs, form groups, find events, and interact with classmates and campus resources.",
+      "summary": "A university social platform built to help students connect and integrate into campus life. Creates a central, university-branded hub where students can discover clubs, form groups, find events, and interact with classmates and campus resources.",
       "highlights": ["Social Platform", "Flutter", "Mobile App"],
       "url": "https://apps.apple.com/us/app/factor-social/id6736873377"
-    },
-    {
-      "name": "OmniAssets",
-      "summary": "A comprehensive digital asset management and portfolio analytics platform. OmniAssets uses machine learning models to provide real-time asset tracking, risk assessment, and portfolio optimization recommendations for institutional and individual investors.",
-      "highlights": ["Asset Management", "ML Analytics", "Portfolio Optimization"]
-    },
-    {
-      "name": "EpiCast",
-      "summary": "An epidemiological forecasting system that combines diffusion models with real-time public health data streams to predict disease outbreaks. EpiCast provides calibrated uncertainty estimates and adaptive forecast horizons for pandemic preparedness and response planning.",
-      "highlights": ["Epidemiology", "Time Series Forecasting", "Diffusion Models"]
     },
     {
       "name": "Prompt Fusion in Stable Diffusion",
