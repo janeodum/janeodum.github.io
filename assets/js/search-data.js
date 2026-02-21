@@ -473,21 +473,26 @@ ninja.data = [{
           description: "A social platform for university students",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_project/";
-            },},{id: "projects-omnnia",
-          title: 'Omnnia',
-          description: "AI-powered multi-modal platform for unified content understanding",
+            },},{id: "projects-omnia",
+          title: 'Omnia',
+          description: "AI-powered animated love story generator",
           section: "Projects",handler: () => {
               window.location.href = "/projects/3_project/";
-            },},{id: "projects-omniassets",
-          title: 'OmniAssets',
-          description: "Digital asset management and portfolio analytics platform",
+            },},{id: "projects-omniasset",
+          title: 'OmniAsset',
+          description: "Consolidated asset tracking app — all your assets, one dashboard",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_project/";
             },},{id: "projects-epicast",
           title: 'EpiCast',
-          description: "Epidemiological forecasting with diffusion models",
+          description: "Multi-modal AI epidemiological surveillance system for West Africa",
           section: "Projects",handler: () => {
               window.location.href = "/projects/5_project/";
+            },},{id: "projects-pincel-diagramify",
+          title: 'Pincel (Diagramify)',
+          description: "Research paper to architecture diagram converter",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/6_project/";
             },},{
         id: 'social-email',
         title: 'email',
