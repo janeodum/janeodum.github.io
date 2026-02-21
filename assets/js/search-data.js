@@ -480,7 +480,7 @@ ninja.data = [{
               window.location.href = "/projects/3_project/";
             },},{id: "projects-omniasset",
           title: 'OmniAsset',
-          description: "Consolidated asset tracking app — all your assets, one dashboard",
+          description: "AI-driven consolidated asset tracking platform",
           section: "Projects",handler: () => {
               window.location.href = "/projects/4_project/";
             },},{id: "projects-epicast",
