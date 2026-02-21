@@ -473,6 +473,21 @@ ninja.data = [{
           description: "A social platform for university students",
           section: "Projects",handler: () => {
               window.location.href = "/projects/2_project/";
+            },},{id: "projects-omnnia",
+          title: 'Omnnia',
+          description: "AI-powered multi-modal platform for unified content understanding",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/3_project/";
+            },},{id: "projects-omniassets",
+          title: 'OmniAssets',
+          description: "Digital asset management and portfolio analytics platform",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/4_project/";
+            },},{id: "projects-epicast",
+          title: 'EpiCast',
+          description: "Epidemiological forecasting with diffusion models",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/5_project/";
             },},{
         id: 'social-email',
         title: 'email',
