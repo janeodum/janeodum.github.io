@@ -8,18 +8,14 @@ category: Previous Research
 related_publications: false
 ---
 
-**AI-powered disease surveillance for underserved regions.**
+**Multi-Modal AI Epidemiological Surveillance System**
 
-EpiCast is a multi-modal AI epidemiological surveillance system designed for West Africa, addressing the critical gap in real-time disease monitoring in low-resource settings. It combines large language models for multilingual syndromic report extraction and generation with audio AI models for cough-based respiratory illness detection. The system is built for scalability on serverless GPU infrastructure and is designed to support public health decision-making.
+Built a mobile-first disease surveillance platform for West Africa (ECOWAS) combining fine-tuned medical LLMs with audio AI for syndromic monitoring and cough-based respiratory illness detection.
 
-**Status:** In Development
+Fine-tuned and quantized MedGemma 4B to GGUF format for on-device inference, enabling a complete offline AI stack on mobile devices with sub-second response times and zero cloud dependency.
 
-**Tech Stack:** MedGemma (multilingual medical LLM), Google HeAR (cough audio analysis), RunPod Serverless, Python, FastAPI
+Integrated MedGemma SigLIP for clinical image triage, HeAR audio models for cough classification, and a multilingual NLP pipeline trained on 3,400+ corpus-grounded examples across French, Hausa, and Yoruba.
 
-### Key Features
+Designed a 4-tab mobile interface (Dashboard, Intake, Alerts, Reports) with real-time syndromic heatmaps and automated situation report generation using MedGemma 27B.
 
-- Multilingual syndromic extraction from health reports in local West African languages
-- AI-generated structured epidemiological summaries
-- Cough audio analysis for early respiratory illness detection
-- Deployed on serverless GPU infrastructure for cost-efficient scalability
-- Designed for integration with public health surveillance pipelines
+**Tech Stack:** MedGemma 4B/27B, MedGemma SigLIP, Google HeAR, FastAPI, RunPod Serverless, Python

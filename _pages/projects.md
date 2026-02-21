@@ -10,30 +10,26 @@ horizontal: false
 ---
 
 ## EpiCast — Multi-Modal AI Epidemiological Surveillance System
-*AI-powered disease surveillance for underserved regions.* **In Development**
 
-EpiCast is a multi-modal AI epidemiological surveillance system designed for West Africa, addressing the critical gap in real-time disease monitoring in low-resource settings. It combines large language models (MedGemma) for multilingual syndromic report extraction with audio AI models (Google HeAR) for cough-based respiratory illness detection, deployed on RunPod serverless GPU infrastructure.
+Built a mobile-first disease surveillance platform for West Africa (ECOWAS) combining fine-tuned medical LLMs with audio AI for syndromic monitoring and cough-based respiratory illness detection. Integrates MedGemma SigLIP for clinical image triage, HeAR audio models for cough classification, and a multilingual NLP pipeline trained on 3,400+ corpus-grounded examples across French, Hausa, and Yoruba.
 
 ---
 
-## OmniAsset — Consolidated Asset Tracking App
-*All your assets. One dashboard.* **Shipyard Creator Contest**
+## OmniAsset — AI-Driven Consolidated Asset Tracking Platform
 
-OmniAsset is a React Native mobile application that gives users a unified view of all their financial and physical assets in one place. It aggregates data across accounts, investments, and holdings to provide real-time consolidated net worth tracking, trend analysis, and asset breakdowns.
+Built a React Native mobile app that tracks six asset classes (stocks, crypto, real estate, vehicles, precious metals, cash) with live market pricing, unified net worth calculation, and AI-powered portfolio risk analysis. Integrates a financial LLM agent for personalized portfolio critique and a FIRE calculator with interactive wealth projections.
 
 ---
 
 ## Omnia — AI-Powered Animated Love Story Generator
-*Turn your love story into an animated film.* **Completed**
 
-Omnia is an AI-powered application that transforms couples' personal love stories into animated short films. Users input relationship details and Omnia generates a personalized animated narrative using Stable Diffusion for image generation and AnimateDiff for video animation, delivered through a full-stack client-server architecture.
+Engineered a full-stack generative AI pipeline that transforms couples' narratives into personalized animated short films using multi-modal LLMs for story understanding, scene decomposition, and character-consistent image generation. Features a two-stage architecture with LLM-driven scene synthesis and image-to-video animation.
 
 ---
 
 ## Pincel (Diagramify) — Research Paper to Architecture Diagram Converter
-*From dense research to clear architecture — instantly.* **Completed**
 
-Pincel is an AI tool that reads academic research papers and automatically converts the described model architectures, pipelines, and system designs into clean, structured architecture diagrams. Built for researchers and engineers who need to quickly understand or present complex AI/ML systems without manually redrawing them.
+Developed an AI-powered tool that automatically generates publication-quality architecture diagrams from research papers and codebases, reducing manual diagram creation time from 4-8 hours to minutes. Designed for academic workflows with support for NeurIPS, ICML, and ICLR diagram styles.
 
 ---
 

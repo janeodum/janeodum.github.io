@@ -1,24 +1,19 @@
 ---
 layout: page
 title: "OmniAsset"
-description: "Consolidated asset tracking app — all your assets, one dashboard"
+description: "AI-driven consolidated asset tracking platform"
 img: "assets/img/3.jpg"
 importance: 2
 category: fun
 related_publications: false
 ---
 
-**All your assets. One dashboard.**
+**AI-Driven Consolidated Asset Tracking Platform**
 
-OmniAsset is a React Native mobile application that gives users a unified view of all their financial and physical assets in one place. It aggregates data across accounts, investments, and holdings to provide real-time consolidated net worth tracking, trend analysis, and asset breakdowns — eliminating the need to check multiple platforms separately.
+Built a React Native mobile app that tracks six asset classes (stocks, crypto, real estate, vehicles, precious metals, cash) with live market pricing, unified net worth calculation, and AI-powered portfolio risk analysis.
 
-**Status:** Completed — Shipyard Creator Contest
+Integrated a financial LLM agent that performs personalized portfolio critique, buy/sell signal generation, and diversification analysis based on the user's actual holdings and cash flow data.
 
-**Tech Stack:** React Native, Financial Data APIs, Mobile-first UI/UX Design
+Implemented a FIRE calculator with interactive wealth projections, a financial health scoring engine, and a secure document vault with automated insurance coverage gap detection.
 
-### Key Features
-
-- Multi-account and multi-asset class aggregation
-- Real-time net worth dashboard
-- Asset breakdown and trend visualization
-- Cross-platform mobile support (iOS & Android)
+**Tech Stack:** React Native, Financial Data APIs, LLM Agent, Mobile-first UI/UX Design

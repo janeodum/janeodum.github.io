@@ -8,17 +8,12 @@ category: fun
 related_publications: false
 ---
 
-**Turn your love story into an animated film.**
+**AI-Powered Animated Love Story Generator**
 
-Omnia is an AI-powered application that transforms couples' personal love stories into animated short films. Users input details about their relationship — how they met, key memories, milestones — and Omnia generates a personalized animated narrative using generative AI. The system integrates Stable Diffusion for image generation and AnimateDiff for video animation, delivered through a full-stack client-server architecture.
+Engineered a full-stack generative AI pipeline that transforms couples' narratives into personalized animated short films using multi-modal large language models for story understanding, scene decomposition, and character-consistent image generation.
 
-**Status:** Completed
+Implemented a two-stage generation architecture: LLM-driven scene image synthesis with persistent character grounding from reference photos, followed by image-to-video animation with cinematic motion and camera control.
 
-**Tech Stack:** Python, React, Stable Diffusion WebUI, AnimateDiff, REST APIs, CUDA-accelerated inference
+Built a React frontend with conversational story input flow and a Node.js/Express backend orchestrating model inference, video assembly, and cloud storage via Cloudflare R2.
 
-### Key Features
-
-- Personalized story input and narrative generation
-- AI-generated character visuals and scene composition
-- Animated video output from static image sequences
-- End-to-end pipeline from text prompt to animated film
+**Tech Stack:** Python, React, Node.js/Express, Stable Diffusion, AnimateDiff, Cloudflare R2, CUDA

@@ -3,9 +3,9 @@
     "name": "Jane Odum",
     "label": "PhD Student",
     "image": "",
-    "email": "jane.odum@uga.edu",
+    "email": "janeodum41@gmail.com",
     "url": "https://janeodum.github.io",
-    "summary": "With over four years of experience in the tech industry, I am a passionate and versatile software engineer and researcher, pursuing a PhD in Computer Science at The University of Georgia. My main focus is on the intersection of computer vision and natural language processing, where I aim to develop multimodal machine learning models that can understand and generate content from different data types, such as text, images, audio, and video. \n As a teaching assistant at UGA, I mentor and assist undergraduate students in various computer science courses, such as algorithm analysis, data structures, and programming languages. As a software engineer cadet at 42 Silicon Valley, I work on challenging and innovative projects, such as building a web application with Java and Spring Boot, or designing a robot-human collaboration system with ROS and TensorFlow. I have also acquired multiple skills and certifications in web development, application security, and problem solving, as well as recognition for my leadership and diversity efforts in the tech community",
+    "summary": "Computer Science Ph.D. candidate at the University of Georgia, focusing on advancing time series forecasting through generative models, machine learning, and deep learning techniques. Experienced ML Engineer with industry experience at Stripe building large-scale ML systems for fraud detection.",
     "location": {
       "city": "Athens",
       "countryCode": "US",
@@ -35,7 +35,7 @@
     },
     {
       "name": "Orbital Schools",
-      "position": "Software Developer(Intern)",
+      "position": "Software Developer (Intern)",
       "startDate": "2018-05-08",
       "endDate": "2018-08-31",
       "summary": "• Spearheaded the development of dynamic websites utilizing the LAMP stack, enhancing client digital presence with Linux, PHP 5, CSS, and MySQL.\n• Executed seamless integration of payment processing capabilities by embedding PayStack and other APIs into Orbital Schools' web platform."
@@ -47,16 +47,16 @@
       "location": "Ilorin, Nigeria",
       "position": "Google Developer Student Lead",
       "startDate": "2018-07-01",
-      "endDate": "2019-07-01",
+      "endDate": "2019-08-01",
       "summary": "As a Google Developer Student Lead, guided 300+ students across 11 African countries in web and mobile development, focusing on local challenges."
     },
     {
-      "organization": "UNITED AMBASSADORS (MUN). NEW YORK at Model United Nations,",
+      "organization": "UNITED AMBASSADORS (MUN) at Model United Nations",
       "location": "New York, USA",
       "position": "Model United Nations Ambassador",
       "startDate": "2018-08-15",
       "endDate": "2018-08-30",
-      "summary": "• Represented the US as a UN Ambassador, advocating for global peace and spearheading immigrant and refugee rights discussions among 55 internationalambassadors"
+      "summary": "• Represented the US as a UN Ambassador, advocating for global peace and spearheading immigrant and refugee rights discussions among 55 international ambassadors."
     }
   ],
   "education": [
@@ -67,27 +67,26 @@
       "studyType": "PhD",
       "summary": "Research Interest: Time Series Forecasting, Generative AI, NLP, Content understanding using large Language models and multi-modal machine learning",
       "startDate": "2021-01-09",
-      "endDate": "2026-05-01",
+      "endDate": "2026-12-01",
       "courses": [
-        "Machine Learning, Algorithms, Software engineering, Data mining,Trustworthy Machine Learning, Databases, Advanced Robotics, Human-Computer Interaction and Advanced Representation Learning"
+        "Machine Learning, Algorithms, Software Engineering, Data Mining, Trustworthy Machine Learning, Databases, Advanced Robotics, Human-Computer Interaction and Advanced Representation Learning"
       ]
     },
     {
       "institution": "42 Silicon Valley",
-      "location": "California, USA",
-      "area": "Software engineering",
+      "location": "Fremont, USA",
+      "area": "Software Engineering",
       "studyType": "",
-      "startDate": "2019-12-02",
-      "endDate": "2020-10-20",
-      "courses": ["Machine Learning, Algorithms"]
+      "startDate": "2019-12-01",
+      "endDate": "2020-12-01"
     },
     {
       "institution": "University of Ilorin",
-      "location": "Kwara, Nigeria",
+      "location": "Ilorin, Nigeria",
       "area": "Computer Science",
       "studyType": "BSc",
-      "startDate": "2016-10-23",
-      "endDate": "2019-10-23"
+      "startDate": "2016-10-01",
+      "endDate": "2019-10-01"
     }
   ],
   "publications": [
@@ -105,22 +104,22 @@
       "icon": "fa-solid fa-hashtag"
     },
     {
-      "name": "Scalable System Design",
+      "name": "Scalable System Design & Distributed Computing",
       "level": "Master",
       "icon": "fa-solid fa-hashtag"
     },
     {
-      "name": "Distributed Computing",
+      "name": "Natural Language Processing & Computer Vision",
       "level": "Master",
       "icon": "fa-solid fa-hashtag"
     },
     {
-      "name": "Computer Vision",
+      "name": "Generative AI & Diffusion Models",
       "level": "Master",
       "icon": "fa-solid fa-hashtag"
     },
     {
-      "name": "Natural Language Processing",
+      "name": "Time Series Forecasting",
       "level": "Master",
       "icon": "fa-solid fa-hashtag"
     },
@@ -140,12 +139,12 @@
       "icon": "fa-solid fa-hashtag"
     },
     {
-      "name": "Tensor flow",
+      "name": "TensorFlow",
       "level": "Master",
       "icon": "fa-solid fa-hashtag"
     },
     {
-      "name": "pyTorch",
+      "name": "PyTorch",
       "level": "Master",
       "icon": "fa-solid fa-hashtag"
     },
@@ -167,39 +166,26 @@
       "icon": ""
     }
   ],
-
-  "references": [
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-laptop",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-    },
-    {
-      "name": "Professor John Doe",
-      "icon": "fa-solid fa-thumbtack",
-      "reference": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam condimentum, diam quis convallis euismod, arcu mi ullamcorper lorem, a vestibulum nunc magna at sem. Sed in risus ac felis varius blandit. D"
-    }
-  ],
   "projects": [
     {
       "name": "EpiCast",
-      "summary": "A multi-modal AI epidemiological surveillance system designed for West Africa, addressing real-time disease monitoring in low-resource settings. Combines MedGemma for multilingual syndromic report extraction with Google HeAR for cough-based respiratory illness detection, deployed on RunPod serverless GPU infrastructure.",
-      "highlights": ["MedGemma", "Google HeAR", "FastAPI", "RunPod Serverless", "In Development"]
-    },
-    {
-      "name": "OmniAsset",
-      "summary": "A React Native mobile application providing a unified view of all financial and physical assets. Aggregates data across accounts, investments, and holdings for real-time consolidated net worth tracking, trend analysis, and asset breakdowns.",
-      "highlights": ["React Native", "Financial APIs", "Mobile App", "Shipyard Creator Contest"]
+      "summary": "Built a mobile-first disease surveillance platform for West Africa (ECOWAS) combining fine-tuned medical LLMs with audio AI for syndromic monitoring and cough-based respiratory illness detection. Fine-tuned and quantized MedGemma 4B to GGUF format for on-device inference. Integrated MedGemma SigLIP for clinical image triage, HeAR audio models for cough classification, and a multilingual NLP pipeline trained on 3,400+ corpus-grounded examples across French, Hausa, and Yoruba.",
+      "highlights": ["MedGemma 4B/27B", "MedGemma SigLIP", "Google HeAR", "FastAPI", "RunPod Serverless"]
     },
     {
       "name": "Omnia",
-      "summary": "An AI-powered application that transforms couples' personal love stories into animated short films. Users input relationship details and Omnia generates a personalized animated narrative using Stable Diffusion for image generation and AnimateDiff for video animation.",
-      "highlights": ["Stable Diffusion", "AnimateDiff", "React", "CUDA", "Completed"]
+      "summary": "Engineered a full-stack generative AI pipeline that transforms couples' narratives into personalized animated short films using multi-modal large language models for story understanding, scene decomposition, and character-consistent image generation. Implemented a two-stage generation architecture with LLM-driven scene synthesis and image-to-video animation.",
+      "highlights": ["Stable Diffusion", "AnimateDiff", "React", "Node.js/Express", "Cloudflare R2"]
     },
     {
       "name": "Pincel (Diagramify)",
-      "summary": "An AI tool that reads academic research papers and automatically converts described model architectures, pipelines, and system designs into clean, structured architecture diagrams. Built for researchers and engineers who need to quickly understand or present complex AI/ML systems.",
-      "highlights": ["NLP/LLM", "Mermaid/Graphviz", "React", "Completed"]
+      "summary": "Developed an AI-powered tool that automatically generates publication-quality architecture diagrams from research papers and codebases, reducing manual diagram creation time from 4-8 hours to minutes. Built a two-stage pipeline with PDF parsing and TikZ/SVG diagram generation trained on ML conference papers.",
+      "highlights": ["NLP/LLM", "TikZ/SVG", "React", "NeurIPS/ICML/ICLR styles"]
+    },
+    {
+      "name": "OmniAsset",
+      "summary": "Built a React Native mobile app that tracks six asset classes (stocks, crypto, real estate, vehicles, precious metals, cash) with live market pricing, unified net worth calculation, and AI-powered portfolio risk analysis. Integrated a financial LLM agent for personalized portfolio critique and a FIRE calculator with interactive wealth projections.",
+      "highlights": ["React Native", "Financial LLM Agent", "FIRE Calculator", "Mobile App"]
     },
     {
       "name": "Factor-Social",
@@ -209,12 +195,12 @@
     },
     {
       "name": "Prompt Fusion in Stable Diffusion",
-      "summary": "Collaborated on the Prompt Fusion project to optimize image generation by consolidating positive and negative prompts into a single efficient pass. Utilized LPIPS and Siamese networks for image evaluation, and BERT for prompt similarity, significantly improving optimization time and image-prompt alignment.",
+      "summary": "Optimized image generation by consolidating positive and negative prompts into a single efficient pass. Utilized LPIPS and Siamese networks for evaluation, and BERT for prompt similarity, improving optimization time and image-prompt alignment.",
       "highlights": ["Generative Models", "Prompt Fusion", "Stable Diffusion"]
     },
     {
       "name": "HumorAI: Enhancing LLM for Implicit Humor and Sentence Analysis",
-      "summary": "Engineered an advanced LLM model for sentiment analysis, integrating humor recognition to refine sentence similarity scores. Utilized contrastive loss to train SBERT and BERT models, achieving a 15% improvement in performance accuracy on chatbot and Twitter sentence similarity tasks.",
+      "summary": "Engineered an advanced LLM model for sentiment analysis integrating humor recognition using contrastive loss on SBERT and BERT. Achieved 15% improvement in accuracy on chatbot and Twitter similarity tasks over existing models.",
       "highlights": ["LLMs", "Sentiment Analysis", "NLP"]
     },
     {
@@ -223,8 +209,8 @@
       "highlights": ["Clustering", "Stock Diversification", "ML"]
     },
     {
-      "name": "Risk-Aware Task Allocation in multi-robot system",
-      "summary": "Developed a risk-aware multi-robot task allocation model, factoring in task dependencies and robot characteristics to optimize performance while minimizing risk, increasing operational efficiency by 40% and improving task completion rates.",
+      "name": "Risk-Aware Task Allocation in Multi-Robot System",
+      "summary": "Developed a risk-aware multi-robot task allocation model factoring in task dependencies and robot characteristics, increasing operational efficiency by 40% and improving task completion rates.",
       "highlights": ["Multi-Robot Systems", "Task Allocation", "Optimization"]
     }
   ]

@@ -8,17 +8,12 @@ category: fun
 related_publications: false
 ---
 
-**From dense research to clear architecture — instantly.**
+**Research Paper to Architecture Diagram Converter**
 
-Pincel is an AI tool that reads academic research papers and automatically converts the described model architectures, pipelines, and system designs into clean, structured architecture diagrams. It's built for researchers and engineers who need to quickly understand or present complex AI/ML systems without manually redrawing them.
+Developed an AI-powered tool that automatically generates publication-quality architecture diagrams from research papers and codebases, reducing manual diagram creation time from 4-8 hours to minutes.
 
-**Status:** Completed
+Built a two-stage pipeline: PDF parsing and methodology extraction using fine-tuned language models, followed by structured TikZ/SVG diagram generation trained on a curated dataset of ML conference papers.
 
-**Tech Stack:** Python, NLP/LLM-based extraction, Mermaid/Graphviz, React frontend
+Designed for academic workflows with support for NeurIPS, ICML, and ICLR diagram styles, enabling researchers to produce editable, camera-ready figures directly from paper text.
 
-## Key Features
-
-- PDF/text ingestion of research papers
-- Automatic extraction of model components and relationships
-- Auto-generated visual architecture diagrams
-- Useful for research comprehension, presentations, and literature reviews
+**Tech Stack:** Python, NLP/LLM, TikZ/SVG, React

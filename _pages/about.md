@@ -3,7 +3,7 @@ layout: bento
 title: About
 permalink: /
 subtitle: PhD Student in Computer Science
-cv_pdf: MyresumeJane_odum.pdf
+cv_pdf: Jane_Odum_Resume.pdf
 profile_image: odumprofile.jpg
 selected_papers: true
 social: true
@@ -11,7 +11,7 @@ social: true
 
 ## Current Position
 
-I am a Computer Science Ph.D. candidate (expected May 2026) in the NES Lab (Neuro-Symbolic Computing Lab) at University of Georgia, working under Dr. John Miller. My research focuses on advancing time series forecasting through generative models, machine learning, and deep learning techniques.
+I am a Computer Science Ph.D. candidate (expected December 2026) in the NES Lab (Neuro-Symbolic Computing Lab) at University of Georgia, working under Dr. John Miller. My research focuses on advancing time series forecasting through generative models, machine learning, and deep learning techniques.
 
 In Summer 2025, I interned as a **Machine Learning Engineer at Stripe**, where I developed and deployed ML models for secret key leak detection — cutting detection latency from 4.5 days to under 1 hour and engineering large-scale feature pipelines in Spark/Databricks processing 500M+ records.
 
