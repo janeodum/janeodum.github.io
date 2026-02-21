@@ -21,6 +21,13 @@
   },
   "work": [
     {
+      "name": "Stripe",
+      "position": "Machine Learning Engineer (Intern)",
+      "startDate": "2025-05-01",
+      "endDate": "2025-08-31",
+      "summary": "• Developed and deployed ML models for secret key leak detection, cutting detection latency from 4.5 days to under 1 hour and preventing multi-million-dollar annual fraud losses.\n• Engineered large-scale feature pipelines in Spark/Databricks (500M+ records across Iceberg tables), integrated with Shepherd and Airflow for production-ready workflows.\n• Expanded detection coverage by onboarding new API-call signals (OAuth, Connect), boosting recall on confirmed leaks to 94% while ensuring system observability with custom dashboards."
+    },
+    {
       "name": "University of Georgia",
       "position": "Graduate Teaching Assistant",
       "startDate": "2021-01-09",
@@ -30,7 +37,8 @@
       "name": "Orbital Schools",
       "position": "Software Developer(Intern)",
       "startDate": "2018-05-08",
-      "summary": "• Spearheaded the development of dynamic websites utilizing the LAMP stack,enhancing client digital presence with Linux, PHP 5, CSS, and MySQL. \n• Executed seamless integration of payment processing capabilities by embedding PayStack and other APIs into Orbital Schools' web platform."
+      "endDate": "2018-08-31",
+      "summary": "• Spearheaded the development of dynamic websites utilizing the LAMP stack, enhancing client digital presence with Linux, PHP 5, CSS, and MySQL.\n• Executed seamless integration of payment processing capabilities by embedding PayStack and other APIs into Orbital Schools' web platform."
     }
   ],
   "Leadership": [
@@ -59,6 +67,7 @@
       "studyType": "PhD",
       "summary": "Research Interest: Time Series Forecasting, Generative AI, NLP, Content understanding using large Language models and multi-modal machine learning",
       "startDate": "2021-01-09",
+      "endDate": "2026-05-01",
       "courses": [
         "Machine Learning, Algorithms, Software engineering, Data mining,Trustworthy Machine Learning, Databases, Advanced Robotics, Human-Computer Interaction and Advanced Representation Learning"
       ]
@@ -83,10 +92,10 @@
   ],
   "publications": [
     {
-      "name": "Adaptive Quantile Guidance in Diffusion Models: Multi-Dataset Learning for Pandemic Time Series",
+      "name": "Adaptive Quantile Guidance in Diffusion Models: Multi-Dataset Learning for Pandemic Time Series. ICMLA 2025 (Accepted)",
       "releaseDate": "2025-02-12",
       "url": "https://openreview.net/pdf?id=hnxkDiupF6",
-      "summary": "• Developed AQDiff, a diffusion-based framework for epidemiological forecasting, leveraging multi-dataset pre-training (CDC influenza, COVID-19, RSV) and adaptive quantile guidance to dynamically adjust prediction intervals. Achieved 73.3% lower MAE than state-of-the-art models (CSDI, PatchTST) across pandemic scenarios. • Introduced real-time error feedback via exponentially weighted residual statistics, enhancing volatility adaptation with <10% computational overhead. Demonstrated robustness in sparse data methods and statistically significant improvements during outbreak surges."
+      "summary": "• Developed AQDiff, a diffusion-based framework for epidemiological forecasting, leveraging multi-dataset pre-training (CDC influenza, COVID-19, RSV) and adaptive quantile guidance to dynamically adjust prediction intervals. Achieved 73.3% lower MAE than state-of-the-art models (CSDI, PatchTST) across pandemic scenarios.\n• Introduced real-time error feedback via exponentially weighted residual statistics, enhancing volatility adaptation with <10% computational overhead. Demonstrated robustness in sparse data methods and statistically significant improvements during outbreak surges."
     }
   ],
   "skills": [
@@ -173,31 +182,45 @@
   ],
   "projects": [
     {
+      "name": "Omnnia",
+      "summary": "An AI-powered multi-modal platform that unifies text, image, and audio understanding into a single inference pipeline. Designed for scalable deployment, Omnnia leverages transformer architectures and cross-modal attention mechanisms to enable seamless content generation and analysis across data modalities.",
+      "highlights": ["Multi-Modal AI", "Transformers", "Scalable Systems"]
+    },
+    {
       "name": "Factor-Social",
-      "summary": "Factor is a university social platform specifically built to help university students connect with one another and seamlessly integrate into campus life. We address a common challenge in higher education: students desire more meaningful connections with peers who share similar interests with them. They also wish to find relevant events on campus which they might even attend together. Factor solves this by creating a central, university-branded hub where students can discover clubs, form groups, and easily interact with classmates and campus resources",
-      "highlights": ["Social Plaform", "Flutter"],
+      "summary": "Factor is a university social platform built to help students connect and integrate into campus life. It creates a central, university-branded hub where students can discover clubs, form groups, find events, and interact with classmates and campus resources.",
+      "highlights": ["Social Platform", "Flutter", "Mobile App"],
       "url": "https://apps.apple.com/us/app/factor-social/id6736873377"
     },
-
+    {
+      "name": "OmniAssets",
+      "summary": "A comprehensive digital asset management and portfolio analytics platform. OmniAssets uses machine learning models to provide real-time asset tracking, risk assessment, and portfolio optimization recommendations for institutional and individual investors.",
+      "highlights": ["Asset Management", "ML Analytics", "Portfolio Optimization"]
+    },
+    {
+      "name": "EpiCast",
+      "summary": "An epidemiological forecasting system that combines diffusion models with real-time public health data streams to predict disease outbreaks. EpiCast provides calibrated uncertainty estimates and adaptive forecast horizons for pandemic preparedness and response planning.",
+      "highlights": ["Epidemiology", "Time Series Forecasting", "Diffusion Models"]
+    },
     {
       "name": "Prompt Fusion in Stable Diffusion",
-      "summary": "• Collaborated on the Prompt Fusion project to optimize image generation by consolidating positive and negative prompts into a single efficient pass. • Utilized LPIPS and Siamese networks for image evaluation, and BERT for prompt similarity, significantly improving optimization time and image-prompt alignment.",
-      "highlights": ["Generative Models", "Prompt Fusion, Stable Diffsusion"]
+      "summary": "Collaborated on the Prompt Fusion project to optimize image generation by consolidating positive and negative prompts into a single efficient pass. Utilized LPIPS and Siamese networks for image evaluation, and BERT for prompt similarity, significantly improving optimization time and image-prompt alignment.",
+      "highlights": ["Generative Models", "Prompt Fusion", "Stable Diffusion"]
     },
     {
       "name": "HumorAI: Enhancing LLM for Implicit Humor and Sentence Analysis",
-      "summary": "• Engineered an advanced LLM model for sentiment analysis, integrating humorrecognition to refine sentence similarity scores and enhancing the model's language understanding capabilities. • Utilized contrastive loss to train the SBERT and BERT models, distinguishing between similar and dissimilar sentence pairs for sentiment analysis. • Applied this enhanced model to a chatbot and Twitter sentence similarity tasks, achieving a noticeable 15% improvement in performance accuracy compared to other existing models, demonstrating its effectiveness in practical applications.",
-      "highlights": ["LLMs", "Sentence Analysis"]
+      "summary": "Engineered an advanced LLM model for sentiment analysis, integrating humor recognition to refine sentence similarity scores. Utilized contrastive loss to train SBERT and BERT models, achieving a 15% improvement in performance accuracy on chatbot and Twitter sentence similarity tasks.",
+      "highlights": ["LLMs", "Sentiment Analysis", "NLP"]
     },
     {
       "name": "StockCluster: Enhancing Investment Portfolios",
-      "summary": "Devised a clustering algorithm for stock market analysis, and achieved a 6.89% ROI increase by optimizing portfolio diversification.",
-      "highlights": ["Clustering method", "Stock Diversification"]
+      "summary": "Devised a clustering algorithm for stock market analysis, achieving a 6.89% ROI increase by optimizing portfolio diversification.",
+      "highlights": ["Clustering", "Stock Diversification", "ML"]
     },
     {
       "name": "Risk-Aware Task Allocation in multi-robot system",
-      "summary": "• Developed a risk-aware multi-robot task allocation model, factoring in task dependencies and robot characteristics to optimize performance while minimizing risk, increasing operational efficiency by 40% and improving task completion rates • Expanded the approach to tackle the ST-MR-TA challenge, improving real-world task allocation efficiency.",
-      "highlights": ["MRS", "Task Allocation"]
+      "summary": "Developed a risk-aware multi-robot task allocation model, factoring in task dependencies and robot characteristics to optimize performance while minimizing risk, increasing operational efficiency by 40% and improving task completion rates.",
+      "highlights": ["Multi-Robot Systems", "Task Allocation", "Optimization"]
     }
   ]
 }
