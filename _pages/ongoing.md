@@ -1,7 +1,10 @@
 ---
 layout: page
-title: Cur Research
-permalink: /Ongoing Research/
+title: Research
+permalink: /research/
+redirect_from:
+  - /Ongoing Research/
+  - /Ongoing%20Research/
 description:
 nav: true
 ---
