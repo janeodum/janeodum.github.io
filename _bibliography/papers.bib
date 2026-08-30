@@ -17,21 +17,9 @@
   reads as published at ICMLA 2025 (December 2025) rather than "Accepted to"; the
   month is set from the conference date, not from a verified proceedings record.
 
-  TODO(jane): this page has a single entry. Dissertation work that is not represented
-  anywhere on the site - including the informed-priors-for-diffusion-forecasting work
-  - would make it read as an active research program rather than one result. Decide
-  which papers to list, their status, and whether you want unpublished work visible.
-  Template for a preprint or under-review entry:
-
-  @article{KEY,
-    abbr={SHORTNAME},
-    title={Full Title},
-    author={Odum, J. and Miller, J.},
-    year={2026},
-    note={Under review},
-    arxiv={XXXX.XXXXX},
-    abstract={...},
-  }
+  TODO(jane): MAAN, the WannaCry paper and the Stripe patent are now listed from your
+  CV. Add abstract={...} and a url/pdf to the MAAN and WannaCry entries when you have
+  them, and a doi to the WannaCry entry.
 }
 
 @inproceedings{AQDiff,
@@ -47,4 +35,36 @@
   year = {2025},
   month = {dec},
   additional_info={. *More Information* can be [found here](https://openreview.net/pdf?id=hnxkDiupF6)},
+}
+
+@inproceedings{MAAN,
+  abbr={SDM},
+  selected={true},
+  title={MAAN: Multi-channel Adaptive Attention Network for Probabilistic Time Series Forecasting},
+  booktitle={SIAM International Conference on Data Mining (SDM)},
+  author={Odum, J. and Miller, J. A.},
+  abstract={Introduces the Causal Cross-Modal Adapter, operating in two modes: a latent funnel for high-dimensional covariates and a noise-adaptive causal graph for low-dimensional covariates. Joint-window training with selective noising and a masked diffusion loss give stable multi-step probabilistic forecasting.},
+  year={2026},
+  note={Accepted},
+}
+
+@inproceedings{WannaCry,
+  abbr={ICCWS},
+  title={Ethical Implications of WannaCry: A Cybersecurity Dilemma},
+  booktitle={Proceedings of the 19th International Conference on Cyber Warfare and Security (ICCWS)},
+  author={Osamor, J. and Odum, J. and Iwendi, C. and Olajide, F. and Peter-Osamor, I. and Onyenagubom, V. and Ayodele, I.},
+  publisher={Academic Conferences and Publishing International},
+  abstract={Analyses the ethical responsibilities of government agencies, technology companies and security professionals in handling zero-day vulnerabilities, and proposes ethical frameworks balancing national security against global cybersecurity.},
+  year={2025},
+  month={apr},
+}
+
+@misc{StripeLeakPatent,
+  abbr={Patent},
+  title={Machine Learning-Based Detection and Mitigation of Leaked API Configuration Parameters},
+  author={Odum, J. and others},
+  howpublished={United States patent application. Assignee: Stripe, Inc.},
+  note={Named co-inventor (one of five). Inventor declaration executed 22 May 2026},
+  year={2026},
+  month={may},
 }
