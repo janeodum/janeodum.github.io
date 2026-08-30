@@ -3,7 +3,7 @@ layout: bento
 title: About
 permalink: /
 subtitle: Ph.D. Candidate in Computer Science
-cv_pdf: Jane_Odum_Resume.pdf
+cv_pdf: Jane_Odum_CV.pdf
 profile_image: odumprofile.jpg
 selected_papers: true
 social: true
