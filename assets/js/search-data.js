@@ -465,12 +465,7 @@ ninja.data = [{
           section: "News",},{id: "news-attended-the-machine-learning-summer-school-at-columbia-university",
           title: 'Attended the Machine Learning Summer School at Columbia University.',
           description: "",
-          section: "News",},{id: "projects-aqdiff",
-          title: 'AQDiff',
-          description: "Adaptive Quantile Diffusion (AQDiff) Showcase",
-          section: "Projects",handler: () => {
-              window.location.href = "/projects/1_project/";
-            },},{id: "projects-factor-social",
+          section: "News",},{id: "projects-factor-social",
           title: 'Factor Social',
           description: "A social platform for university students",
           section: "Projects",handler: () => {
