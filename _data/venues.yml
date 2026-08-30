@@ -3,7 +3,9 @@
   color: "#00369f"
 
 "AQDiff":
-  url: https://journals.aps.org/
+  # TODO(jane): replace with the IEEE Xplore ICMLA 2025 proceedings page once
+  # the DOI is issued. Interim value is the OpenReview preprint.
+  url: https://openreview.net/pdf?id=hnxkDiupF6
 
 "Vision":
   color: "#009f36"
