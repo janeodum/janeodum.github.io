@@ -13,7 +13,7 @@ social: true
 
 I am a Computer Science Ph.D. candidate (expected December 2026) in the NES Lab (Neuro-Symbolic Computing Lab) at the University of Georgia, advised by Dr. John A. Miller. My dissertation develops diffusion-based generative models for probabilistic epidemiological time series forecasting.
 
-In Summer 2025, I interned as a **Machine Learning Engineer at Stripe**, where I developed and deployed ML models for secret key leak detection — cutting detection latency from 4.5 days to under 1 hour and engineering large-scale feature pipelines in Spark/Databricks processing 500M+ records. The methodology was filed as a US patent application, with me as a named co-inventor.
+In Summer 2025, I interned as a **Machine Learning Engineer at Stripe**, where I developed and deployed ML models for secret key leak detection — cutting detection latency from 4.5 days to under 1 hour and engineering large-scale feature pipelines in Spark/Databricks processing 500M+ records.
 
 ## What I Do
 
@@ -21,7 +21,7 @@ I build artificial intelligence for **low-resource and resource-constrained envi
 
 **EpiCast**, a mobile-first surveillance platform for West African community health workers, won **first place in the Google Health AI MedGemma Impact Challenge** — a $30,000 grand prize, selected first from over 850 teams and 6,500 entrants worldwide.
 
-My recent papers include *MAAN: Multi-channel Adaptive Attention Network for Probabilistic Time Series Forecasting* (SDM 2026) and *Adaptive Quantile Guidance in Diffusion Models* (ICMLA 2025), which achieved 73.3% lower MAE than state-of-the-art models across pandemic forecasting scenarios.
+My recent papers include *MAAN: Multi-channel Adaptive Attention Network for Probabilistic Time Series Forecasting* (SDM 2026, accepted) and *Adaptive Quantile Guidance in Diffusion Models* (ICMLA 2025, accepted), which achieved 73.3% lower MAE than state-of-the-art models across pandemic forecasting scenarios.
 
 ## My Background
 

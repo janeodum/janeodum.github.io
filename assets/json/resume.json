@@ -78,8 +78,8 @@
     },
     {
       "name": "Adaptive Quantile Guidance in Diffusion Models: Multi-Dataset Learning for Pandemic Time Series",
-      "publisher": "IEEE International Conference on Machine Learning and Applications (ICMLA)",
-      "releaseDate": "2025-12",
+      "publisher": "IEEE International Conference on Machine Learning and Applications (ICMLA) — accepted",
+      "releaseDate": "2025",
       "url": "https://openreview.net/pdf?id=hnxkDiupF6",
       "summary": "Introduces AQDiff: multi-dataset pre-training of a unified time series diffusion model across CDC influenza-like illness, COVID-19 and RSV data, with adaptive quantile guidance driven by an exponentially weighted residual buffer. Reduces mean absolute error by up to 73.3% against CSDI and PatchTST baselines at under 10% additional computational overhead."
     },
@@ -88,12 +88,6 @@
       "publisher": "Proceedings of the 19th International Conference on Cyber Warfare and Security (ICCWS), Academic Conferences and Publishing International",
       "releaseDate": "2025-04-20",
       "summary": "With J. Osamor, C. Iwendi, F. Olajide, I. Peter-Osamor, V. Onyenagubom and I. Ayodele. Analyses the ethical responsibilities of government agencies, technology companies and security professionals in handling zero-day vulnerabilities, and proposes ethical frameworks balancing national security against global cybersecurity."
-    },
-    {
-      "name": "Machine Learning-Based Detection and Mitigation of Leaked API Configuration Parameters",
-      "publisher": "United States patent application — Assignee: Stripe, Inc.",
-      "releaseDate": "2026-05-22",
-      "summary": "Named co-inventor (one of five). Inventor declaration executed 22 May 2026."
     }
   ],
   "awards": [
@@ -114,6 +108,18 @@
       "date": "2026",
       "awarder": "School of Computing, University of Georgia",
       "summary": "Departmental award recognising sustained instructional contribution across ten courses in computer science and machine learning, including Evolutionary Computing, Computer Architecture, Human-Computer Interaction and Theory of Computation."
+    },
+    {
+      "title": "First Runner-Up, Franklin CREATE! Pitch Competition",
+      "date": "2026",
+      "awarder": "University of Georgia",
+      "summary": "Placed first runner-up among 20 competing teams."
+    },
+    {
+      "title": "Franklin CREATE! LAUNCH Grant",
+      "date": "2026",
+      "awarder": "University of Georgia",
+      "summary": "USD $7,500 competitively awarded build grant; funded development of Pincel."
     },
     {
       "title": "AWS \"We Power Tech\" Grant (Project Alloy)",
@@ -191,7 +197,7 @@
       "location": "South San Francisco, CA",
       "startDate": "2025-05-01",
       "endDate": "2025-08-31",
-      "summary": "• Developed and deployed ML models for secret key leak detection, reducing detection latency from 4.5 days to under one hour and preventing multi-million-dollar annual fraud losses. Methodology filed as a patent application by Stripe.\n• Engineered large-scale feature pipelines in Spark and Databricks (500M+ records across Iceberg tables), integrated with Shepherd and Airflow for production workflows.\n• Expanded detection coverage by onboarding new API-call signals (OAuth, Connect), raising recall on confirmed leaks to 94%."
+      "summary": "• Developed and deployed ML models for secret key leak detection, reducing detection latency from 4.5 days to under one hour and preventing multi-million-dollar annual fraud losses.\n• Engineered large-scale feature pipelines in Spark and Databricks (500M+ records across Iceberg tables), integrated with Shepherd and Airflow for production workflows.\n• Expanded detection coverage by onboarding new API-call signals (OAuth, Connect), raising recall on confirmed leaks to 94%."
     },
     {
       "name": "University of Georgia",
