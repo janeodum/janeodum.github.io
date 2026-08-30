@@ -342,27 +342,12 @@
           </div>
         </article>
 
-        <!-- Projects/Stats Card -->
-        <article class="bento-card flex flex-col rounded-2xl bg-cover border border-pink-800/20 p-6 justify-between hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c374d25d-34dc-48f7-9f70-7fbc700c42c8_800w.jpg');">
-          <div class="flex items-center justify-between">
-            <span class="text-sm font-medium text-pink-300">Research Output</span>
-            <a href="{{ '/publications/' | relative_url }}" class="flex h-8 w-8 items-center justify-center rounded-full bg-white/20 backdrop-blur hover:bg-white/30 transition-all duration-200">
-              <i data-lucide="arrow-up-right" class="h-4 w-4 text-white" style="stroke-width: 1.5;"></i>
-            </a>
-          </div>
-          <div class="mt-4">
-            <p class="text-sm text-pink-200 mb-2">Projects completed</p>
-            <span class="text-3xl font-semibold text-white">9+</span>
-            <div class="flex gap-2 mt-3 items-center">
-              <div class="flex -space-x-2">
-                <div class="h-6 w-6 rounded-full bg-gradient-to-br from-orange-500 to-red-500 border-2 border-pink-400/30"></div>
-                <div class="h-6 w-6 rounded-full bg-gradient-to-br from-red-500 to-pink-500 border-2 border-pink-400/30"></div>
-                <div class="h-6 w-6 rounded-full bg-gradient-to-br from-yellow-500 to-orange-500 border-2 border-pink-400/30"></div>
-              </div>
-              <span class="text-xs text-pink-200">ML, AI & Software</span>
-            </div>
-          </div>
-        </article>
+        {%- comment -%}
+          TODO(jane): the "Research Output / Projects completed / 9+" tile was removed. A
+          vague counter next to a concrete result (73.3% MAE reduction) dilutes the strong
+          number. If you would rather keep a tile here, replace the counter with something
+          specific - papers, citations, models deployed - and re-add it.
+        {%- endcomment -%}
 
         <!-- Education Card -->
         <article class="bento-card flex flex-col rounded-2xl bg-cover border border-stone-700 p-6 justify-between hover:border-orange-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/92a6b77d-f9a6-4e04-9d1f-9e2f3929a5ee_800w.jpg');">
