@@ -2,6 +2,7 @@
 layout: page
 permalink: /publications/
 title: Papers
+description: Peer-reviewed papers and preprints on diffusion models and probabilistic forecasting.
 nav: true
 nav_order: 2
 ---

@@ -2,7 +2,7 @@
 layout: page
 permalink: /repositories/
 title: Repo
-description:
+description: Open-source code and research implementations.
 nav: true
 nav_order: 4
 ---

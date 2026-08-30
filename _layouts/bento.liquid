@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{ site.first_name }} {{ site.middle_name }} {{ site.last_name }}</title>
 
+  <!-- This layout hand-rolls its own head, so it does not pick up the description
+       and canonical tags that _includes/head.liquid gives every other page. -->
+  <meta name="author" content="{{ site.first_name }}{% if site.middle_name %} {{ site.middle_name }}{% endif %} {{ site.last_name }}">
+  <meta name="description" content="{% if page.description %}{{ page.description | strip }}{% else %}{{ site.description | strip }}{% endif %}">
+  <link rel="canonical" href="{{ page.url | replace: 'index.html', '' | absolute_url }}">
+
   <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
 
