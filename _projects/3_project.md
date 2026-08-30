@@ -2,7 +2,7 @@
 layout: page
 title: "Omnia"
 description: "AI-powered animated love story generator"
-img: "assets/img/1.jpg"
+# TODO(jane): needs a real thumbnail. Add one to assets/img/ and set img: here.
 importance: 3
 category: Product
 related_publications: false

@@ -2,7 +2,7 @@
 layout: page
 title: "EpiCast"
 description: "Multi-modal AI epidemiological surveillance system for West Africa"
-img: "assets/img/5.jpg"
+# TODO(jane): needs a real thumbnail. Add one to assets/img/ and set img: here.
 importance: 1
 category: Research
 related_publications: false

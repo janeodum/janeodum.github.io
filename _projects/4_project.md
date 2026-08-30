@@ -2,7 +2,7 @@
 layout: page
 title: "OmniAsset"
 description: "AI-driven consolidated asset tracking platform"
-img: "assets/img/3.jpg"
+# TODO(jane): needs a real thumbnail. Add one to assets/img/ and set img: here.
 importance: 2
 category: Applied
 related_publications: false

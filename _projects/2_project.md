@@ -2,7 +2,7 @@
 layout: page
 title: "Factor Social"
 description: "A social platform for university students"
-img: "assets/img/1024.jpg"
+img: "assets/img/1024.png"
 importance: 2
 category: Product
 related_publications: false

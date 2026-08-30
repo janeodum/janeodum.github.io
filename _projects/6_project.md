@@ -2,7 +2,7 @@
 layout: page
 title: "Pincel (Diagramify)"
 description: "Research paper to architecture diagram converter"
-img: "assets/img/6.jpg"
+# TODO(jane): needs a real thumbnail. Add one to assets/img/ and set img: here.
 importance: 4
 category: Applied
 related_publications: false
