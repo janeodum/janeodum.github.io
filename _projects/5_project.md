@@ -8,6 +8,14 @@ category: Research
 related_publications: false
 ---
 
+<!-- TODO(jane): EpiCast won a competition and the win appears nowhere on this site.
+     Fill in the exact competition name, the award tier and the date, then uncomment
+     the line below. Add a matching one-liner in _news/ so it also shows on the home
+     page. Do not paraphrase the award name from memory - use the official wording.
+
+> **Award:** <tier> - <official competition name>, <month year>
+-->
+
 **Multi-Modal AI Epidemiological Surveillance System**
 
 Built a mobile-first disease surveillance platform for West Africa (ECOWAS) combining fine-tuned medical LLMs with audio AI for syndromic monitoring and cough-based respiratory illness detection.
