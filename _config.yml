@@ -86,7 +86,7 @@ bing_site_verification: # out your bing-site-verification ID (Bing Webmaster)
 # -----------------------------------------------------------------------------
 
 blog_name: Jane Odum # blog_name will be displayed in your blog page
-blog_description: a simple whitespace theme for academics
+blog_description: Notes on research, engineering, and building AI that survives contact with the real world. Cross-posted from Medium.
 permalink: /blog/:year/:title/
 lsi: false # produce an index for related posts
 

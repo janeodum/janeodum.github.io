@@ -7,6 +7,7 @@ redirect_from:
   - /Ongoing%20Research/
 description: Generative and multimodal approaches to time series forecasting under sparse data and uncertainty.
 nav: true
+nav_order: 0
 ---
 ### Forecasting Complex Time Series Dynamics with Generative Multimodal Models
 
