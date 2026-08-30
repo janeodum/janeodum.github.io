@@ -9,12 +9,12 @@ ninja.data = [{
     handler: () => {
       window.location.href = "/";
     },
-  },{id: "nav-cur-research",
-          title: "Cur Research",
-          description: "",
+  },{id: "nav-research",
+          title: "Research",
+          description: "Generative and multimodal approaches to time series forecasting under sparse data and uncertainty.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/Ongoing%20Research/";
+            window.location.href = "/research/";
           },
         },{id: "nav-projects",
           title: "Projects",
@@ -25,28 +25,35 @@ ninja.data = [{
           },
         },{id: "nav-papers",
           title: "Papers",
-          description: "",
+          description: "Peer-reviewed papers and preprints on diffusion models and probabilistic forecasting.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/publications/";
           },
+        },{id: "nav-blog",
+          title: "Blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/blog/";
+          },
         },{id: "nav-repo",
           title: "Repo",
-          description: "",
+          description: "Open-source code and research implementations.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/repositories/";
           },
         },{id: "nav-cv",
           title: "CV",
-          description: "",
+          description: "Academic and industry background: research, teaching, and machine learning engineering.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/cv/";
           },
         },{id: "nav-teaching-advanced-courses",
           title: "Teaching/Advanced Courses",
-          description: "Some of my Teaching Experiences and Advanced Coursework over the Course of my PhD program",
+          description: "Some of my Teaching Experiences and Advanced Coursework over the Course of my Ph.D. program",
           section: "Navigation",
           handler: () => {
             window.location.href = "/teaching/";
@@ -452,16 +459,11 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-a-simple-inline-announcement",
-          title: 'A simple inline announcement.',
+            },},{id: "news-epicast-wins-first-place-in-the-google-health-ai-medgemma-impact-challenge-a-30-000-grand-prize-selected-first-from-over-850-teams-and-6-500-entrants-worldwide",
+          title: 'EpiCast wins first place in the Google Health AI MedGemma Impact Challenge —...',
           description: "",
-          section: "News",},{id: "news-a-long-announcement-with-details",
-          title: 'A long announcement with details',
-          description: "",
-          section: "News",handler: () => {
-              window.location.href = "/news/announcement_2/";
-            },},{id: "news-a-simple-inline-announcement-with-markdown-emoji-sparkles-smile",
-          title: 'A simple inline announcement with Markdown emoji! :sparkles: :smile:',
+          section: "News",},{id: "news-attended-the-machine-learning-summer-school-at-columbia-university",
+          title: 'Attended the Machine Learning Summer School at Columbia University.',
           description: "",
           section: "News",},{id: "projects-aqdiff",
           title: 'AQDiff',
@@ -498,7 +500,7 @@ ninja.data = [{
         title: 'email',
         section: 'Socials',
         handler: () => {
-          window.open("mailto:%6A%61%6E%65.%6F%64%75%6D@%75%67%61.%65%64%75", "_blank");
+          window.open("mailto:%6A%61%6E%65%6F%64%75%6D%34%31@%67%6D%61%69%6C.%63%6F%6D", "_blank");
         },
       },{
         id: 'social-instagram',
