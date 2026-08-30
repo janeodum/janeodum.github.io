@@ -248,9 +248,22 @@
                 {{ site.first_name }} {{ site.middle_name }} {{ site.last_name }} —
                 <span class="text-orange-400 transition-colors duration-300">{{ page.subtitle }}</span>
               </h1>
-              <div class="flex-shrink-0 hidden sm:flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-3 py-1 text-xs font-medium text-white">
-                <div class="h-2 w-2 rounded-full bg-pink-400"></div>
-                Open to Collaborate
+              <div class="flex-shrink-0 hidden sm:flex flex-col items-end gap-2">
+                <div class="flex items-center gap-2 rounded-full bg-white/10 backdrop-blur-md px-3 py-1 text-xs font-medium text-white">
+                  <div class="h-2 w-2 rounded-full bg-pink-400"></div>
+                  Open to Collaborate
+                </div>
+                {%- comment -%}
+                  TODO(jane): availability signal. Uncomment once you have confirmed the
+                  defense month and approved the wording. Draft assumes an October 2026
+                  defense, a December 2026 graduation, and that you want to signal
+                  availability for research and applied ML roles.
+
+                  <div class="flex items-center gap-2 rounded-full bg-orange-500/20 border border-orange-400/40 backdrop-blur-md px-3 py-1 text-xs font-medium text-orange-200">
+                    <div class="h-2 w-2 rounded-full bg-orange-400"></div>
+                    Defending Oct 2026 &middot; open to research &amp; applied ML roles
+                  </div>
+                {%- endcomment -%}
               </div>
             </div>
             <div class="flex items-end justify-between">
@@ -265,7 +278,7 @@
                   </div>
                   <div class="flex items-center gap-1 text-stone-300">
                     <i data-lucide="calendar" class="h-4 w-4" style="stroke-width: 1.5;"></i>
-                    <span class="text-sm font-medium">PhD Student, 2021–Present</span>
+                    <span class="text-sm font-medium">Ph.D. Candidate, 2021 to present</span>
                   </div>
                 </div>
               </div>
@@ -355,7 +368,7 @@
             </div>
           </div>
           <div class="mt-4">
-            <p class="text-sm text-stone-400 mb-2">PhD in Computer Science</p>
+            <p class="text-sm text-stone-400 mb-2">Ph.D. in Computer Science</p>
             <span class="text-xl text-white font-medium">University of Georgia</span>
             <p class="text-xs text-stone-500 mt-1">Expected Dec 2026 • Generative AI & Time Series</p>
           </div>

@@ -2,7 +2,7 @@
 layout: bento
 title: About
 permalink: /
-subtitle: PhD Student in Computer Science
+subtitle: Ph.D. Candidate in Computer Science
 cv_pdf: Jane_Odum_Resume.pdf
 profile_image: odumprofile.jpg
 selected_papers: true

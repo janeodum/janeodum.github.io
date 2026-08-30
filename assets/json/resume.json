@@ -1,7 +1,7 @@
 {
   "basics": {
     "name": "Jane Odum",
-    "label": "PhD Student",
+    "label": "Ph.D. Candidate",
     "image": "",
     "email": "janeodum41@gmail.com",
     "url": "https://janeodum.com",
@@ -64,7 +64,7 @@
       "institution": "University of Georgia",
       "location": "Georgia, USA",
       "area": "Computer Science",
-      "studyType": "PhD",
+      "studyType": "Ph.D.",
       "summary": "Research Interest: Time Series Forecasting, Generative AI, NLP, Content understanding using large Language models and multi-modal machine learning",
       "startDate": "2021-01-09",
       "endDate": "2026-12-01",
