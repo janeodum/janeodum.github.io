@@ -24,6 +24,11 @@ My research focuses on **generative frameworks** for **multimodal and single mod
 
 > *“Our hybrid diffusion–flow pipeline produces well‐calibrated uncertainty bands, that offers decision‑makers clear confidence intervals instead of single‑point estimates.”*
 
+<!-- TODO(jane): the section numbering runs 1, 2, 4, 5 - section 3 is missing.
+     If it was dropped deliberately, renumber the two headings below to
+     "#### 3. Evaluation & Case Studies" and "#### 4. Future Directions".
+     If it was lost, restore it here as section 3. -->
+
 #### 4. Evaluation & Case Studies  
 - **Generic Time Series Benchmarks:**  
   - Evaluate on standard forecasting datasets (M‑3, M‑4, NN5) covering industry, finance, and demographics.  
