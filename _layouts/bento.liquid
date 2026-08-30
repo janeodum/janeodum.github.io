@@ -411,6 +411,33 @@
       </div>
     </section>
 
+    <!-- News Section -->
+    {%- comment -%}
+      Renders nothing until _news/ holds at least one entry. See _news/.template.md.
+    {%- endcomment -%}
+    {% if site.news != blank %}
+    <section class="bg-stone-900 border border-stone-800 rounded-[20px] md:rounded-[40px] mt-8 p-4 sm:p-6 md:p-10 shadow-[0_2.8px_2.2px_rgba(0,0,0,0.034),0_6.7px_5.3px_rgba(0,0,0,0.048),0_12.5px_10px_rgba(0,0,0,0.06),0_22.3px_17.9px_rgba(0,0,0,0.072),0_41.8px_33.4px_rgba(0,0,0,0.086),0_100px_80px_rgba(0,0,0,0.12)]">
+      <h2 class="text-2xl font-bold mb-6 text-white">
+        <a href="{{ '/news/' | relative_url }}" class="hover:text-orange-400 transition-colors">News</a>
+      </h2>
+      <ul class="space-y-4">
+        {% assign recent_news = site.news | sort: 'date' | reverse %}
+        {% for item in recent_news limit: 4 %}
+          <li class="flex flex-col sm:flex-row sm:gap-6">
+            <span class="flex-shrink-0 text-sm font-medium text-orange-400 sm:w-32">{{ item.date | date: '%b %d, %Y' }}</span>
+            <span class="text-sm text-stone-300 leading-relaxed">
+              {% if item.inline %}
+                {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+              {% else %}
+                <a href="{{ item.url | relative_url }}" class="text-stone-300 underline underline-offset-2 hover:text-orange-400 transition-colors">{{ item.title }}</a>
+              {% endif %}
+            </span>
+          </li>
+        {% endfor %}
+      </ul>
+    </section>
+    {% endif %}
+
     <!-- Selected Publications Section -->
     {% if page.selected_papers %}
     <section class="bg-stone-900 border border-stone-800 rounded-[20px] md:rounded-[40px] mt-8 p-4 sm:p-6 md:p-10 shadow-[0_2.8px_2.2px_rgba(0,0,0,0.034),0_6.7px_5.3px_rgba(0,0,0,0.048),0_12.5px_10px_rgba(0,0,0,0.06),0_22.3px_17.9px_rgba(0,0,0,0.072),0_41.8px_33.4px_rgba(0,0,0,0.086),0_100px_80px_rgba(0,0,0,0.12)]">
