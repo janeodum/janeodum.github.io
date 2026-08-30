@@ -129,6 +129,14 @@ nav_order: 4
   }
 </style>
 
+<!-- TODO(jane): the repository list below is an unauthenticated GitHub API dump
+     sorted by stars. It surfaces janeodum.github.io itself, two ComfyUI workflow
+     .json repos, contribeautiful_data and several repos with no description.
+     Name the four or five repositories you actually want people to open and this
+     can become a hand-curated static list, which is both more useful and immune
+     to the 60-request-per-hour per-IP rate limit that leaves shared-IP visitors
+     stuck on the loading state. -->
+
 ## GitHub Profile
 
 <div id="gh-profile"></div>
@@ -170,12 +178,23 @@ nav_order: 4
     'CMake': '#DA3434', 'Dockerfile': '#384d54'
   };
 
+  var profileUrl = 'https://github.com/' + username;
+
+  function fallback(el, message) {
+    if (!el) return;
+    el.innerHTML =
+      '<p class="gh-loading">' + message + ' ' +
+      '<a href="' + profileUrl + '" target="_blank" rel="noopener" style="color:#f97316;">' +
+      'View the profile on GitHub</a>.</p>';
+  }
+
   // Fetch profile
   fetch('https://api.github.com/users/' + username)
     .then(function(r) { return r.json(); })
     .then(function(u) {
       var el = document.getElementById('gh-profile');
-      if (!el || u.message) return;
+      if (!el) return;
+      if (u.message) { fallback(el, 'GitHub profile could not be loaded.'); return; }
       el.innerHTML =
         '<div class="gh-profile-card">' +
           '<img src="' + u.avatar_url + '" alt="' + u.login + '">' +
@@ -189,6 +208,9 @@ nav_order: 4
             '</div>' +
           '</div>' +
         '</div>';
+    })
+    .catch(function() {
+      fallback(document.getElementById('gh-profile'), 'GitHub profile could not be loaded.');
     });
 
   // Fetch repos
@@ -196,11 +218,23 @@ nav_order: 4
     .then(function(r) { return r.json(); })
     .then(function(repos) {
       var el = document.getElementById('gh-repos');
-      if (!el || !Array.isArray(repos)) return;
+      if (!el) return;
+      if (!Array.isArray(repos)) {
+        // Unauthenticated requests are rate limited to 60/hour per IP, so this is
+        // reachable for anyone on a shared address. Do not sit on "Loading...".
+        fallback(el, 'GitHub repositories could not be loaded right now.');
+        return;
+      }
 
-      // Filter out .github.io repo (this site) and sort by stars then recent
+      // Filter out this site's own repo and sort by stars then recent
       repos = repos.filter(function(r) { return !r.fork || r.stargazers_count > 0; });
+      repos = repos.filter(function(r) { return r.name.toLowerCase() !== username.toLowerCase() + '.github.io'; });
       repos.sort(function(a, b) { return b.stargazers_count - a.stargazers_count; });
+
+      if (repos.length === 0) {
+        fallback(el, 'No public repositories to show.');
+        return;
+      }
 
       var html = '';
       repos.forEach(function(repo) {
@@ -229,6 +263,9 @@ nav_order: 4
       });
 
       el.innerHTML = html;
+    })
+    .catch(function() {
+      fallback(document.getElementById('gh-repos'), 'GitHub repositories could not be loaded right now.');
     });
 })();
 </script>
