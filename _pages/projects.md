@@ -5,7 +5,7 @@ permalink: /projects/
 description: Research and applied projects spanning AI, ML, and software engineering.
 nav: true
 nav_order: 1
-display_categories: [Previous Research, fun]
+display_categories: [Research, Applied, Product]
 horizontal: false
 ---
 

@@ -4,7 +4,7 @@ title: "EpiCast"
 description: "Multi-modal AI epidemiological surveillance system for West Africa"
 img: "assets/img/5.jpg"
 importance: 1
-category: Previous Research
+category: Research
 related_publications: false
 ---
 

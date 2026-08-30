@@ -4,7 +4,7 @@ title: "Pincel (Diagramify)"
 description: "Research paper to architecture diagram converter"
 img: "assets/img/6.jpg"
 importance: 4
-category: fun
+category: Applied
 related_publications: false
 ---
 

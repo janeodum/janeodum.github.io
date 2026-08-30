@@ -4,7 +4,7 @@ title: "OmniAsset"
 description: "AI-driven consolidated asset tracking platform"
 img: "assets/img/3.jpg"
 importance: 2
-category: fun
+category: Applied
 related_publications: false
 ---
 

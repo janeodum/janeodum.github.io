@@ -4,7 +4,7 @@ title: "Omnia"
 description: "AI-powered animated love story generator"
 img: "assets/img/1.jpg"
 importance: 3
-category: fun
+category: Product
 related_publications: false
 ---
 

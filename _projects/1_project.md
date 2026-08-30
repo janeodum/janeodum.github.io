@@ -4,7 +4,7 @@ title: "AQDiff"
 description: "Adaptive Quantile Diffusion (AQDiff) Showcase"
 img: "assets/img/AQDiff.png"
 importance: 1
-category: Previous Research
+category: Research
 related_publications: false
 ---
 

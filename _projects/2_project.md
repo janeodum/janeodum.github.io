@@ -4,7 +4,7 @@ title: "Factor Social"
 description: "A social platform for university students"
 img: "assets/img/1024.jpg"
 importance: 2
-category: fun
+category: Product
 related_publications: false
 giscus_comments: true
 ---
