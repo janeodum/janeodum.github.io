@@ -34,6 +34,17 @@ $max-content-width: {{ site.max_width }};
 html[data-theme="light"] {
   --global-bg-color: #1c1917;
   --global-text-color: #d6d3d1;
+  --global-theme-color: #f97316;
+  --global-hover-color: #f97316;
+}
+
+/* _themes.scss sets the dark palette's accent to cyan on html[data-theme="dark"],
+   which outranks the :root override above. Everything driven by the CSS variable
+   (CV date badges, publication badges, theme links) was therefore rendering cyan
+   while the hand-written Tailwind parts of the site rendered orange. */
+html[data-theme="dark"] {
+  --global-theme-color: #f97316;
+  --global-hover-color: #f97316;
 }
 
 ::-webkit-scrollbar { width: 6px; }
@@ -41,3 +52,44 @@ html[data-theme="light"] {
 ::-webkit-scrollbar-thumb { background: #44403c; border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: #57534e; }
 
+/* Venue badges: the theme colours abbr text with --global-card-bg-color, which is
+   near-black in this dark theme, so any venue without a URL in _data/venues.yml
+   rendered as unreadable dark-on-dark. Only the nested <a> was being lightened. */
+.publications ol.bibliography li .abbr abbr,
+ol.bibliography li .abbr abbr,
+.publications .abbr abbr,
+.bibliography .abbr abbr {
+  color: #fff7ed !important;
+  background-color: var(--global-theme-color) !important;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  a { color: #fff7ed !important; }
+}
+
+/* Project category headings: the theme renders these small and right-aligned,
+   which reads as a stray caption rather than a section heading. */
+.projects a > h2.category,
+.projects h2.category {
+  text-align: left;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--global-theme-color);
+  margin: 2rem 0 1rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 1px solid #44403c;
+}
+
+/* Cards in a row stretch to equal height, so a card with no thumbnail sitting
+   beside one with a thumbnail rendered as a mostly empty box. Let each card take
+   its natural height until every project has a real image. */
+.projects .row {
+  align-items: flex-start;
+}
+.projects .card {
+  justify-content: flex-start;
+}
+.projects .card-img-top {
+  max-height: 220px;
+  object-fit: contain;
+  background: #f5f5f4;
+}

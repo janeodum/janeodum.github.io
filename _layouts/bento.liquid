@@ -80,6 +80,30 @@
       transform: scale(1.05);
     }
 
+    /* Photo-backed cards: the stock images are bright, so label and body text
+       sat at very low contrast. A scrim keeps the imagery but restores legibility. */
+    .bento-photo { position: relative; isolation: isolate; }
+    .bento-photo::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 1rem;
+      background: linear-gradient(180deg, rgba(12,10,9,0.62) 0%, rgba(12,10,9,0.42) 45%, rgba(12,10,9,0.82) 100%);
+      z-index: 0;
+    }
+    .bento-photo > * { position: relative; z-index: 1; }
+
+    /* The portrait is shot on a light studio background, which met the dark card
+       in a hard vertical line. Fade its outer edges into the card instead. */
+    .hero-portrait {
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 18%, #000 86%, transparent 100%),
+                          linear-gradient(to bottom, #000 78%, transparent 100%);
+      -webkit-mask-composite: source-in;
+      mask-image: linear-gradient(to right, transparent 0%, #000 18%, #000 86%, transparent 100%),
+                  linear-gradient(to bottom, #000 78%, transparent 100%);
+      mask-composite: intersect;
+    }
+
     /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
     ::-webkit-scrollbar-track { background: #1c1917; }
@@ -245,7 +269,7 @@
         <!-- Hero Card (2 col, 2 row) — profile image zoomed out on right -->
         <article class="bento-card relative col-span-1 row-span-2 overflow-hidden md:col-span-2 group hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 rounded-2xl bg-stone-900 min-h-[400px] md:min-h-0">
           <!-- Profile image on the right side -->
-          <img src="{{ '/assets/img/JaneodumStrip.JPEG' | relative_url }}" alt="{{ site.first_name }} {{ site.last_name }}" class="absolute right-0 top-0 h-full w-auto object-cover max-w-[45%] sm:max-w-[55%] md:max-w-[65%]" style="object-position: top center;">
+          <img src="{{ '/assets/img/JaneodumStrip.JPEG' | relative_url }}" alt="{{ site.first_name }} {{ site.last_name }}" class="hero-portrait absolute right-0 top-0 h-full w-auto object-cover max-w-[45%] sm:max-w-[55%] md:max-w-[65%]" style="object-position: top center;">
           <!-- Gradient overlay from left to right for text readability -->
           <div class="absolute inset-0 bg-gradient-to-r from-stone-900 via-stone-900/80 to-transparent rounded-2xl"></div>
           <div class="absolute inset-0 flex flex-col p-4 sm:p-6 md:p-10 justify-between">
@@ -283,7 +307,7 @@
         </article>
 
         <!-- Research Focus Card -->
-        <article class="bento-card flex flex-col overflow-hidden rounded-2xl bg-cover border border-red-800/30 p-6 justify-between" style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/6674ed65-221c-42e3-8cf9-a9c3eca77da6_800w.jpg');">
+        <article class="bento-photo bento-card flex flex-col overflow-hidden rounded-2xl bg-cover border border-red-800/30 p-6 justify-between" style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/6674ed65-221c-42e3-8cf9-a9c3eca77da6_800w.jpg');">
           <div>
             <div class="flex items-center justify-between mb-4">
               <span class="text-sm font-medium text-red-300">Research Focus</span>
@@ -315,7 +339,7 @@
         </article>
 
         <!-- Experience Card -->
-        <article class="bento-card relative overflow-hidden rounded-2xl bg-cover border border-stone-700 p-6 flex flex-col justify-between hover:border-orange-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1329c306-0747-4910-83ea-6f0a8b58467e_800w.jpg');">
+        <article class="bento-photo bento-card relative overflow-hidden rounded-2xl bg-cover border border-stone-700 p-6 flex flex-col justify-between hover:border-orange-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1329c306-0747-4910-83ea-6f0a8b58467e_800w.jpg');">
           <div class="flex items-center justify-between">
             <span class="rounded-full bg-orange-500/20 text-orange-400 px-3 py-1 text-xs font-medium border border-orange-500/30">Experience</span>
             <a href="{{ '/cv/' | relative_url }}" class="flex h-8 w-8 items-center justify-center rounded-full bg-stone-700 hover:bg-stone-600 transition-all duration-200">
@@ -329,15 +353,23 @@
           </div>
         </article>
 
-        {%- comment -%}
-          TODO(jane): the "Research Output / Projects completed / 9+" tile was removed. A
-          vague counter next to a concrete result (73.3% MAE reduction) dilutes the strong
-          number. If you would rather keep a tile here, replace the counter with something
-          specific - papers, citations, models deployed - and re-add it.
-        {%- endcomment -%}
+        <!-- Award Card -->
+        <article class="bento-card flex flex-col rounded-2xl border border-emerald-800/40 p-6 justify-between hover:border-emerald-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style="background: linear-gradient(145deg, #0e2f22 0%, #14261f 55%, #1c1917 100%);">
+          <div class="flex items-center justify-between">
+            <span class="rounded-full bg-emerald-500/15 text-emerald-300 px-3 py-1 text-xs font-medium border border-emerald-500/30">Award</span>
+            <a href="{{ '/projects/5_project/' | relative_url }}" class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200">
+              <i data-lucide="arrow-up-right" class="h-4 w-4 text-white" style="stroke-width: 1.5;"></i>
+            </a>
+          </div>
+          <div class="mt-4">
+            <p class="text-3xl font-semibold text-white leading-none">1st</p>
+            <p class="text-sm text-emerald-200 mt-2 leading-snug">Google Health AI MedGemma Impact Challenge</p>
+            <p class="text-xs text-stone-400 mt-2">$30,000 grand prize &middot; 850+ teams, 6,500+ entrants</p>
+          </div>
+        </article>
 
         <!-- Education Card -->
-        <article class="bento-card flex flex-col rounded-2xl bg-cover border border-stone-700 p-6 justify-between hover:border-orange-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/92a6b77d-f9a6-4e04-9d1f-9e2f3929a5ee_800w.jpg');">
+        <article class="bento-photo bento-card flex flex-col rounded-2xl bg-cover border border-stone-700 p-6 justify-between hover:border-orange-500 hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/92a6b77d-f9a6-4e04-9d1f-9e2f3929a5ee_800w.jpg');">
           <div class="flex items-center justify-between">
             <span class="text-sm font-medium text-stone-400">Education</span>
             <div class="flex items-center gap-1 text-orange-400">
@@ -353,7 +385,7 @@
         </article>
 
         <!-- Tools/Skills Card (own card, not spanning) -->
-        <article class="bento-card flex flex-wrap content-start gap-2 rounded-2xl bg-cover border border-stone-700 p-6 hover:border-stone-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ed96ff8f-02b6-47fa-8b8f-4e6c07df10a4_800w.jpg');">
+        <article class="bento-photo bento-card flex flex-wrap content-start gap-2 rounded-2xl bg-cover border border-stone-700 p-6 hover:border-stone-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style="background-image: url('https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ed96ff8f-02b6-47fa-8b8f-4e6c07df10a4_800w.jpg');">
           <div class="w-full flex items-center justify-between mb-4">
             <span class="text-sm font-medium text-stone-400">Tools & Software</span>
           </div>
