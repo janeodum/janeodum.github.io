@@ -11,7 +11,7 @@ horizontal: false
 
 ## EpiCast — Multi-Modal AI Epidemiological Surveillance System
 
-Built a mobile-first disease surveillance platform for West Africa (ECOWAS) combining fine-tuned medical LLMs with audio AI for syndromic monitoring and cough-based respiratory illness detection. Integrates MedGemma SigLIP for clinical image triage, HeAR audio models for cough classification, and a multilingual NLP pipeline trained on 3,400+ corpus-grounded examples across French, Hausa, and Yoruba.
+Built a mobile-first disease surveillance platform for West Africa (ECOWAS) combining fine-tuned medical LLMs with audio AI for syndromic monitoring and cough-based respiratory illness detection. Integrates MedSigLIP for clinical image triage, HeAR audio models for cough classification, and a multilingual NLP pipeline trained on 9,700+ corpus-grounded examples across French, Hausa, and Yoruba.
 
 ---
 
