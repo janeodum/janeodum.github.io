@@ -117,6 +117,41 @@ nav_order: 4
     font-size: 0.875rem;
     padding: 1rem;
   }
+  /* GitHub-style contribution calendar */
+  .gh-cal-card {
+    background: #292524;
+    border: 1px solid #44403c;
+    border-radius: 12px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+  .gh-cal-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 0.75rem;
+    flex-wrap: wrap;
+  }
+  .gh-cal-total { font-size: 0.9rem; color: #d6d3d1 !important; font-weight: 600; }
+  .gh-cal-link { font-size: 0.8rem; color: #f97316 !important; text-decoration: none !important; }
+  .gh-cal-scroll { overflow-x: auto; padding-bottom: 0.25rem; }
+  .gh-cal { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 11px); gap: 3px; width: max-content; }
+  .gh-cal .gh-day { width: 11px; height: 11px; border-radius: 2px; background: #161b22; outline: 1px solid rgba(255,255,255,0.04); outline-offset: -1px; }
+  .gh-cal .gh-month { font-size: 0.65rem; color: #a8a29e !important; grid-row: 1; align-self: end; }
+  /* GitHub's dark-theme contribution scale */
+  .gh-l0, .gh-cal .lvl0 { background: #161b22; }
+  .gh-l1, .gh-cal .lvl1 { background: #0e4429; }
+  .gh-l2, .gh-cal .lvl2 { background: #006d32; }
+  .gh-l3, .gh-cal .lvl3 { background: #26a641; }
+  .gh-l4, .gh-cal .lvl4 { background: #39d353; }
+  .gh-cal-legend {
+    display: flex; align-items: center; gap: 3px;
+    margin-top: 0.6rem; font-size: 0.7rem; color: #a8a29e !important;
+  }
+  .gh-cal-legend i { width: 11px; height: 11px; border-radius: 2px; display: inline-block; outline: 1px solid rgba(255,255,255,0.04); outline-offset: -1px; }
+  .gh-cal-legend span:first-child { margin-right: 0.25rem; }
+  .gh-cal-legend span:last-child { margin-left: 0.25rem; }
   /* Mobile: make contribution chart scrollable */
   @media (max-width: 639px) {
     .gh-profile-card img {
@@ -156,10 +191,19 @@ nav_order: 4
 ## Contribution Activity
 
 {% for user in site.data.repositories.github_users %}
-<div style="text-align: center; margin-bottom: 1.5rem; background: #292524; border: 1px solid #44403c; border-radius: 12px; padding: 1.5rem;">
-  <a href="https://github.com/{{ user }}">
-    <img alt="{{ user }} GitHub contributions" src="https://ghchart.rshah.org/f97316/{{ user }}" style="width: 100%; max-width: 100%; border-radius: 8px;">
-  </a>
+<div class="gh-cal-card">
+  <div class="gh-cal-head">
+    <span id="gh-cal-total-{{ user }}" class="gh-cal-total">Loading contributions&hellip;</span>
+    <a href="https://github.com/{{ user }}" target="_blank" rel="noopener" class="gh-cal-link">@{{ user }}</a>
+  </div>
+  <div class="gh-cal-scroll">
+    <div id="gh-cal-{{ user }}" class="gh-cal" data-user="{{ user }}"></div>
+  </div>
+  <div class="gh-cal-legend">
+    <span>Less</span>
+    <i class="gh-l0"></i><i class="gh-l1"></i><i class="gh-l2"></i><i class="gh-l3"></i><i class="gh-l4"></i>
+    <span>More</span>
+  </div>
 </div>
 {% endfor %}
 {% endif %}
@@ -267,5 +311,50 @@ nav_order: 4
     .catch(function() {
       fallback(document.getElementById('gh-repos'), 'GitHub repositories could not be loaded right now.');
     });
+
+  // Contribution calendar. Uses the real GitHub contribution levels (0-4) and
+  // GitHub's own dark-theme green scale, rather than a recoloured third-party
+  // image that rendered some active days in grey.
+  var MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  document.querySelectorAll('.gh-cal').forEach(function(el) {
+    var who = el.getAttribute('data-user');
+    var totalEl = document.getElementById('gh-cal-total-' + who);
+    fetch('https://github-contributions-api.jogruber.de/v4/' + who + '?y=last')
+      .then(function(r) { return r.json(); })
+      .then(function(data) {
+        var days = data && data.contributions;
+        if (!Array.isArray(days) || !days.length) throw new Error('no data');
+
+        // Pad so the first column starts on a Sunday, as GitHub does.
+        var lead = new Date(days[0].date + 'T00:00:00').getDay();
+        var cells = [];
+        for (var i = 0; i < lead; i++) cells.push(null);
+        cells = cells.concat(days);
+
+        var frag = document.createDocumentFragment();
+        var lastMonth = -1;
+        cells.forEach(function(d, i) {
+          var box = document.createElement('div');
+          if (!d) { box.className = 'gh-day'; box.style.visibility = 'hidden'; frag.appendChild(box); return; }
+          box.className = 'gh-day lvl' + (d.level || 0);
+          var dt = new Date(d.date + 'T00:00:00');
+          box.title = d.count + (d.count === 1 ? ' contribution' : ' contributions') + ' on ' +
+                      MONTHS[dt.getMonth()] + ' ' + dt.getDate() + ', ' + dt.getFullYear();
+          frag.appendChild(box);
+          lastMonth = dt.getMonth();
+        });
+        el.appendChild(frag);
+
+        if (totalEl) {
+          var total = days.reduce(function(a, d) { return a + (d.count || 0); }, 0);
+          var active = days.filter(function(d) { return d.count > 0; }).length;
+          totalEl.textContent = total.toLocaleString() + ' contributions in the last year across ' +
+                                active + (active === 1 ? ' day' : ' days');
+        }
+      })
+      .catch(function() {
+        if (totalEl) totalEl.textContent = 'Contribution graph could not be loaded.';
+      });
+  });
 })();
 </script>
