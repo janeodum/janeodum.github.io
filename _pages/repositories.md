@@ -136,6 +136,19 @@ nav_order: 4
   .gh-cal-total { font-size: 0.9rem; color: #d6d3d1 !important; font-weight: 600; }
   .gh-cal-link { font-size: 0.8rem; color: #f97316 !important; text-decoration: none !important; }
   .gh-cal-scroll { overflow-x: auto; padding-bottom: 0.25rem; }
+  .gh-cal-wrap { width: max-content; }
+  .gh-cal-body { display: flex; gap: 4px; }
+  .gh-cal-dows {
+    display: grid; grid-template-rows: repeat(7, 11px); gap: 3px;
+    font-size: 0.62rem; color: #a8a29e !important; width: 26px; text-align: right;
+  }
+  .gh-cal-dows span { line-height: 11px; }
+  .gh-cal-months {
+    display: grid; grid-auto-flow: column; gap: 3px;
+    font-size: 0.65rem; color: #a8a29e !important;
+    margin-left: 30px; margin-bottom: 4px; height: 13px;
+  }
+  .gh-cal-months span { white-space: nowrap; }
   .gh-cal { display: grid; grid-auto-flow: column; grid-template-rows: repeat(7, 11px); gap: 3px; width: max-content; }
   .gh-cal .gh-day { width: 11px; height: 11px; border-radius: 2px; background: #161b22; outline: 1px solid rgba(255,255,255,0.04); outline-offset: -1px; }
   .gh-cal .gh-month { font-size: 0.65rem; color: #a8a29e !important; grid-row: 1; align-self: end; }
@@ -197,7 +210,13 @@ nav_order: 4
     <a href="https://github.com/{{ user }}" target="_blank" rel="noopener" class="gh-cal-link">@{{ user }}</a>
   </div>
   <div class="gh-cal-scroll">
-    <div id="gh-cal-{{ user }}" class="gh-cal" data-user="{{ user }}"></div>
+    <div class="gh-cal-wrap">
+      <div id="gh-cal-months-{{ user }}" class="gh-cal-months"></div>
+      <div class="gh-cal-body">
+        <div class="gh-cal-dows"><span></span><span>Mon</span><span></span><span>Wed</span><span></span><span>Fri</span><span></span></div>
+        <div id="gh-cal-{{ user }}" class="gh-cal" data-user="{{ user }}"></div>
+      </div>
+    </div>
   </div>
   <div class="gh-cal-legend">
     <span>Less</span>
@@ -344,6 +363,40 @@ nav_order: 4
           lastMonth = dt.getMonth();
         });
         el.appendChild(frag);
+
+        // Month labels above the grid, one per column-run, as GitHub does.
+        var monthsEl = document.getElementById('gh-cal-months-' + who);
+        if (monthsEl) {
+          var weeks = Math.ceil(cells.length / 7);
+          var labelFor = {};
+          for (var wcol = 0; wcol < weeks; wcol++) {
+            var first = cells[wcol * 7];
+            for (var k = 0; k < 7 && !first; k++) first = cells[wcol * 7 + k];
+            if (!first) continue;
+            var mo = new Date(first.date + 'T00:00:00').getMonth();
+            if (labelFor[mo] === undefined) labelFor[mo] = wcol;
+          }
+          // Keep labels from colliding. When two land within three columns, keep
+          // the month that actually occupies the space and drop the leading
+          // partial one, which is how GitHub labels the first weeks.
+          var pairs = Object.keys(labelFor)
+            .map(function(mo) { return [labelFor[mo], MONTHS[mo]]; })
+            .sort(function(a, b) { return a[0] - b[0]; });
+          var kept = [];
+          pairs.forEach(function(pair) {
+            var prev = kept[kept.length - 1];
+            if (prev && pair[0] - prev[0] < 3) { kept[kept.length - 1] = pair; return; }
+            kept.push(pair);
+          });
+          var byCol = {};
+          kept.forEach(function(pair) { byCol[pair[0]] = pair[1]; });
+          monthsEl.style.gridTemplateColumns = 'repeat(' + weeks + ', 11px)';
+          for (var c2 = 0; c2 < weeks; c2++) {
+            var sp = document.createElement('span');
+            sp.textContent = byCol[c2] || '';
+            monthsEl.appendChild(sp);
+          }
+        }
 
         if (totalEl) {
           var total = days.reduce(function(a, d) { return a + (d.count || 0); }, 0);
