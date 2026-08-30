@@ -130,7 +130,7 @@ nav_order: 4
 </style>
 
 <!-- TODO(jane): the repository list below is an unauthenticated GitHub API dump
-     sorted by stars. It surfaces janeodum.github.io itself, two ComfyUI workflow
+     sorted by stars. It surfaces this site's own repo, two ComfyUI workflow
      .json repos, contribeautiful_data and several repos with no description.
      Name the four or five repositories you actually want people to open and this
      can become a hand-curated static list, which is both more useful and immune
