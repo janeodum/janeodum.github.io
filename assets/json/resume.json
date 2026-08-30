@@ -91,8 +91,9 @@
   ],
   "publications": [
     {
-      "name": "Adaptive Quantile Guidance in Diffusion Models: Multi-Dataset Learning for Pandemic Time Series. ICMLA 2025 (Accepted)",
-      "releaseDate": "2025-02-12",
+      "name": "Adaptive Quantile Guidance in Diffusion Models: Multi-Dataset Learning for Pandemic Time Series",
+      "publisher": "IEEE International Conference on Machine Learning and Applications (ICMLA) 2025",
+      "releaseDate": "2025-12",
       "url": "https://openreview.net/pdf?id=hnxkDiupF6",
       "summary": "• Developed AQDiff, a diffusion-based framework for epidemiological forecasting, leveraging multi-dataset pre-training (CDC influenza, COVID-19, RSV) and adaptive quantile guidance to dynamically adjust prediction intervals. Achieved 73.3% lower MAE than state-of-the-art models (CSDI, PatchTST) across pandemic scenarios.\n• Introduced real-time error feedback via exponentially weighted residual statistics, enhancing volatility adaptation with <10% computational overhead. Demonstrated robustness in sparse data methods and statistically significant improvements during outbreak surges."
     }

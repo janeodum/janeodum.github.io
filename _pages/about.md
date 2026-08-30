@@ -19,7 +19,7 @@ In Summer 2025, I interned as a **Machine Learning Engineer at Stripe**, where I
 
 I develop machine learning systems that predict future trends from complex time series data. My work involves designing and training generative models, such as *diffusion models*, to address real-world challenges like noisy data, uncertainty, and shifting patterns. I am also interested in *interpretability* in diffusion models. I am particularly interested in applications where precise forecasts can drive meaningful impact, whether in predicting disease spread during pandemics or anticipating economic and social trends. My goal is to create models that are both powerful and practical, that drives better decision-making.
 
-My recent publication, *Adaptive Quantile Guidance in Diffusion Models* (ICMLA 2025, Accepted), achieved 73.3% lower MAE than state-of-the-art models across pandemic forecasting scenarios.
+My recent publication, *Adaptive Quantile Guidance in Diffusion Models* (ICMLA 2025), achieved 73.3% lower MAE than state-of-the-art models across pandemic forecasting scenarios.
 
 ## My Background
 

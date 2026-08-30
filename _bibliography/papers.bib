@@ -12,17 +12,23 @@
   badges rendered as "N/A" / empty with no citations and no DOI. Restore
   google_scholar_id={wEHTPkMAAAAJ&hl} and dimensions={true} once the paper is
   indexed and has a DOI.
+
+  TODO(jane): confirm the exact publication date and add pages={...}. The entry now
+  reads as published at ICMLA 2025 (December 2025) rather than "Accepted to"; the
+  month is set from the conference date, not from a verified proceedings record.
 }
 
-@article{AQDiff,
+@inproceedings{AQDiff,
   abbr={AQDiff},
   selected={true},
-  title={Adaptive Quantile Guidance in Diffusion Models: Multi-Dataset Learning for Pandemic Time Series (Accepted to ICMLA 2025)},
+  title={Adaptive Quantile Guidance in Diffusion Models: Multi-Dataset Learning for Pandemic Time Series},
+  booktitle={IEEE International Conference on Machine Learning and Applications (ICMLA)},
   author={Odum*†, J. and Miller*, J.},
   abstract={Probabilistic forecasting of epidemiological time series remains challenging due to non-stationary disease dynamics, sparse observations, and heterogeneous data regimes. We present Adaptive Quantile Diffusion (AQDiff), a novel diffusion-based framework that addresses these challenges through two key innovations: (1) multi-dataset pre-training of a unified time series diffusion model across heterogeneous epidemiological domains, and (2) adaptive quantile guidance that dynamically adjusts prediction intervals based on local residual statistics. AQDiff introduces a feedback loop where recent forecast errors inform quantile adjustments through an exponentially weighted buffer, enabling real-time adaptation to volatility shifts. Pre-training on influenza-like illness (ILI), COVID-19, and respiratory syncytial virus (RSV) data from the U.S. Centers for Disease Control and Prevention (CDC) allows cross-domain knowledge transfer. Experiments demonstrate that AQDiff reduces mean absolute error (MAE) by as much as 73.3% compared to state-of-the-art baselines (CSDI, PatchTST) across three pandemic forecasting tasks. Our analysis reveals that adaptive quantile guidance provides statistically significant improvements during outbreak surges, while pre-training enhances robustness to limited training data. The framework maintains computational efficiency, adding less than 10% overhead compared to fixed-quantile diffusion models.},
   url={https://openreview.net/pdf?id=hnxkDiupF6},
   html={https://openreview.net/pdf?id=hnxkDiupF6},
   pdf={AQGdiff.pdf},
   year = {2025},
+  month = {dec},
   additional_info={. *More Information* can be [found here](https://openreview.net/pdf?id=hnxkDiupF6)},
 }

@@ -18,4 +18,4 @@ In essence, AQDiff helps:
 - Adapt forecasts in real-time through an **adaptive quantile equation**
 - Improve forecast reliability for applications like epidemiological modeling.
 
-The paper has been accepted at **ICMLA 2025**. The preprint is available [here](https://openreview.net/pdf?id=hnxkDiupF6)
+The paper was published at **ICMLA 2025**. The preprint is available [here](https://openreview.net/pdf?id=hnxkDiupF6)
