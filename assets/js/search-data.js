@@ -459,11 +459,14 @@ ninja.data = [{
           description: "",
           section: "Books",handler: () => {
               window.location.href = "/books/the_godfather/";
-            },},{id: "news-epicast-wins-first-place-in-the-google-health-ai-medgemma-impact-challenge-a-30-000-grand-prize-selected-first-from-over-850-teams-and-6-500-entrants-worldwide",
-          title: 'EpiCast wins first place in the Google Health AI MedGemma Impact Challenge —...',
+            },},{id: "news-epicast-wins-first-place-in-the-google-health-ai-medgemma-impact-challenge-a-usd-30-000-grand-prize-selected-first-from-over-850-teams-and-6-500-entrants-worldwide",
+          title: 'EpiCast wins first place in the Google Health AI MedGemma Impact Challenge, a...',
           description: "",
           section: "News",},{id: "news-attended-the-machine-learning-summer-school-at-columbia-university",
           title: 'Attended the Machine Learning Summer School at Columbia University.',
+          description: "",
+          section: "News",},{id: "news-myfixam-takes-third-place-in-the-build-with-gemini-xprize-a-usd-100-000-prize-in-the-usd-2m-global-ai-competition-backed-by-google-from-five-finalists-at-the-moonshots-live-final-in-los-angeles",
+          title: 'MyFixam takes third place in the Build with Gemini XPRIZE, a USD 100,000...',
           description: "",
           section: "News",},{id: "projects-factor-social",
           title: 'Factor Social',
@@ -490,6 +493,11 @@ ninja.data = [{
           description: "Research paper to architecture diagram converter",
           section: "Projects",handler: () => {
               window.location.href = "/projects/6_project/";
+            },},{id: "projects-myfixam",
+          title: 'MyFixam',
+          description: "AI on-demand marketplace for artisan services in Nigeria",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/7_project/";
             },},{
         id: 'social-email',
         title: 'email',
