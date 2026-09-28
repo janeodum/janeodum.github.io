@@ -62,7 +62,7 @@
       footer.bento-footer { display: block !important; }
 
       /* Force bento nav styling over Bootstrap */
-      #bento-nav nav {
+      #bento-nav > nav {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
@@ -73,12 +73,12 @@
         border-radius: 9999px !important;
         padding: 0.75rem 0.5rem !important;
       }
-      #bento-nav nav ul {
+      #bento-nav > nav ul {
         list-style: none !important;
         padding: 0 !important;
         margin: 0 !important;
       }
-      #bento-nav nav a {
+      #bento-nav > nav a {
         color: #111827 !important;
         font-size: 1rem !important;
         font-weight: 500 !important;
@@ -86,7 +86,7 @@
         white-space: nowrap !important;
         text-shadow: none !important;
       }
-      #bento-nav nav a:hover {
+      #bento-nav > nav a:hover {
         color: #ea580c !important;
       }
       #bento-nav .btn-gradient {
@@ -376,11 +376,11 @@
       }
 
       /* Responsive nav margin */
-      #bento-nav nav {
+      #bento-nav > nav {
         margin: 1rem 1rem !important;
       }
       @media (min-width: 768px) {
-        #bento-nav nav {
+        #bento-nav > nav {
           margin: 2rem auto !important;
         }
       }
