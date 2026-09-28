@@ -7,6 +7,8 @@ importance: 2
 category: Product
 related_publications: false
 giscus_comments: true
+project_url: https://apps.apple.com/us/app/factor-social/id6736873377
+project_url_label: "View on the App Store"
 ---
 
 Building on the idea that collaboration and community are essential for student success, **Factor Social** is a platform designed to connect university students through shared courses, interest groups, and events. By unifying academic and social spheres, it aims to create a dynamic, supportive environment that helps students learn and grow together.
@@ -22,4 +24,4 @@ Factor Social addresses two key challenges often faced by university students:
 
 - **Dedicated Course Hubs**: Connect with classmates for collaborative study sessions, share notes, and discuss assignments.
 - **Interest Groups**: Form or join clubs around topics like AI, art, or entrepreneurship, and discover peers with similar passions.
-- **Event Calendar**: Stay updated on campus events and even organize your own meetups—no more missed deadlines for extracurriculars.
+- **Event Calendar**: Stay updated on campus events and even organize your own meetups, so no more missed deadlines for extracurriculars.

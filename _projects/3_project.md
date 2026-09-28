@@ -6,6 +6,8 @@ description: "AI-powered animated love story generator"
 importance: 3
 category: Product
 related_publications: false
+project_url: https://github.com/janeodum/Omnnia
+project_url_label: "View on GitHub"
 ---
 
 **AI-Powered Animated Love Story Generator**

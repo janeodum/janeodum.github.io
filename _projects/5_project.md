@@ -6,10 +6,12 @@ description: "Multi-modal AI epidemiological surveillance system for West Africa
 importance: 1
 category: Research
 related_publications: false
+project_url: https://github.com/janeodum/Epicast
+project_url_label: "View on GitHub"
 ---
 
-> **First Place — Google Health AI MedGemma Impact Challenge, 2026.**
-> USD $30,000 grand prize, selected first from over 850 teams and 6,500 entrants worldwide.
+> **First Place, Google Health AI MedGemma Impact Challenge, 2026.**
+> USD 30,000 grand prize, selected first from over 850 teams and 6,500 entrants worldwide.
 
 **Multi-Modal AI Epidemiological Surveillance System**
 

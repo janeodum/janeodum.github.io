@@ -5,4 +5,4 @@ inline: true
 related_posts: false
 ---
 
-**EpiCast wins first place** in the Google Health AI MedGemma Impact Challenge — a $30,000 grand prize, selected first from over 850 teams and 6,500 entrants worldwide.
+**EpiCast wins first place** in the Google Health AI MedGemma Impact Challenge, a USD 30,000 grand prize, selected first from over 850 teams and 6,500 entrants worldwide.

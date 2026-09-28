@@ -6,6 +6,8 @@ description: "AI-driven consolidated asset tracking platform"
 importance: 2
 category: Applied
 related_publications: false
+# TODO(jane): add the public URL here to show a link button on the card and page.
+# project_url: https://...
 ---
 
 **AI-Driven Consolidated Asset Tracking Platform**

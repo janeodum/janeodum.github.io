@@ -72,13 +72,13 @@
   "publications": [
     {
       "name": "MAAN: Multi-channel Adaptive Attention Network for Probabilistic Time Series Forecasting",
-      "publisher": "SIAM International Conference on Data Mining (SDM26) — accepted",
+      "publisher": "SIAM International Conference on Data Mining (SDM26) (accepted)",
       "releaseDate": "2026",
       "summary": "Introduces the Causal Cross-Modal Adapter, operating in two modes: a latent funnel for high-dimensional covariates and a noise-adaptive causal graph for low-dimensional covariates. Joint-window training with selective noising and a masked diffusion loss for stable multi-step forecasting."
     },
     {
       "name": "Adaptive Quantile Guidance in Diffusion Models: Multi-Dataset Learning for Pandemic Time Series",
-      "publisher": "IEEE International Conference on Machine Learning and Applications (ICMLA) — accepted",
+      "publisher": "IEEE International Conference on Machine Learning and Applications (ICMLA) (accepted)",
       "releaseDate": "2025",
       "url": "https://openreview.net/pdf?id=hnxkDiupF6",
       "summary": "Introduces AQDiff: multi-dataset pre-training of a unified time series diffusion model across CDC influenza-like illness, COVID-19 and RSV data, with adaptive quantile guidance driven by an exponentially weighted residual buffer. Reduces mean absolute error by up to 73.3% against CSDI and PatchTST baselines at under 10% additional computational overhead."
@@ -92,10 +92,16 @@
   ],
   "awards": [
     {
+      "title": "Third Place, Build with Gemini XPRIZE",
+      "date": "2026-09",
+      "awarder": "XPRIZE Foundation, backed by Google",
+      "summary": "USD 100,000 for MyFixam. Selected as one of five finalists in the USD 2M global AI competition and placed third at the Moonshots LIVE final in Los Angeles."
+    },
+    {
       "title": "First Place, Google Health AI MedGemma Impact Challenge",
       "date": "2026",
       "awarder": "Google Health AI",
-      "summary": "USD $30,000 grand prize. Selected first from over 850 teams and 6,500 entrants worldwide, for EpiCast."
+      "summary": "USD 30,000 grand prize. Selected first from over 850 teams and 6,500 entrants worldwide, for EpiCast."
     },
     {
       "title": "Ambassador Award of Excellence",
@@ -119,7 +125,7 @@
       "title": "Franklin CREATE! LAUNCH Grant",
       "date": "2026",
       "awarder": "University of Georgia",
-      "summary": "USD $7,500 competitively awarded build grant; funded development of Pincel."
+      "summary": "USD 7,500 competitively awarded build grant; funded development of Pincel."
     },
     {
       "title": "AWS \"We Power Tech\" Grant (Project Alloy)",
@@ -150,7 +156,7 @@
     {
       "name": "MyFixam: AI marketplace for artisan services, Nigeria",
       "startDate": "2026-01-01",
-      "summary": "Founder, MYFIXAM LTD. An AI on-demand marketplace connecting Nigerians with verified artisans — plumbers, electricians, tailors, mechanics and 25+ trades — with payments held safely until the job is confirmed done.",
+      "summary": "Founder, MYFIXAM LTD. An AI on-demand marketplace connecting Nigerians with verified artisans (plumbers, electricians, tailors, mechanics and 25+ trades), with payments held safely until the job is confirmed done.",
       "highlights": [
         "Founder",
         "Marketplace",

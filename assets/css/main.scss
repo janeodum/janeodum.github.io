@@ -111,3 +111,31 @@ article .post-content {
   h2, h3 { color: var(--global-text-color); }
   h1:first-child, h2:first-child, h3:first-child { margin-top: 0; }
 }
+
+/* Outbound link on project cards and project pages. */
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin: 0.25rem 0 0.75rem;
+  padding: 0.3rem 0.8rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--global-theme-color) !important;
+  border: 1px solid var(--global-theme-color);
+  border-radius: 9999px;
+  text-decoration: none !important;
+  transition: background-color 0.15s ease, color 0.15s ease;
+  i { font-size: 0.7rem; }
+  &:hover {
+    background: var(--global-theme-color);
+    color: #1c1917 !important;
+  }
+}
+.project-link-lg {
+  margin-top: 0.6rem;
+  padding: 0.45rem 1rem;
+  font-size: 0.875rem;
+}
+.projects .card .project-link { align-self: flex-start; margin-left: 1.25rem; }

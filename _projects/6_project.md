@@ -6,6 +6,8 @@ description: "Research paper to architecture diagram converter"
 importance: 4
 category: Applied
 related_publications: false
+# TODO(jane): add the public URL here to show a link button on the card and page.
+# project_url: https://...
 ---
 
 **Research Paper to Architecture Diagram Converter**

@@ -14,6 +14,18 @@
       <div class="card-body">
         <h2 class="card-title">{{ project.title }}</h2>
         <p class="card-text">{{ project.description }}</p>
+        {% if project.project_url %}
+          <a
+            class="project-link"
+            href="{{ project.project_url }}"
+            target="_blank"
+            rel="noopener"
+            onclick="event.stopPropagation();"
+          >
+            {{ project.project_url_label | default: "Visit project" }}
+            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+          </a>
+        {% endif %}
         <div class="row ml-1 mr-1 p-0">
           {% if project.github %}
             <div class="github-icon">

@@ -19,7 +19,7 @@ My research focuses on **generative frameworks** for **multimodal and single mod
 - **Graph Inputs:** aggregated mobility/contact networks, supply‐chain topologies  
 - **Shared Latent Space:** modality‐specific encoders feed into a unified representation, with cross‐attention mechanisms inspired by transformer architectures
 
-> *“By treating each data modality as a sequence of tokens, we leverage attention to learn interactions across streams—much like in vision transformers, but wholly within the time‑series domain.”*
+> *“By treating each data modality as a sequence of tokens, we leverage attention to learn interactions across streams, much like in vision transformers, but wholly within the time‑series domain.”*
 
 #### 2. Generative Forecasting & Uncertainty  
 - **Diffusion‐Style Sampling:** a learnable perturb‐and‐denoise process that yields full trajectory ensembles  
@@ -52,6 +52,6 @@ Each study measures both point‐error (sMAPE, RMSE) and distributional accuracy
 
 - **Dynamic Adaptation:** implement online learning to update models as new data arrive.  
 - **Meta‐Learning Extensions:** enable rapid adaptation to new domains (e.g., emerging pathogens).  
-- **Open‑Source Toolkit:** package our multimodal encoders, generative samplers, and explainability modules—so that colleagues specializing in generative vision or interpretability methods can readily contribute their expertise.
+- **Open‑Source Toolkit:** package our multimodal encoders, generative samplers, and explainability modules, so that colleagues specializing in generative vision or interpretability methods can readily contribute their expertise.
 
 
