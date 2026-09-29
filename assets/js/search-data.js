@@ -465,7 +465,7 @@ ninja.data = [{
           section: "News",},{id: "news-attended-the-machine-learning-summer-school-at-columbia-university",
           title: 'Attended the Machine Learning Summer School at Columbia University.',
           description: "",
-          section: "News",},{id: "news-myfixam-takes-third-place-in-the-build-with-gemini-xprize-a-usd-100-000-prize-in-the-usd-2m-global-ai-competition-backed-by-google-from-five-finalists-at-the-moonshots-live-final-in-los-angeles",
+          section: "News",},{id: "news-myfixam-takes-third-place-in-the-build-with-gemini-xprize-a-usd-100-000-prize-in-the-usd-2m-global-ai-competition-backed-by-google-placing-third-from-1-400-projects-and-26-000-participants-at-the-moonshots-live-final-in-los-angeles",
           title: 'MyFixam takes third place in the Build with Gemini XPRIZE, a USD 100,000...',
           description: "",
           section: "News",},{id: "projects-factor-social",
