@@ -353,18 +353,31 @@
           </div>
         </article>
 
-        <!-- Award Card -->
+        <!-- Awards Card -->
         <article class="bento-card flex flex-col rounded-2xl border border-emerald-800/40 p-6 justify-between hover:border-emerald-600 hover:shadow-lg transition-all duration-300 hover:-translate-y-1" style="background: linear-gradient(145deg, #0e2f22 0%, #14261f 55%, #1c1917 100%);">
           <div class="flex items-center justify-between">
-            <span class="rounded-full bg-emerald-500/15 text-emerald-300 px-3 py-1 text-xs font-medium border border-emerald-500/30">Award</span>
-            <a href="{{ '/projects/5_project/' | relative_url }}" class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200">
+            <span class="rounded-full bg-emerald-500/15 text-emerald-300 px-3 py-1 text-xs font-medium border border-emerald-500/30">Awards 2026</span>
+            <a href="{{ '/cv/' | relative_url }}" class="flex h-8 w-8 items-center justify-center rounded-full bg-white/10 hover:bg-white/20 transition-all duration-200" aria-label="See all awards on the CV">
               <i data-lucide="arrow-up-right" class="h-4 w-4 text-white" style="stroke-width: 1.5;"></i>
             </a>
           </div>
-          <div class="mt-4">
-            <p class="text-3xl font-semibold text-white leading-none">1st</p>
-            <p class="text-sm text-emerald-200 mt-2 leading-snug">Google Health AI MedGemma Impact Challenge</p>
-            <p class="text-xs text-stone-400 mt-2">$30,000 grand prize &middot; 850+ teams, 6,500+ entrants</p>
+          <div class="mt-4 space-y-4">
+            <a href="{{ '/projects/7_project/' | relative_url }}" class="block group/aw">
+              <div class="flex items-baseline gap-2">
+                <span class="text-2xl font-semibold text-white leading-none">3rd</span>
+                <span class="text-xs font-medium text-emerald-300">USD 100,000</span>
+              </div>
+              <p class="text-sm text-emerald-200 mt-1 leading-snug group-hover/aw:text-white transition-colors">Build with Gemini XPRIZE</p>
+              <p class="text-xs text-stone-400 mt-0.5">MyFixam &middot; 5 finalists, USD 2M pool</p>
+            </a>
+            <a href="{{ '/projects/5_project/' | relative_url }}" class="block group/aw border-t border-emerald-900/50 pt-3">
+              <div class="flex items-baseline gap-2">
+                <span class="text-2xl font-semibold text-white leading-none">1st</span>
+                <span class="text-xs font-medium text-emerald-300">USD 30,000</span>
+              </div>
+              <p class="text-sm text-emerald-200 mt-1 leading-snug group-hover/aw:text-white transition-colors">Google Health AI MedGemma Impact Challenge</p>
+              <p class="text-xs text-stone-400 mt-0.5">EpiCast &middot; 850+ teams, 6,500+ entrants</p>
+            </a>
           </div>
         </article>
 
