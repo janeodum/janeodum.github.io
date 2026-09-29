@@ -2,12 +2,12 @@
 layout: page
 title: "OmniAsset"
 description: "AI-driven consolidated asset tracking platform"
-# TODO(jane): needs a real thumbnail. Add one to assets/img/ and set img: here.
 importance: 2
 category: Applied
 related_publications: false
 # TODO(jane): add the public URL here to show a link button on the card and page.
 # project_url: https://...
+img: "assets/img/omniasset-logo.png"
 ---
 
 **AI-Driven Consolidated Asset Tracking Platform**

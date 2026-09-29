@@ -2,12 +2,12 @@
 layout: page
 title: "EpiCast"
 description: "Multi-modal AI epidemiological surveillance system for West Africa"
-# TODO(jane): needs a real thumbnail. Add one to assets/img/ and set img: here.
 importance: 1
 category: Research
 related_publications: false
 project_url: https://github.com/janeodum/Epicast
 project_url_label: "View on GitHub"
+img: "assets/img/epicast-logo.png"
 ---
 
 > **First Place, Google Health AI MedGemma Impact Challenge, 2026.**
