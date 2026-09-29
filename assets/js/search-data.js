@@ -498,6 +498,11 @@ ninja.data = [{
           description: "AI on-demand marketplace for artisan services in Nigeria",
           section: "Projects",handler: () => {
               window.location.href = "/projects/7_project/";
+            },},{id: "projects-tsaro",
+          title: 'Tsaro',
+          description: "AI-powered community early warning system for northern Nigeria",
+          section: "Projects",handler: () => {
+              window.location.href = "/projects/8_project/";
             },},{
         id: 'social-email',
         title: 'email',
