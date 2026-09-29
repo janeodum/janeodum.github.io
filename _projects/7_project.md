@@ -2,12 +2,12 @@
 layout: page
 title: "MyFixam"
 description: "AI on-demand marketplace for artisan services in Nigeria"
-# TODO(jane): needs a real thumbnail. Add one to assets/img/ and set img: here.
 importance: 1
 category: Product
 related_publications: false
 project_url: https://myfixam.com
 project_url_label: "Visit MyFixam"
+img: "assets/img/myfixam-logo.png"
 ---
 
 > **Third Place, Build with Gemini XPRIZE, September 2026.**

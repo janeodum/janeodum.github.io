@@ -2,12 +2,12 @@
 layout: page
 title: "Pincel (Diagramify)"
 description: "Research paper to architecture diagram converter"
-# TODO(jane): needs a real thumbnail. Add one to assets/img/ and set img: here.
 importance: 4
 category: Applied
 related_publications: false
-# TODO(jane): add the public URL here to show a link button on the card and page.
-# project_url: https://...
+img: "assets/img/pincel-logo.png"
+project_url: https://pincel.io
+project_url_label: "Visit Pincel"
 ---
 
 **Research Paper to Architecture Diagram Converter**

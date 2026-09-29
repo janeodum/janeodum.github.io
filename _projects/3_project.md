@@ -2,12 +2,13 @@
 layout: page
 title: "Omnia"
 description: "AI-powered animated love story generator"
-# TODO(jane): needs a real thumbnail. Add one to assets/img/ and set img: here.
 importance: 3
 category: Product
 related_publications: false
-project_url: https://github.com/janeodum/Omnnia
-project_url_label: "View on GitHub"
+img: "assets/img/omnnia-logo.png"
+project_url: https://omnnia.studio
+project_url_label: "Visit Omnnia"
+github: https://github.com/janeodum/Omnnia
 ---
 
 **AI-Powered Animated Love Story Generator**
