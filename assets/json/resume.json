@@ -175,6 +175,8 @@
     },
     {
       "name": "Tsaro: AI-powered community early warning system, northern Nigeria",
+      "startDate": "2026",
+      "url": "https://www.kaggle.com/competitions/gemma-4-good-hackathon/writeups/new-writeup-1778387542156",
       "summary": "End-to-end system (Flask backend, React Native frontend) combining fine-tuned Gemma models with SMS-tier delivery for low-connectivity environments.",
       "highlights": [
         "Gemma",
