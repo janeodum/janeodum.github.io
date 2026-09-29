@@ -21,7 +21,7 @@ I build artificial intelligence for **low-resource and resource-constrained envi
 
 **EpiCast**, a mobile-first surveillance platform for West African community health workers, won **first place in the Google Health AI MedGemma Impact Challenge**, a USD 30,000 grand prize, selected first from over 850 teams and 6,500 entrants worldwide.
 
-**MyFixam**, an AI marketplace connecting Nigerians with verified artisans across 25+ trades, took **third place in the Build with Gemini XPRIZE**, a USD 100,000 prize in the USD 2M global AI competition backed by Google, from five finalists at the Moonshots LIVE final.
+**MyFixam**, an AI marketplace connecting Nigerians with verified artisans across 25+ trades, took **third place in the Build with Gemini XPRIZE**, a USD 100,000 prize in the USD 2M global AI competition backed by Google, placing third from 1,400+ projects and 26,000+ participants.
 
 My recent papers include *MAAN: Multi-channel Adaptive Attention Network for Probabilistic Time Series Forecasting* (SDM 2026, accepted) and *Adaptive Quantile Guidance in Diffusion Models* (ICMLA 2025, accepted), which achieved 73.3% lower MAE than state-of-the-art models across pandemic forecasting scenarios.
 

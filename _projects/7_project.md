@@ -11,7 +11,7 @@ img: "assets/img/myfixam-logo.png"
 ---
 
 > **Third Place, Build with Gemini XPRIZE, September 2026.**
-> USD 100,000. One of five finalists in the USD 2M global AI competition backed by Google, placed third at the Moonshots LIVE final in Los Angeles.
+> USD 100,000. Third from 1,400+ projects and 26,000+ participants, in the USD 2M global AI competition backed by Google, after reaching the five-team final at Moonshots LIVE in Los Angeles.
 
 **AI On-Demand Marketplace for Artisan Services**
 
