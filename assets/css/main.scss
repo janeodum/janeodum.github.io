@@ -79,19 +79,59 @@ ol.bibliography li .abbr abbr,
   border-bottom: 1px solid #44403c;
 }
 
-/* Cards in a row stretch to equal height, so a card with no thumbnail sitting
-   beside one with a thumbnail rendered as a mostly empty box. Let each card take
-   its natural height until every project has a real image. */
-.projects .row {
-  align-items: flex-start;
-}
+/* Equal-height project cards.
+
+   The card used to be wrapped in an <a>, and the outbound link pill added later
+   was a second <a> inside it. Nested anchors are invalid, so the parser closed
+   the outer one early and split each card into two siblings, which is why only
+   the one card without a pill kept its full column width. The card is now a
+   plain container: the title carries a stretched link covering the card, and
+   the pill sits above it. */
 .projects .card {
-  justify-content: flex-start;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.projects .card figure {
+  margin: 0;
+  flex: 0 0 auto;
 }
 .projects .card-img-top {
-  max-height: 220px;
+  width: 100%;
+  height: 190px;
   object-fit: contain;
   background: #f5f5f4;
+  padding: 0.6rem;
+}
+.projects .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+.projects .card-body .card-text {
+  flex: 1 1 auto;
+}
+.projects .card-title a.stretched-link {
+  color: inherit;
+  text-decoration: none;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+}
+/* above the stretched link so the outbound link stays clickable */
+.projects .card .project-link,
+.projects .card .github-icon {
+  position: relative;
+  z-index: 2;
+}
+.projects .card .project-link {
+  margin-top: auto;
+  margin-left: 0;
+  align-self: flex-start;
 }
 
 /* The Tailwind Play CDN loaded by default.liquid ships Preflight, which resets
@@ -138,4 +178,3 @@ article .post-content {
   padding: 0.45rem 1rem;
   font-size: 0.875rem;
 }
-.projects .card .project-link { align-self: flex-start; margin-left: 1.25rem; }

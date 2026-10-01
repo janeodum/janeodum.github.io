@@ -1,47 +1,46 @@
 <div class="col">
-  <a href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}">
-    <div class="card h-100 hoverable">
-      {% if project.img %}
-        {%
-          include figure.liquid
-          loading="eager"
-          path=project.img
-          sizes = "250px"
-          alt="project thumbnail"
-          class="card-img-top"
-        %}
+  <div class="card h-100 hoverable">
+    {% if project.img %}
+      {%
+        include figure.liquid
+        loading="eager"
+        path=project.img
+        sizes = "250px"
+        alt="project thumbnail"
+        class="card-img-top"
+      %}
+    {% endif %}
+    <div class="card-body">
+      <h2 class="card-title">
+        <a
+          class="stretched-link"
+          href="{% if project.redirect %}{{ project.redirect }}{% else %}{{ project.url | relative_url }}{% endif %}"
+        >
+          {{ project.title }}
+        </a>
+      </h2>
+      <p class="card-text">{{ project.description }}</p>
+      {% if project.project_url %}
+        <a class="project-link" href="{{ project.project_url }}" target="_blank" rel="noopener">
+          {{ project.project_url_label | default: "Visit project" }}
+          <i class="fa-solid fa-arrow-up-right-from-square"></i>
+        </a>
       {% endif %}
-      <div class="card-body">
-        <h2 class="card-title">{{ project.title }}</h2>
-        <p class="card-text">{{ project.description }}</p>
-        {% if project.project_url %}
-          <a
-            class="project-link"
-            href="{{ project.project_url }}"
-            target="_blank"
-            rel="noopener"
-            onclick="event.stopPropagation();"
-          >
-            {{ project.project_url_label | default: "Visit project" }}
-            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-          </a>
-        {% endif %}
+      {% if project.github %}
         <div class="row ml-1 mr-1 p-0">
-          {% if project.github %}
-            <div class="github-icon">
-              <div class="icon" data-toggle="tooltip" title="Code Repository">
-                <a href="{{ project.github }}"><i class="fa-brands fa-github gh-icon"></i></a>
-              </div>
-              {% if project.github_stars %}
-                <span class="stars" data-toggle="tooltip" title="GitHub Stars">
-                  <i class="fa-solid fa-star"></i>
-                  <span id="{{ project.github_stars }}-stars"></span>
-                </span>
-              {% endif %}
+          <div class="github-icon">
+            <div class="icon" data-toggle="tooltip" title="Code Repository">
+              <a href="{{ project.github }}" target="_blank" rel="noopener"><i class="fa-brands fa-github gh-icon"></i></a>
             </div>
-          {% endif %}
+            {% if project.github_stars %}
+              <span class="stars" data-toggle="tooltip" title="GitHub Stars">
+                <i class="fa-solid fa-star"></i>
+                <span id="{{ project.github_stars }}-stars"></span>
+              </span>
+            {% endif %}
+          </div>
         </div>
-      </div>
+      {% endif %}
     </div>
-  </a>
+  </div>
 </div>
